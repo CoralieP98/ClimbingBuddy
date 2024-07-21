@@ -9,11 +9,13 @@
         <module name="eurekaserver" />
         <module name="Web-app" />
         <module name="configserver" />
+        <module name="Climb" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Climb" options="-parameters" />
       <module name="Web-app" options="-parameters" />
       <module name="configserver" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
