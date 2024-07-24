@@ -87,20 +87,20 @@ services:
       - climbingbuddy-networks
 
 
-  web-app:
-    image: coralieperez/web-app
-    container_name: web-app-ms
-    ports:
-      - "8080:8080"
-    networks:
-      - climbingbuddy-networks
-    mem_limit: 700m
-    depends_on:
-      - eurekaserver
-    environment:
-      SPRING_PROFILES_ACTIVE: prod
-      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka
+#  web-app:
+#    image: coralieperez/web-app
+#    container_name: web-app-ms
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - climbingbuddy-networks
+#    mem_limit: 700m
+#    depends_on:
+#      - eurekaserver
+#    environment:
+#      SPRING_PROFILES_ACTIVE: prod
+#      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
+#      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka
 
 
 
