@@ -23,15 +23,29 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    @OneToMany
+    private Session session;
+
+
     public User() {
     }
 
-    public User(int id, String name, String userName, String password, String email) {
+    public User(int id, String name, String userName, String password, String email,Session session) {
         this.id = id;
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.email = email;
+        this.session = session;
+
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
     }
 
     public int getId() {

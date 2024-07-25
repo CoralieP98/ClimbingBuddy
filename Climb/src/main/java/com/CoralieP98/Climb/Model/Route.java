@@ -1,10 +1,9 @@
 package com.CoralieP98.Climb.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -12,9 +11,10 @@ public class Route {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int RouteId;
+    private int routeId;
 
-//    private int typeId;
+    @ManyToOne
+    private Type type;
 
     private boolean isSlab;
 
@@ -25,5 +25,14 @@ public class Route {
     private boolean isTopRope;
 
     private float lenght;
+
+    @ManyToOne
+    private  Session session;
+
+    @ManyToMany
+    private List<Technic> technics;
+
+    @ManyToMany
+    private List<Exercice> exercices;
 
 }
