@@ -3,6 +3,8 @@ package com.CoralieP98.Climb.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Place {
@@ -11,17 +13,17 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int placeId;
 
-    @OneToMany
-    private Session session;
+    @ManyToOne
+    private List<Session> sessions;
 
     private String labelPlace;
 
     public Place() {
     }
 
-    public Place(int placeId, Session session, String labelPlace) {
+    public Place(int placeId, List<Session> sessions, String labelPlace) {
         this.placeId = placeId;
-        this.session = session;
+        this.sessions = sessions;
         this.labelPlace = labelPlace;
     }
 
@@ -33,12 +35,12 @@ public class Place {
         this.placeId = placeId;
     }
 
-    public Session getSession() {
-        return session;
+    public List<Session> getSessions() {
+        return sessions;
     }
 
-    public void setSession(Session session) {
-        this.session = session;
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
     }
 
     public String getLabelPlace() {
