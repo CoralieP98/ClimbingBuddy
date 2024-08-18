@@ -9,12 +9,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
-@EnableFeignClients
-@RefreshScope
 @ComponentScans({@ComponentScan("com.CoralieP98.Climb.Controller")})
 @EnableJpaRepositories("com.CoralieP98.Climb.Repository")
 @EntityScan("com.CoralieP98.Climb.Model")
+@SpringBootApplication
+@EnableFeignClients
+@RefreshScope
 public class ClimbApplication {
 
 	public static void main(String[] args) {

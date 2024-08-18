@@ -1,11 +1,10 @@
 package com.CoralieP98.Climb.Model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -17,15 +16,27 @@ public class Technic {
 
     private String labelTechnic;
 
+    @ManyToMany
+    private List<Route> routes;
+
     private Long cardId; //card etant une table mongo voir comment faire le lien
 
     public Technic() {
     }
 
-    public Technic(int technicId, String labelTechnic, Long cardId) {
+    public Technic(int technicId, String labelTechnic, List<Route> routes, Long cardId) {
         this.technicId = technicId;
         this.labelTechnic = labelTechnic;
+        this.routes = routes;
         this.cardId = cardId;
+    }
+
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
     }
 
     public int getTechnicId() {

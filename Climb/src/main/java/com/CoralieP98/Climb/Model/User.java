@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class User {
@@ -23,29 +25,43 @@ public class User {
     @Column(unique = true)
     private String email;
 
-//    @OneToMany
-    private Session session;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Session> sessions;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Place> favoritesPlaces;
 
     public User() {
     }
 
-    public User(int id, String name, String userName, String password, String email,Session session) {
+    public User(int id, String name, String userName, String password, String email, List<Session> sessions, List<Place> favoritesPlaces) {
         this.id = id;
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.session = session;
-
+        this.sessions = sessions;
+        this.favoritesPlaces = favoritesPlaces;
     }
 
-    public Session getSession() {
-        return session;
+    public List<Session> getSessions() {
+        return sessions;
     }
 
-    public void setSession(Session session) {
-        this.session = session;
+    public List<Place> getFavoritesPlaces() {
+        return favoritesPlaces;
+    }
+
+    public void setFavoritesPlaces(List<Place> favoritesPlaces) {
+        this.favoritesPlaces = favoritesPlaces;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+    public User(List<Session> sessions) {
+        this.sessions = sessions;
     }
 
     public int getId() {

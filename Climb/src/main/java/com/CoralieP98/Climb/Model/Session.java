@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,18 +20,35 @@ public class Session {
 
     private  boolean warmUp;
 
-//    @OneToMany
+    @ManyToOne
+    @JoinColumn(name = "place_id")
     private Place place;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
+    private List<Route> routes;
 
     public Session() {
     }
 
-    public Session(int sessionId, Date date, float duration, boolean warmUp, Place place) {
+    public Session(int sessionId, Date date, float duration, boolean warmUp, Place place, User user) {
         this.sessionId = sessionId;
         this.date = date;
         this.duration = duration;
         this.warmUp = warmUp;
         this.place = place;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getSessionId() {

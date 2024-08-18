@@ -13,18 +13,31 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int placeId;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
     private List<Session> sessions;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     private String labelPlace;
 
     public Place() {
     }
 
-    public Place(int placeId, List<Session> sessions, String labelPlace) {
+    public Place(int placeId, List<Session> sessions, User user, String labelPlace) {
         this.placeId = placeId;
         this.sessions = sessions;
+        this.user = user;
         this.labelPlace = labelPlace;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getPlaceId() {

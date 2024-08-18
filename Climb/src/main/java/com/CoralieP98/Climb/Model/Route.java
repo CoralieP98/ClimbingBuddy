@@ -14,6 +14,7 @@ public class Route {
     private int routeId;
 
     @ManyToOne
+    @JoinColumn(name = "type_id")
     private Type type;
 
     private boolean isSlab;
@@ -24,9 +25,12 @@ public class Route {
 
     private boolean isTopRope;
 
+    private boolean isARepeat;
+
     private float lenght;
 
     @ManyToOne
+    @JoinColumn(name = "session_id")
     private  Session session;
 
     @ManyToMany
