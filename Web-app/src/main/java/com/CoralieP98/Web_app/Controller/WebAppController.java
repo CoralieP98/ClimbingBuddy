@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -22,6 +24,12 @@ public class WebAppController {
     private final UserServiceImpl userService;
 
     private final CustomUserDetailsService userDetailsService;
+
+    public WebAppController(ClimbFeignClient climbFeignClient, UserServiceImpl userService, CustomUserDetailsService userDetailsService) {
+        this.climbFeignClient = climbFeignClient;
+        this.userService = userService;
+        this.userDetailsService = userDetailsService;
+    }
 
 
     @GetMapping("/")

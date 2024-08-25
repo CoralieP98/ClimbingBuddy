@@ -14,6 +14,11 @@ public class UserServiceImpl implements IUserService{
     private final PasswordEncoder passwordEncoder;
     private final ClimbFeignClient climbFeignClient;
 
+    public UserServiceImpl(PasswordEncoder passwordEncoder, ClimbFeignClient climbFeignClient) {
+        this.passwordEncoder = passwordEncoder;
+        this.climbFeignClient = climbFeignClient;
+    }
+
     @Override
     public User register(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -21,7 +26,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public User findUserByUserName(String email){
+    public User findByUserName(String email){
         return climbFeignClient.getUserByUserName(email).getBody();
     }
 
