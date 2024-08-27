@@ -14,10 +14,6 @@ public class UserServiceImpl implements IUserService{
     private final PasswordEncoder passwordEncoder;
     private final ClimbFeignClient climbFeignClient;
 
-    public UserServiceImpl(PasswordEncoder passwordEncoder, ClimbFeignClient climbFeignClient) {
-        this.passwordEncoder = passwordEncoder;
-        this.climbFeignClient = climbFeignClient;
-    }
 
     @Override
     public User register(User user){

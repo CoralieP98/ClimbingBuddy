@@ -25,12 +25,6 @@ public class WebAppController {
 
     private final CustomUserDetailsService userDetailsService;
 
-    public WebAppController(ClimbFeignClient climbFeignClient, UserServiceImpl userService, CustomUserDetailsService userDetailsService) {
-        this.climbFeignClient = climbFeignClient;
-        this.userService = userService;
-        this.userDetailsService = userDetailsService;
-    }
-
 
     @GetMapping("/")
     public String home(Model model){
@@ -57,7 +51,7 @@ public class WebAppController {
 
     @GetMapping("/profilHome")
     public String userProfilHome(String email){
-        userDetailsService.loadUserByUserName(email);
+        userDetailsService.loadUserByUsername(email);
         return "redirect:/home";
     }
 
