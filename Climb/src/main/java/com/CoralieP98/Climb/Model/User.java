@@ -14,8 +14,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
-
     @NotBlank(message = "UserName is mandatory")
     private String userName;
 
@@ -34,9 +32,8 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String userName, String password, String email, List<Session> sessions, List<Place> favoritesPlaces) {
+    public User(int id, String userName, String password, String email, List<Session> sessions, List<Place> favoritesPlaces) {
         this.id = id;
-        this.name = name;
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -70,14 +67,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public @NotBlank(message = "UserName is mandatory") String getUserName() {

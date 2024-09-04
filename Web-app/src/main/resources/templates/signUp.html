@@ -18,7 +18,6 @@
                 <a href="#" class="social" type="submit"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registration</span>
-            <input type="text" th:field="*{name}" placeholder="Name" />
             <input type="text" th:field="*{userName}" placeholder="Set a pseudo" />
             <input type="email" th:field="*{email}" placeholder="Email" required autofocus/>
             <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
