@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface SessionRepository extends JpaRepository<Session, Integer> {
 
-    public Optional<Session> findSessionById(int sessionId);
+    public Optional<Session> findSessionBySessionId(int sessionId);
 
 }

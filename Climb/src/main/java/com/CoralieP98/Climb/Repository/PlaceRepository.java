@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface PlaceRepository extends JpaRepository<Place, Integer> {
 
-    public Optional<Place> findSessionById(int placeId);
+    public Optional<Place> findPlaceByPlaceId(int placeId);
 
 
 }

@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface RouteRepository extends JpaRepository<Route,Integer> {
 
-    public Optional<Route> findSessionById(int routeId);
+    public Optional<Route> findRouteByRouteId(int routeId);
 
 }
