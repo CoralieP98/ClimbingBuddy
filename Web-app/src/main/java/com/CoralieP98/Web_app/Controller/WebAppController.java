@@ -28,7 +28,12 @@ public class WebAppController {
 
     @GetMapping("/")
     public String home(Model model){
-        return "redirect:/home";
+        return "redirect:/loadingPage";
+    }
+
+    @GetMapping("/loadingPage")
+    public ModelAndView loadingPage(){
+        return new ModelAndView("loading");
     }
 
 
@@ -54,6 +59,8 @@ public class WebAppController {
         userDetailsService.loadUserByUsername(email);
         return "redirect:/home";
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @GetMapping("/user/list")
     public ModelAndView userList(Model model){
