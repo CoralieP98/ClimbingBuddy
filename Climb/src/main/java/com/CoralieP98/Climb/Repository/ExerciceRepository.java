@@ -1,6 +1,7 @@
 package com.CoralieP98.Climb.Repository;
 
 import com.CoralieP98.Climb.Model.Exercice;
+import com.CoralieP98.Climb.Model.Route;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +13,5 @@ public interface ExerciceRepository extends JpaRepository<Exercice, Integer> {
 
     public Optional<Exercice> findExerciceByExerciceId(int exerciceId);
 
-    public Optional<List<Exercice>> findAllExercicesByRouteId(int routeId);
+    public Optional<List<Exercice>> findAllExercicesByRoutes(Route routes);
 }

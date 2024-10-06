@@ -1,6 +1,7 @@
 package com.CoralieP98.Climb.Service;
 
 import com.CoralieP98.Climb.Model.Exercice;
+import com.CoralieP98.Climb.Model.Route;
 import com.CoralieP98.Climb.Repository.ExerciceRepository;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,7 @@ public class ExerciceService {
         return exerciceRepository.findExerciceByExerciceId(exerciceId).get();
     }
 
-    public List<Exercice> getAllExercicesByRouteId(int routeId) {
-        return exerciceRepository.findAllExercicesByRouteId(routeId).get();
+    public List<Exercice> getAllExercicesByRouteId(Route route) {
+        return exerciceRepository.findAllExercicesByRoutes(route).get();
     }
 }
