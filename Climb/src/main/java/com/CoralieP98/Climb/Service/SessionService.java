@@ -45,4 +45,8 @@ public class SessionService {
         sessionRepository.save(session);
         return session;
     }
+
+    public List<Session> getAllSessions() {
+        return sessionRepository.findAll();
+    }
 }

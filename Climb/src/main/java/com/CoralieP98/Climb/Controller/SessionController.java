@@ -39,7 +39,7 @@ public class SessionController {
         return sessionService.findAllSessionByPlaceId(placeId);
     }
 
-    @GetMapping("findSessionDate")
+    @GetMapping("findSessionByDate")
     public Session findSessionByDate(@RequestParam Date date){
         return sessionService.findSessionByDate(date);
     }
@@ -52,6 +52,11 @@ public class SessionController {
     @PutMapping("updateSession")
     public Session updateSession(@RequestParam(name = "sessionId")int sessionId,@RequestBody Session session){
         return sessionService.updateSession(sessionId, session);
+    }
+
+    @GetMapping("getAllSessions")
+    public List<Session> getAllSessions(){
+        return sessionService.getAllSessions();
     }
 
 

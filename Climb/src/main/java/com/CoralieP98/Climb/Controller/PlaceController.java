@@ -34,7 +34,7 @@ public class PlaceController {
     }
 
     @PutMapping("updatePlace")
-    public Place updatePlae(@RequestParam(name = "placeId")int placeId, @RequestBody Place place){
+    public Place updatePlace(@RequestParam(name = "placeId")int placeId, @RequestBody Place place){
         return placeService.updatePlace(placeId, place);
     }
 

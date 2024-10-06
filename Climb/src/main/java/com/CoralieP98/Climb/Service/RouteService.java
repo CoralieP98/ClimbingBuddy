@@ -47,4 +47,8 @@ public class RouteService {
     public List<Route> findAllRouteByExerciceId(int exerciceId) {
         return routeRepository.findAllRouteByExerciceId(exerciceId).get();
     }
+
+    public List<Route> getAllRoutes() {
+        return routeRepository.findAll();
+    }
 }

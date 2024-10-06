@@ -58,4 +58,9 @@ public class RouteController {
         return routeService.findAllRouteByExerciceId(exerciceId);
     }
 
+    @GetMapping("getAllRoutes")
+    public List<Route> getAllRoutes(){
+        return routeService.getAllRoutes();
+    }
+
 }
