@@ -1,5 +1,6 @@
 package com.CoralieP98.Climb.Repository;
 
+import com.CoralieP98.Climb.Model.Route;
 import com.CoralieP98.Climb.Model.Technic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,6 @@ public interface TechnicRepository extends JpaRepository<Technic, Integer> {
 
     public Optional<Technic> findTechnicByTechnicId(int technicId);
 
-    public Optional<List<Technic>> findAllTechnicsByRouteId(int routeId);
+    public Optional<List<Technic>> findAllTechnicsByRoutes(Route routes);
 
 }

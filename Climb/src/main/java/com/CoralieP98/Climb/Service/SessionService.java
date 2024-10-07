@@ -1,5 +1,6 @@
 package com.CoralieP98.Climb.Service;
 
+import com.CoralieP98.Climb.Model.Place;
 import com.CoralieP98.Climb.Model.Session;
 import com.CoralieP98.Climb.Repository.SessionRepository;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,8 @@ public class SessionService {
         return sessionRepository.findAllSessionByUserId(id).get();
     }
 
-    public List<Session> findAllSessionByPlaceId(int placeId) {
-        return sessionRepository.findAllSessionByPlaceId(placeId).get();
+    public List<Session> findAllSessionsByPlace(Place place) {
+        return sessionRepository.findAllSessionsByPlace(place).get();
     }
 
     public Session findSessionByDate(Date date) {

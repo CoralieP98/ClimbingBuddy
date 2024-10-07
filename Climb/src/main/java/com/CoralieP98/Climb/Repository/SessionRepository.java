@@ -1,5 +1,6 @@
 package com.CoralieP98.Climb.Repository;
 
+import com.CoralieP98.Climb.Model.Place;
 import com.CoralieP98.Climb.Model.Session;
 import com.CoralieP98.Climb.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +17,7 @@ public interface SessionRepository extends JpaRepository<Session, Integer> {
 
     public Optional<List<Session>> findAllSessionByUserId(int id);
 
-    public Optional<List<Session>> findAllSessionByPlaceId(int placeId);
+    public Optional<List<Session>> findAllSessionsByPlace(Place place);
 
     public Optional<Session> findSessionByDate(Date date);
 

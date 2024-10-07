@@ -1,6 +1,6 @@
 package com.CoralieP98.Climb.Service;
 
-import com.CoralieP98.Climb.Model.Route;
+import com.CoralieP98.Climb.Model.*;
 import com.CoralieP98.Climb.Repository.RouteRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,20 +32,20 @@ public class RouteService {
         return routeRepository.findRouteByRouteId(routeId).get();
     }
 
-    public List<Route> findAllRouteBySessionId(int sessionId) {
-        return routeRepository.findAllRouteBySessionId(sessionId).get();
+    public List<Route> findAllRouteBySession(Session session) {
+        return routeRepository.findAllRoutesBySession(session).get();
     }
 
-    public List<Route> findAllRouteByTypeId(int typeId) {
-        return routeRepository.findAllRouteByTypeId(typeId).get();
+    public List<Route> findAllRouteByType(Type type) {
+        return routeRepository.findAllRoutesByType(type).get();
     }
 
-    public List<Route> findAllRouteByTechnicId(int technicId) {
-        return routeRepository.findAllRouteByTechnicId(technicId).get();
+    public List<Route> findAllRouteByTechnics(Technic technics) {
+        return routeRepository.findAllRouteByTechnics(technics).get();
     }
 
-    public List<Route> findAllRouteByExerciceId(int exerciceId) {
-        return routeRepository.findAllRouteByExerciceId(exerciceId).get();
+    public List<Route> findAllRouteByExercices(Exercice exercices) {
+        return routeRepository.findAllRouteByExercices(exercices).get();
     }
 
     public List<Route> getAllRoutes() {

@@ -34,13 +34,14 @@ public class Session {
     public Session() {
     }
 
-    public Session(int sessionId, Date date, float duration, boolean warmUp, Place place, User user) {
+    public Session(int sessionId, Date date, float duration, boolean warmUp, Place place, User user, List<Route> routes) {
         this.sessionId = sessionId;
         this.date = date;
         this.duration = duration;
         this.warmUp = warmUp;
         this.place = place;
         this.user = user;
+        this.routes = routes;
     }
 
     public User getUser() {
@@ -89,5 +90,13 @@ public class Session {
 
     public void setPlace(Place place) {
         this.place = place;
+    }
+
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
     }
 }

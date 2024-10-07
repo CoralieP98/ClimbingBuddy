@@ -1,5 +1,6 @@
 package com.CoralieP98.Climb.Controller;
 
+import com.CoralieP98.Climb.Model.Place;
 import com.CoralieP98.Climb.Model.Session;
 import com.CoralieP98.Climb.Service.SessionService;
 import org.springframework.http.MediaType;
@@ -34,9 +35,9 @@ public class SessionController {
         return sessionService.findAllSessionByUserId(id);
     }
 
-    @PostMapping("findAllSessionByPlaceId")
-    public List<Session> findAllSessionByPlaceId(@RequestParam int placeId){
-        return sessionService.findAllSessionByPlaceId(placeId);
+    @PostMapping("findAllSessionsByPlace")
+    public List<Session> findAllSessionsByPlace(@RequestParam Place place){
+        return sessionService.findAllSessionsByPlace(place);
     }
 
     @GetMapping("findSessionByDate")

@@ -1,5 +1,6 @@
 package com.CoralieP98.Climb.Controller;
 
+import com.CoralieP98.Climb.Model.Route;
 import com.CoralieP98.Climb.Model.Technic;
 import com.CoralieP98.Climb.Service.TechnicService;
 import org.springframework.http.MediaType;
@@ -43,9 +44,9 @@ public class TechnicController {
         return technicService.findTechnicById(technicId);
     }
 
-    @PostMapping("getAllTechnicsByRouteId")
-    public List<Technic> getAllTechnicsByRouteId(@RequestParam int routeId){
-        return technicService.getAllTechnicsByRouteId(routeId);
+    @PostMapping("getAllTechnicsByRoutes")
+    public List<Technic> getAllTechnicsByRoutes(@RequestParam Route routes){
+        return technicService.getAllTechnicsByRoutes(routes);
     }
 
 

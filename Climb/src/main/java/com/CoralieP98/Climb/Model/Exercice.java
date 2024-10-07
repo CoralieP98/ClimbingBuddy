@@ -18,7 +18,7 @@ public class Exercice {
     @ManyToMany
     private List<Route> routes;
 
-    private Long cardId; //card etant une table mongo voir comment faire le lien
+    private Long cardId; //card etant une table mongo voir comment faire le lien //via webapp ???
 
     public Exercice() {
     }

@@ -1,6 +1,6 @@
 package com.CoralieP98.Climb.Controller;
 
-import com.CoralieP98.Climb.Model.Route;
+import com.CoralieP98.Climb.Model.*;
 import com.CoralieP98.Climb.Service.RouteService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -38,24 +38,24 @@ public class RouteController {
         return routeService.findRouteById(routeId);
     }
 
-    @PostMapping("findAllRouteBySessionId")
-    public List<Route> findAllRouteBySessionId(@RequestParam int sessionId){
-        return routeService.findAllRouteBySessionId(sessionId);
+    @PostMapping("findAllRouteBySession")
+    public List<Route> findAllRouteBySession(@RequestParam Session session){
+        return routeService.findAllRouteBySession(session);
     }
 
-    @PostMapping("findAllRouteByTypeId")
-    public List<Route> findAllRouteByTypeId(@RequestParam int typeId){
-        return routeService.findAllRouteByTypeId(typeId);
+    @PostMapping("findAllRouteByType")
+    public List<Route> findAllRouteByType(@RequestParam Type type){
+        return routeService.findAllRouteByType(type);
     }
 
-    @PostMapping("findAllRouteByTechnicId")
-    public List<Route> findAllRouteByTechnicId(@RequestParam int technicId){
-        return routeService.findAllRouteByTechnicId(technicId);
+    @PostMapping("findAllRouteByTechnics")
+    public List<Route> findAllRouteByTechnics(@RequestParam Technic technics){
+        return routeService.findAllRouteByTechnics(technics);
     }
 
-    @PostMapping("findAllRouteByExerciceId")
-    public List<Route> findAllRouteByExerciceId(@RequestParam int exerciceId){
-        return routeService.findAllRouteByExerciceId(exerciceId);
+    @PostMapping("findAllRouteByExercices")
+    public List<Route> findAllRouteByExercices(@RequestParam Exercice exercices){
+        return routeService.findAllRouteByExercices(exercices);
     }
 
     @GetMapping("getAllRoutes")

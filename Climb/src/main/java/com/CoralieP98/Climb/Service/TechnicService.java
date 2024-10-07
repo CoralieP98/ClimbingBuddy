@@ -1,5 +1,6 @@
 package com.CoralieP98.Climb.Service;
 
+import com.CoralieP98.Climb.Model.Route;
 import com.CoralieP98.Climb.Model.Technic;
 import com.CoralieP98.Climb.Repository.TechnicRepository;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class TechnicService {
         return technicRepository.findTechnicByTechnicId(technicId).get();
     }
 
-    public List<Technic> getAllTechnicsByRouteId(int routeId) {
-        return technicRepository.findAllTechnicsByRouteId(routeId).get();
+    public List<Technic> getAllTechnicsByRoutes(Route route) {
+        return technicRepository.findAllTechnicsByRoutes(route).get();
     }
 }
