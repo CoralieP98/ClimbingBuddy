@@ -39,13 +39,11 @@ public class SessionService {
 
     public void deleteSession(int sessionId) {
         sessionRepository.deleteById(sessionId);
-
     }
 
     public Session updateSession(int sessionId, Session session) {
-        sessionRepository.save(session);
-        return session;
-    }
+        return sessionRepository.save(session);
+    }//voir comment reparer l'update(vaut pour TOUT les updates) ça itere au lieu de save sort of
 
     public List<Session> getAllSessions() {
         return sessionRepository.findAll();

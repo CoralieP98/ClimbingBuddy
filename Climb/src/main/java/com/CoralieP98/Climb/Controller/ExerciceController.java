@@ -44,13 +44,9 @@ public class ExerciceController {
         return exerciceService.findExerciceById(exerciceId);
     }
 
-//    @PostMapping("getAllExercicesByRouteId")
-//    public List<Exercice> getAllExercicesByRouteId(@RequestParam int routeId){
-//        return exerciceService.getAllExercicesByRouteId(routeId);
-//    }
 
-    @PostMapping("getAllExercicesByRouteId")
-    public List<Exercice> getAllExercicesByRouteId(@RequestParam Route route){
-        return exerciceService.getAllExercicesByRouteId(route);
+    @PostMapping("getAllExercicesByRoutes")
+    public List<Exercice> getAllExercicesByRoutes(@RequestParam Route routes){
+        return exerciceService.getAllExercicesByRoutes(routes);
     }
 }

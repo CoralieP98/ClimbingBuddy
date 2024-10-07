@@ -37,7 +37,7 @@ public class ExerciceService {
         return exerciceRepository.findExerciceByExerciceId(exerciceId).get();
     }
 
-    public List<Exercice> getAllExercicesByRouteId(Route route) {
-        return exerciceRepository.findAllExercicesByRoutes(route).get();
+    public List<Exercice> getAllExercicesByRoutes(Route routes) {
+        return exerciceRepository.findAllExercicesByRoutes(routes).get();
     }
 }
