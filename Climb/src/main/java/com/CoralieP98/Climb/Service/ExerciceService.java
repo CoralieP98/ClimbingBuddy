@@ -25,8 +25,8 @@ public class ExerciceService {
     }
 
     public Exercice updateExercice(int exerciceId, Exercice exercice) {
-        exerciceRepository.save(exercice);
-        return exercice;
+        exercice.setExerciceId(exerciceId);
+        return exerciceRepository.save(exercice);
     }
 
     public List<Exercice> getAllExercices() {

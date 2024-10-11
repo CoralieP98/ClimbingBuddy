@@ -24,8 +24,8 @@ public class RouteService {
     }
 
     public Route updateRoute(int routeId, Route route) {
-        routeRepository.save(route);
-        return route;
+        route.setRouteId(routeId);
+        return routeRepository.save(route);
     }
 
     public Route findRouteById(int routeId) {

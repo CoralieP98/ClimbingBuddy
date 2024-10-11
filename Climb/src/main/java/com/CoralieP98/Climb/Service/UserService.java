@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public User updateUser(int id, User user){
-        userRepository.save(user);
-        return user;
+        user.setId(id);
+        return userRepository.save(user);
     }
 }

@@ -25,8 +25,8 @@ public class TechnicService {
     }
 
     public Technic updateTechnic(int technicId, Technic technic) {
-        technicRepository.save(technic);
-        return technic;
+        technic.setTechnicId(technicId);
+        return technicRepository.save(technic);
     }
 
     public List<Technic> getAllTechnics() {

@@ -2,12 +2,202 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/home.css">
-<!--    <link rel="stylesheet" href="/static/css/home.css">-->
+<!--    <link rel="stylesheet" href="style.css">-->
+        <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js "></script>
     <title>Home</title>
 </head>
 <body>
-coucou
+<header th:replace="~{fragments/navBar}"></header>
+
+
+<main class="Main-content Layout">
+    <section class="Main-content-welcome section-welcome">
+        <div class="section-welcome-title">
+<!--            th:text="*{pseudo}"-->
+            <h1>Welcome back<span class="section-welcome-title-pseudo">Pseudo</span></h1>
+        </div>
+        <div class="Main-content-dateinfo section-date">
+            <div class="section-date-jourheure">
+<!--                th:text="*{mettre date du jour}"-->
+                <p>18 - march- 2024</p>
+<!--                th:text="*{mettre heure}"-->
+                <p>15:23 pm</p>
+            </div>
+            <figure class="section-date-icon">
+                <img src="/image/iconCalendar.svg" alt="icon_calendar">
+            </figure>
+        </div>
+    </section>
+
+    <div class="Main-content-bottomPart">
+        <section class="Main-content-bottomPart-left Left">
+
+            <div class="Left-longPart">
+                <div class="Left-longPart-addSession AddSession">
+                    <div class="AddSession-content">
+                        <figure class="AddSession-content-img">
+                            <img src="/image/happyDay" alt="icone femme contente">
+                        </figure>
+                        <div class="AddSession-content-text">
+                            <h2 class="AddSession-content-text-title">IT'S TIME TO CLIMB !!</h2>
+                            <p>You decided today was a good day :D</p>
+                        </div>
+                        <div class="AddSession-content-button">
+                            <p class="AddSession-content-button-label">Add new session</p>
+                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Left-bottom">
+                <div class="Left-bottom-aside-technic Aside-tech">
+                    <div class="Aside-tech-left">
+                        <h4 class="Aside-tech-left-title">Mastered techniques</h4>
+                        <canvas  th:value="${data}" class="Aside-tech-left-graph" id="nbTechnics"></canvas>
+                    </div>
+                    <div class="Aside-tech-right">
+                        <div class="Aside-tech-right-button">
+                            <label for="stat-date-select">this month <span></span><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></label>
+                            <select name="tech" id="stat-date-select">
+                                <option value="month">this month</option>
+                                <option value="sessions">By sessions</option>
+                                <option value="year">By year</option>
+                            </select>
+                        </div>
+                        <div class="Aside-tech-right-content">
+                            <ul>
+                                <li th:each="data: ${data}">
+                                    <p  class="Aside-tech-right-label-content-number" th:text="${data.total}"></p>
+                                    <p  class="Aside-tech-right-label-content-name" th:text="${data.label}"></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Left-bottom-aside-exo Aside-exo">
+                    <h3 class="Aside-exo-title">Favorite exercices :</h3>
+                    <div class="Aside-exo-parcel">
+                        <div class="Aside-exo-parcel-content">
+                            <figure><img src="/image/logo_exo_01" alt="logo"></figure>
+                            <div class="Aside-exo-parcel-content-text">
+                                <h4>Abbs strengthening</h4>
+<!--                                th:text="${stat.exos.combien}"-->
+                                <p>done: <span >11</span> times</p>
+                            </div>
+                        </div>
+                        <div class="Aside-exo-parcel-button">
+                            <p>Keep going</p>
+                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        </div>
+                    </div>
+                    <div class="Aside-exo-parcel">
+                        <div class="Aside-exo-parcel-content">
+                            <figure><img src="/image/logo_exo_01" alt="logo"></figure>
+                            <div class="Aside-exo-parcel-content-text">
+                                <h4>Pullups</h4>
+<!--                                th:text="${stat.exos.combien}"-->
+                                <p>done: <span >8</span> times</p>
+                            </div>
+                        </div>
+                        <div class="Aside-exo-parcel-button">
+                            <p>Keep going</p>
+                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="Main-content-bottomPart-right Right">
+            <div class="Right-calendar">
+                <div class="Right-calendar-header">
+                    <h3 class="Right-calendar-header-title">Calendar</h3>
+                    <div class="Right-calendar-header-link">
+                        <a href="/lastMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        <a href="/nextMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                    </div>
+
+                    <div class="Right-calendar-content Calendar">
+                        <table class="Calendar-table">
+                            <thead class="Calendar-table-title">
+                            <th>Mo</th>
+                            <th>Tu</th>
+                            <th>We</th>
+                            <th>Th</th>
+                            <th>Fr</th>
+                            <th>Sa</th>
+                            <th>Su</th>
+                            </thead>
+                            <tbody class="Calendar-table-jour">
+                            <!-- trouver calendrier API blabla -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="Right-calendar-footer">
+                        <div class="Right-calendar-footer-detail">
+                            <div class="Right-calendar-footer-detail-type">
+                                <p>Se</p>
+                            </div>
+                            <div class="Right-calendar-footer-detail-content">
+                                <h5>Bloc session</h5>
+<!--                                th:text="*{date}" th:text="*{place}"-->
+                                <p><span>fev.22</span> - <span >ClimbUP Aubagne</span></p>
+                            </div>
+                        </div>
+                        <div class="Right-calendar-footer-detail">
+                            <div class="Right-calendar-footer-detail">
+                                <div class="Right-calendar-footer-detail-type">
+                                    <p>Tr</p>
+                                </div>
+                                <div class="Right-calendar-footer-detail-content">
+                                    <h5>Renforcement</h5>
+<!--                                    th:text="*{date}" th:text="*{place}"-->
+                                    <p><span>fev.02</span> - <span >Home</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</main>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const ctx = document.getElementById("nbTechnics")
+
+    const htmlData = /*[[${data}]]*/ 'meh';
+
+
+    const charData = {
+        labels : htmlData.map(row => row.label),
+        datasets : [{
+            label : "nbTech",
+            data: htmlData.map(row => row.total),
+            backgroundColor:["blue","cyan","navy","royalblue","indigo","lightblue"]
+        }]
+    }
+
+    const myChart = new Chart(ctx,{
+        type: "pie",
+        data:charData
+
+    })
+    /*]]>*/
+</script>
+
 </body>
 </html>

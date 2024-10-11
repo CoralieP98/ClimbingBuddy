@@ -42,8 +42,9 @@ public class SessionService {
     }
 
     public Session updateSession(int sessionId, Session session) {
+        session.setSessionId(sessionId);
         return sessionRepository.save(session);
-    }//voir comment reparer l'update(vaut pour TOUT les updates) ça itere au lieu de save sort of
+    }
 
     public List<Session> getAllSessions() {
         return sessionRepository.findAll();

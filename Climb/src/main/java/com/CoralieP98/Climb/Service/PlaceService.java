@@ -31,8 +31,8 @@ public class PlaceService {
     }
 
     public Place updatePlace(int placeId, Place place) {
-        placeRepository.save(place);
-        return place;
+        place.setPlaceId(placeId);
+        return placeRepository.save(place);
     }
 
     public List<Place> findFavoitePlacesById(int id) {
