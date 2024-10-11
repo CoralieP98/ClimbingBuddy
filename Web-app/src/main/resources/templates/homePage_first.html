@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" href="style.css">-->
+        <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+</head>
+<body>
+<header th:replace="~{fragments/navBar}"></header>
+
+
+<main class="Main-content Layout">
+    <section class="Main-content-welcome section-welcome">
+        <div class="section-welcome-title">
+<!--            th:text="*{pseudo}"-->
+            <h1>Welcome <span class="section-welcome-title-pseudo">Pseudo</span></h1>
+        </div>
+        <div class="Main-content-dateinfo section-date">
+            <div class="section-date-jourheure">
+<!--                th:text="*{mettre date du jour}"-->
+                <p>18 - march- 2024</p>
+<!--                th:text="*{mettre heure}"-->
+                <p>15:23 pm</p>
+            </div>
+            <figure class="section-date-icon">
+                <img src="/image/iconCalendar.svg" alt="icon_calendar">
+            </figure>
+        </div>
+    </section>
+    <div class="Main-content-bottomPart">
+        <section class="Main-content-bottomPart-left Left">
+            <div class="Left-longPart">
+                <div class="Left-longPart-addSession AddSession">
+                    <div class="AddSession-content">
+                        <figure class="AddSession-content-img">
+                            <img src="/image/happyDay" alt="icone femme contente">
+                        </figure>
+                        <div class="AddSession-content-text">
+                            <h2 class="AddSession-content-text-title">IT'S TIME TO CLIMB !!</h2>
+                            <p>You decided today was a good day :D</p>
+                        </div>
+                        <div class="AddSession-content-button">
+                            <p class="AddSession-content-button-label">Add new session</p>
+                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="Left-longPart-setProfil SetProfil">
+                    <div class="SetProfil-text">
+                        <h2 class="SetProfil-text-title">Tell us more about <span>YOU</span></h2>
+                        <p>What is your climbing journey? What’s your favorite types of hold?
+                            Slab or overhang? ...</p>
+                    </div>
+                    <div class="SetProfil-button">
+                        <p class="SetProfil-button-button-label">Set your profil</p>
+                        <a href="/setProfil"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="Left-tiny">
+                <div class="Left-tiny-newExo">
+                    <div class="Left-tiny-newExo-text">
+                        <h4>Try new exercice</h4>
+                        <p>work on your weak point and get stronger</p>
+                    </div>
+                    <div class="Left-tiny-newExo-button">
+                        <a href="/getAllExercices"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                    </div>
+                </div>
+                <div class="Left-tiny-img"></div>
+                <div class="Left-tiny-newtech">
+                    <div class="Left-tiny-newtech-text">
+                        <h4>Learn technics</h4>
+                        <p>Learn awesome tricks and level up your game!</p>
+                    </div>
+                    <div class="Left-tiny-newtech-button">
+                        <a href="/getAllTechnic"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="Main-content-bottomPart-right Right">
+            <div class="Right-calendar">
+                <div class="Right-calendar-header">
+                    <h3 class="Right-calendar-header-title">Calendar</h3>
+                    <div class="Right-calendar-header-link">
+                        <a href="/lastMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        <a href="/nextMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                    </div>
+                    <div class="Right-calendar-content Calendar">
+                        <table class="Calendar-table">
+                            <thead class="Calendar-table-title">
+                            <th>Mo</th>
+                            <th>Tu</th>
+                            <th>We</th>
+                            <th>Th</th>
+                            <th>Fr</th>
+                            <th>Sa</th>
+                            <th>Su</th>
+                            </thead>
+                            <tbody class="Calendar-table-jour">
+                            <!-- trouver calendrier API blabla -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="Right-calendar-footer">
+                        <div class="Right-calendar-footer-detail"></div>
+                        <div class="Right-calendar-footer-detail"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</main>
+
+</body>
+</html>

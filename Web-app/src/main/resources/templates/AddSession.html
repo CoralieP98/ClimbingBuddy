@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" href="style.css">-->
+        <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>Add Session</title>
+</head>
+<body>
+
+<section class="AddSession-header">
+    <header th:replace="~{fragments/navBar_side}"></header>
+    <div class="AddSession-header-joy">
+        <figure class="AddSession-header-joy-img"><img src="/image/joy" alt="dessin d'une personne enjoyé"></figure>
+        <h3 class="AddSession-header-joy-title">Let's GO climbing!</h3>
+    </div>
+    <figure class="AddSession-header-figure">
+        <img src="/image/logo.svg" alt="logo" class="AddSession-header-figure-logo">
+    </figure>
+</section>
+
+<Main class="AddSession-main">
+    <section class="AddSession-main-layout">
+        <div class="Layout-form-with-select">
+<!--            <form class="AddSession-main-layout-form" th:action="@{/AddSession}" th:object="${Session}" method="POST" id="form-session">-->
+            <form class="AddSession-main-layout-form" method="POST" id="form-session">
+
+
+                <div class="AddSession-main-layout-form-type">
+<!--                    <input type="radio"  th:field="*{type}" id="rope" value="Rope Climbing" name="type">-->
+                    <input type="radio"  id="rope" value="Rope Climbing" name="type">
+                    <label for="rope" class="AddSession-main-layout-form-type-label">Rope Climbing</label>
+<!--                    <input type="radio"  th:field="*{type}" id="boulder" value="Boulder Climbing" name="type">-->
+                    <input type="radio"  id="boulder" value="Boulder Climbing" name="type">
+                    <label for="boulder" class="AddSession-main-layout-form-type-label">Boulder Climbing</label>
+                </div>
+
+                <div class="AddSession-main-layout-form-duration">
+                    <label for="duration" class="AddSession-main-layout-form-duration-label">Duration</label>
+<!--                    <input type="number" th:field="*{duration}" name="duration" id="duration" min="30" max="500"><span> min</span>-->
+                    <input type="number" name="duration" id="duration" min="30" max="500"><span> min</span>
+                </div>
+
+                <div class="AddSession-main-layout-form-date">
+                    <label for="date" class="AddSession-main-layout-form-date-label">Date</label>
+<!--                    <input type="date" name="date" th:field="*{date}" id="date">-->
+                    <input type="date" name="date" id="date">
+
+                </div>
+
+                <div class="AddSession-main-layout-form-warmUp">
+                    <label for="warmUp" class="AddSession-main-layout-form-warmUp-label">with warm up</label>
+<!--                    <input type="checkbox" name="warmUp" th:field="*{isWarmUp}" id="warmUp">-->
+                    <input type="checkbox" name="warmUp" id="warmUp">
+                </div>
+
+            </form>
+            <div class="AddSession-main-layout-place">
+                <label for="places" class="AddSession-main-layout-place-label" >lieu</label>
+<!--                <select name="place-list" id="places" for="form-session" th:field="*{place}">-->
+                <select name="place-list" id="places" for="form-session">
+<!--                    <option th:each="place : ${placelist}" th:value="${place.placeId}" th:text="${place.label}"></option>-->
+                    <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
+                </select>
+                <a href="/addNewFavorite" class="AddSession-main-layout-place-">add new address</a>
+            </div>
+        </div>
+
+        <div class="AddSession-main-layout-aside">
+            <figure class="AddSession-main-layout-aside-figure"><img src="/image/img_session" alt=""></figure>
+            <input type="submit" value="Submit" class="AddSession-main-layout-aside-button">
+        </div>
+    </section>
+</Main>
+
+</body>
+</html>
