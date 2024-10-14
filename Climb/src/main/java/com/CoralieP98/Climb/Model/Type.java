@@ -1,40 +1,24 @@
 package com.CoralieP98.Climb.Model;
 
-
-import jakarta.persistence.*;
-import lombok.Data;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
-@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Type {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int typeId;
 
-    private String lapelType;
-
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
-    private List<Route> routesOfOneType;
-
-    public Type() {
-    }
-
-    public Type(int typeId, String lapelType, List<Route> routesOfOneType) {
-        this.typeId = typeId;
-        this.lapelType = lapelType;
-        this.routesOfOneType = routesOfOneType;
-    }
-
-    public List<Route> getRoutesOfOneType() {
-        return routesOfOneType;
-    }
-
-    public void setRoutesOfOneType(List<Route> routesOfOneType) {
-        this.routesOfOneType = routesOfOneType;
-    }
+    private String labelType;
 
     public int getTypeId() {
         return typeId;
@@ -45,10 +29,10 @@ public class Type {
     }
 
     public String getLapelType() {
-        return lapelType;
+        return labelType;
     }
 
     public void setLapelType(String lapelType) {
-        this.lapelType = lapelType;
+        this.labelType = lapelType;
     }
 }

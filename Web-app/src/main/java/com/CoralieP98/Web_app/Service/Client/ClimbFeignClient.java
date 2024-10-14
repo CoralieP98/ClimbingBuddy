@@ -41,8 +41,8 @@ public interface ClimbFeignClient {
     @PostMapping(value = "/api/findAllSessionByUserId", consumes = "application/json")
     public ResponseEntity<List<Session>> findAllSessionByUserId(@RequestParam int id);
 
-    @PostMapping(value = "/api/findAllSessionsByPlace", consumes = "application/json")
-    public ResponseEntity<List<Session>> findAllSessionsByPlace(@RequestParam Place place);
+//    @PostMapping(value = "/api/findAllSessionsByPlace", consumes = "application/json")
+//    public ResponseEntity<List<Session>> findAllSessionsByPlace(@RequestParam Place place);
 
     @GetMapping(value = "/api/findSessionByDate", consumes = "application/json")
     public ResponseEntity<Session> findSessionByDate(@RequestParam Date date);
@@ -71,17 +71,17 @@ public interface ClimbFeignClient {
     @GetMapping(value = "/api/findRouteById", consumes = "application/json")
     public ResponseEntity<Route> findRouteByid(@RequestParam int routeId);
 
-    @PostMapping(value = "/api/findAllRouteBySession", consumes = "application/json")
-    public ResponseEntity<List<Route>> findAllRouteBySession(@RequestParam Session session);
-
-    @PostMapping(value = "/api/findAllRouteByType", consumes = "application/json")
-    public ResponseEntity<List<Route>> findAllRouteByType(@RequestParam Type type);
-
-    @PostMapping(value = "/api/findAllRouteByTechnics", consumes = "application/json")
-    public ResponseEntity<List<Route>> findAllRouteByTechnics(@RequestParam Technic technic);
-
-    @PostMapping(value = "/api/findAllRouteByExercices", consumes = "application/json")
-    public ResponseEntity<List<Route>> findAllRouteByExercices(@RequestParam Exercice exercice);
+//    @PostMapping(value = "/api/findAllRouteBySession", consumes = "application/json")
+//    public ResponseEntity<List<Route>> findAllRouteBySession(@RequestParam Session session);
+//
+//    @PostMapping(value = "/api/findAllRouteByType", consumes = "application/json")
+//    public ResponseEntity<List<Route>> findAllRouteByType(@RequestParam Type type);
+//
+//    @PostMapping(value = "/api/findAllRouteByTechnics", consumes = "application/json")
+//    public ResponseEntity<List<Route>> findAllRouteByTechnics(@RequestParam Technic technic);
+//
+//    @PostMapping(value = "/api/findAllRouteByExercices", consumes = "application/json")
+//    public ResponseEntity<List<Route>> findAllRouteByExercices(@RequestParam Exercice exercice);
 
     @GetMapping(value = "/api/getAllRoutes", consumes = "application/json")
     public ResponseEntity<List<Route>> getAllRoutes();
@@ -110,8 +110,8 @@ public interface ClimbFeignClient {
     @PutMapping(value = "/api/updatePlace", consumes = "application/json")
     public ResponseEntity<Place> updatePlace(@RequestParam int placeId, Place place);
 
-    @PostMapping(value = "/api/findFavoritePlacesByUserId", consumes = "application/json")
-    public ResponseEntity<List<Place>> findFavoritePlaceById(@RequestParam int id);
+//    @PostMapping(value = "/api/findFavoritePlacesByUserId", consumes = "application/json")
+//    public ResponseEntity<List<Place>> findFavoritePlaceById(@RequestParam int id);
 
     @GetMapping(value = "/api/getAllPlaces", consumes = "application/json")
     public ResponseEntity<List<Place>> getAllPlaces();
@@ -134,29 +134,29 @@ public interface ClimbFeignClient {
     @GetMapping(value = "/api/findExerciceById", consumes = "application/json")
     public ResponseEntity<Exercice> findExerciceById(@RequestParam int exercieId);
 
-    @PostMapping(value = "/api/getAllExercicesByRoutes", consumes = "application/json")
-    public ResponseEntity<List<Exercice>> getAllExercicesByRoutes(@RequestParam Route routes);
+//    @PostMapping(value = "/api/getAllExercicesByRoutes", consumes = "application/json")
+//    public ResponseEntity<List<Exercice>> getAllExercicesByRoutes(@RequestParam Route routes);
 
 
 // Technic //////////////////////
 
-    @PostMapping(value = "/api/createTechnic", consumes = "application/json")
-    public ResponseEntity<Technic> createTechnic(Technic technic);
+    @PostMapping(value = "/api/createTechnique", consumes = "application/json")
+    public ResponseEntity<Technique> createTechnique(Technique technique);
 
-    @DeleteMapping(value = "/api/deleteTechnic", consumes = "application/json")
-    public void deleteTechnic(@RequestParam int technicId);
+    @DeleteMapping(value = "/api/deleteTechnique", consumes = "application/json")
+    public void deleteTechnique(@RequestParam int technicId);
 
-    @PutMapping(value = "/api/updateTechnic", consumes = "application/json")
-    public ResponseEntity<Technic> updateTechnic(@RequestParam int technicId, Technic technic);
+    @PutMapping(value = "/api/updateTechnique", consumes = "application/json")
+    public ResponseEntity<Technique> updateTechnique(@RequestParam int technicId, Technique technique);
 
-    @GetMapping(value = "/api/getAllTechnics", consumes = "application/json")
-    public ResponseEntity<List<Technic>> getAllTechnics();
+    @GetMapping(value = "/api/getAllTechniques", consumes = "application/json")
+    public ResponseEntity<List<Technique>> getAllTechniques();
 
-    @GetMapping(value = "/api/findTechnicById", consumes = "application/json")
-    public ResponseEntity<Technic> findTechnicById(@RequestParam int technicId);
+    @GetMapping(value = "/api/findTechniqueById", consumes = "application/json")
+    public ResponseEntity<Technique> findTechniqueById(@RequestParam int technicId);
 
-    @PostMapping(value = "/api/getAllTechnicsByRoutes", consumes = "application/json")
-    public ResponseEntity<List<Technic>> getAllTechnicsByRoutes(@RequestParam Technic technic);
+//    @PostMapping(value = "/api/getAllTechnicsByRoutes", consumes = "application/json")
+//    public ResponseEntity<List<Technic>> getAllTechnicsByRoutes(@RequestParam Technic technic);
 
 
 

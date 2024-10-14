@@ -1,7 +1,7 @@
 package com.CoralieP98.Climb.Controller;
 
 import com.CoralieP98.Climb.Model.Route;
-import com.CoralieP98.Climb.Model.Technic;
+import com.CoralieP98.Climb.Model.Technique;
 import com.CoralieP98.Climb.Service.TechnicService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -12,42 +12,42 @@ import java.util.List;
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class TechnicController {
 
-    private final TechnicService technicService;
+    private final TechnicService techniqueService;
 
-    public TechnicController(TechnicService technicService) {
-        this.technicService = technicService;
+    public TechnicController(TechnicService techniqueService) {
+        this.techniqueService = techniqueService;
     }
 
-    @PostMapping("createTechnic")
-    public Technic createTechnic(@RequestBody Technic technic){
-        technicService.createTechnic(technic);
-        return technic;
+    @PostMapping("createTechnique")
+    public Technique createTechnique(@RequestBody Technique technique){
+        techniqueService.createTechnique(technique);
+        return technique;
     }
 
-    @DeleteMapping("deleteTechnic")
-    public void deleteTechnic(@RequestParam int technicId){
-        technicService.deleteTechnic(technicId);
+    @DeleteMapping("deleteTechnique")
+    public void deleteTechnique(@RequestParam int techniqueId){
+        techniqueService.deleteTechnique(techniqueId);
     }
 
-    @PutMapping("updateTechnic")
-    public Technic updateTechnic(@RequestParam(name = "technicId") int technicId,@RequestBody Technic technic){
-        return technicService.updateTechnic(technicId, technic);
+    @PutMapping("updateTechnique")
+    public Technique updateTechnique(@RequestParam(name = "techniqueId") int techniqueId, @RequestBody Technique technique){
+        return techniqueService.updateTechnique(techniqueId, technique);
     }
 
-    @GetMapping("getAllTechnics")
-    public List<Technic> getAllTechnics(){
-        return  technicService.getAllTechnics();
+    @GetMapping("getAllTechniques")
+    public List<Technique> getAllTechniques(){
+        return  techniqueService.getAllTechniques();
     }
 
-    @GetMapping("findTechnicById")
-    public Technic findTechnicById(@RequestParam int technicId){
-        return technicService.findTechnicById(technicId);
+    @GetMapping("findTechniqueById")
+    public Technique findTechniqueById(@RequestParam int techniqueId){
+        return techniqueService.findTechniqueById(techniqueId);
     }
 
-    @PostMapping("getAllTechnicsByRoutes")
-    public List<Technic> getAllTechnicsByRoutes(@RequestParam Route routes){
-        return technicService.getAllTechnicsByRoutes(routes);
-    }
+//    @PostMapping("getAllTechnicsByRoutes")
+//    public List<Technique> getAllTechnicsByRoutes(@RequestParam Route routes){
+//        return technicService.getAllTechnicsByRoutes(routes);
+//    }
 
 
 }

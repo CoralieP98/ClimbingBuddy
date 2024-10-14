@@ -1,21 +1,22 @@
 package com.CoralieP98.Climb.Model;
 
+
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
-@Data
 @Entity
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Route {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeId;
-
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private Type type;
 
     private boolean isSlab;
 
@@ -29,32 +30,29 @@ public class Route {
 
     private float lenght;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "session_id")
-    private  Session session;
+    private Session session;
 
-    @ManyToMany
-    private List<Technic> technics;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "type_id")
+    private Type type;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "route_technique",
+            joinColumns = @JoinColumn(name = "route_id"),
+            inverseJoinColumns = @JoinColumn(name = "technique_id")
+    )
+    private List<Technique> techniques;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "route_exercice",
+            joinColumns = @JoinColumn(name = "route_id"),
+            inverseJoinColumns = @JoinColumn(name = "exercice_id")
+    )
     private List<Exercice> exercices;
-
-    public Route() {
-    }
-
-    public Route(int routeId, Type type, boolean isSlab, boolean isOverHang, boolean isLead, boolean isTopRope, boolean isARepeat, float lenght, Session session, List<Technic> technics, List<Exercice> exercices) {
-        this.routeId = routeId;
-        this.type = type;
-        this.isSlab = isSlab;
-        this.isOverHang = isOverHang;
-        this.isLead = isLead;
-        this.isTopRope = isTopRope;
-        this.isARepeat = isARepeat;
-        this.lenght = lenght;
-        this.session = session;
-        this.technics = technics;
-        this.exercices = exercices;
-    }
 
     public int getRouteId() {
         return routeId;
@@ -62,14 +60,6 @@ public class Route {
 
     public void setRouteId(int routeId) {
         this.routeId = routeId;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
     }
 
     public boolean isSlab() {
@@ -128,12 +118,20 @@ public class Route {
         this.session = session;
     }
 
-    public List<Technic> getTechnics() {
-        return technics;
+    public Type getType() {
+        return type;
     }
 
-    public void setTechnics(List<Technic> technics) {
-        this.technics = technics;
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public List<Technique> getTechniques() {
+        return techniques;
+    }
+
+    public void setTechniques(List<Technique> techniques) {
+        this.techniques = techniques;
     }
 
     public List<Exercice> getExercices() {

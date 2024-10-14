@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ComponentScans({@ComponentScan("com.CoralieP98.Climb.Controller")})
 @EnableJpaRepositories("com.CoralieP98.Climb.Repository")
-@EntityScan("com.CoralieP98.Climb.Model")
 @SpringBootApplication
 @EnableFeignClients
 @RefreshScope

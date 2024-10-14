@@ -1,56 +1,35 @@
 package com.CoralieP98.Climb.Model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Session {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sessionId;
 
     private Date date;
 
     private float duration;
 
-    private  boolean warmUp;
+    private boolean warmUp;
 
-    @ManyToOne
-    @JoinColumn(name = "place_id")
-    private Place place;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
-    private List<Route> routes;
-
-    public Session() {
-    }
-
-    public Session(int sessionId, Date date, float duration, boolean warmUp, Place place, User user, List<Route> routes) {
-        this.sessionId = sessionId;
-        this.date = date;
-        this.duration = duration;
-        this.warmUp = warmUp;
-        this.place = place;
-        this.user = user;
-        this.routes = routes;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "place_id")
+    private Place place;
 
     public int getSessionId() {
         return sessionId;
@@ -84,19 +63,19 @@ public class Session {
         this.warmUp = warmUp;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Place getPlace() {
         return place;
     }
 
     public void setPlace(Place place) {
         this.place = place;
-    }
-
-    public List<Route> getRoutes() {
-        return routes;
-    }
-
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
     }
 }

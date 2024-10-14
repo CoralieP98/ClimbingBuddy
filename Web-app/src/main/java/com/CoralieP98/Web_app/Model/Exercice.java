@@ -1,9 +1,13 @@
 package com.CoralieP98.Web_app.Model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Exercice {
 
@@ -11,27 +15,8 @@ public class Exercice {
 
     private String labelExercice;
 
-    private List<Route> routes;
 
     private Long cardId; //card etant une table mongo voir comment faire le lien
-
-    public Exercice() {
-    }
-
-    public Exercice(int exerciceId, String labelExercice, List<Route> routes, Long cardId) {
-        this.exerciceId = exerciceId;
-        this.labelExercice = labelExercice;
-        this.routes = routes;
-        this.cardId = cardId;
-    }
-
-    public List<Route> getRoutes() {
-        return routes;
-    }
-
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
-    }
 
     public int getExerciceId() {
         return exerciceId;

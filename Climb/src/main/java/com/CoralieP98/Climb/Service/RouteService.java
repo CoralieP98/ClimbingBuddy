@@ -11,8 +11,11 @@ public class RouteService {
 
     private final RouteRepository routeRepository;
 
-    public RouteService(RouteRepository routeRepository) {
+    private final SessionService sessionService;
+
+    public RouteService(RouteRepository routeRepository, SessionService sessionService) {
         this.routeRepository = routeRepository;
+        this.sessionService = sessionService;
     }
 
     public void createRoute(Route route) {
@@ -32,21 +35,26 @@ public class RouteService {
         return routeRepository.findRouteByRouteId(routeId).get();
     }
 
-    public List<Route> findAllRouteBySession(Session session) {
-        return routeRepository.findAllRoutesBySession(session).get();
+    public List<Route> findAllRouteBySession(int sessionId) {
+        Session session = sessionService.findSessionById(sessionId);
+        return routeRepository.findAllRouteBySession(session).get();
     }
 
-    public List<Route> findAllRouteByType(Type type) {
-        return routeRepository.findAllRoutesByType(type).get();
-    }
+//    public List<Route> findAllRouteBySessionId(int sessionId) {
+//        return routeRepository.findAllRouteBySessionId(sessionId).get();
+//    }
 
-    public List<Route> findAllRouteByTechnics(Technic technics) {
-        return routeRepository.findAllRouteByTechnics(technics).get();
-    }
+//    public List<Route> findAllRouteByType(Type type) {
+//        return routeRepository.findAllRoutesByType(type).get();
+//    }
 
-    public List<Route> findAllRouteByExercices(Exercice exercices) {
-        return routeRepository.findAllRouteByExercices(exercices).get();
-    }
+//    public List<Route> findAllRouteByTechnics(Technique technics) {
+//        return routeRepository.findAllRouteByTechnics(technics).get();
+//    }
+
+//    public List<Route> findAllRouteByExercices(Exercice exercices) {
+//        return routeRepository.findAllRouteByExercices(exercices).get();
+//    }
 
     public List<Route> getAllRoutes() {
         return routeRepository.findAll();

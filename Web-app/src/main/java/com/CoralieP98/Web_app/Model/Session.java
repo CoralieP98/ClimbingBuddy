@@ -20,8 +20,6 @@ public class Session {
 
     private User user;
 
-    private List<Route> routes;
-
     public Session() {
     }
 

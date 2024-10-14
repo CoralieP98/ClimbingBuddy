@@ -29,9 +29,9 @@ public class SessionService {
         return sessionRepository.findAllSessionByUserId(id).get();
     }
 
-    public List<Session> findAllSessionsByPlace(Place place) {
-        return sessionRepository.findAllSessionsByPlace(place).get();
-    }
+//    public List<Session> findAllSessionsByPlace(Place place) {
+//        return sessionRepository.findAllSessionsByPlace(place).get();
+//    }
 
     public Session findSessionByDate(Date date) {
         return sessionRepository.findSessionByDate(date).get();

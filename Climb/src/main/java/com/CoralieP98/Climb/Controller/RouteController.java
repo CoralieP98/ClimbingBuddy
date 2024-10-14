@@ -38,25 +38,30 @@ public class RouteController {
         return routeService.findRouteById(routeId);
     }
 
-    @PostMapping("findAllRouteBySession")
-    public List<Route> findAllRouteBySession(@RequestParam Session session){
-        return routeService.findAllRouteBySession(session);
-    }
+//    @PostMapping("findAllRouteBySessionId")
+//    public List<Route> findAllRouteBySessionId(@RequestParam int sessionId){
+//        return routeService.findAllRouteBySessionId(sessionId);
+//    }
 
-    @PostMapping("findAllRouteByType")
-    public List<Route> findAllRouteByType(@RequestParam Type type){
-        return routeService.findAllRouteByType(type);
+    @PostMapping("findAllRouteBySessionId")
+    public List<Route> findAllRouteBySession(@RequestParam int sessionId){
+        return routeService.findAllRouteBySession(sessionId);
     }
-
-    @PostMapping("findAllRouteByTechnics")
-    public List<Route> findAllRouteByTechnics(@RequestParam Technic technics){
-        return routeService.findAllRouteByTechnics(technics);
-    }
-
-    @PostMapping("findAllRouteByExercices")
-    public List<Route> findAllRouteByExercices(@RequestParam Exercice exercices){
-        return routeService.findAllRouteByExercices(exercices);
-    }
+//
+//    @PostMapping("findAllRouteByType")
+//    public List<Route> findAllRouteByType(@RequestParam Type type){
+//        return routeService.findAllRouteByType(type);
+//    }
+//
+//    @PostMapping("findAllRouteByTechnics")
+//    public List<Route> findAllRouteByTechnics(@RequestParam Technique technics){
+//        return routeService.findAllRouteByTechnics(technics);
+//    }
+//
+//    @PostMapping("findAllRouteByExercices")
+//    public List<Route> findAllRouteByExercices(@RequestParam Exercice exercices){
+//        return routeService.findAllRouteByExercices(exercices);
+//    }
 
     @GetMapping("getAllRoutes")
     public List<Route> getAllRoutes(){

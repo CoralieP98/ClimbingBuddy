@@ -39,9 +39,9 @@ public class PlaceController {
     }
 
     @PostMapping("findFavoritePlacesByUserId")
-    public List<Place> findFavoritePlaceById(@RequestParam int id){
-        return placeService.findFavoitePlacesById(id);
-    }
+//    public List<Place> findFavoritePlaceById(@RequestParam int id){
+//        return placeService.findFavoitePlacesById(id);
+//    }
 
     @GetMapping("getAllPlaces")
     public List<Place> getAllPlaces(){

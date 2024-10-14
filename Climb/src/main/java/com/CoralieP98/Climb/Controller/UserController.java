@@ -2,7 +2,6 @@ package com.CoralieP98.Climb.Controller;
 
 import com.CoralieP98.Climb.Model.User;
 import com.CoralieP98.Climb.Service.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.http.MediaType;
 
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +40,7 @@ public class UserController {
     }
 
     @DeleteMapping("deleteUser")
-    public void deletePatient(@RequestParam int id){
+    public void deleteUser(@RequestParam int id){
         userService.deleteUser(id);
     }
 

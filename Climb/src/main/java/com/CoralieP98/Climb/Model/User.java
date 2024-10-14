@@ -2,12 +2,14 @@ package com.CoralieP98.Climb.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
-@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -22,44 +24,6 @@ public class User {
 
     @Column(unique = true)
     private String email;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Session> sessions;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Place> favoritesPlaces;
-
-    public User() {
-    }
-
-    public User(int id, String userName, String password, String email, List<Session> sessions, List<Place> favoritesPlaces) {
-        this.id = id;
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.sessions = sessions;
-        this.favoritesPlaces = favoritesPlaces;
-    }
-
-    public List<Session> getSessions() {
-        return sessions;
-    }
-
-    public List<Place> getFavoritesPlaces() {
-        return favoritesPlaces;
-    }
-
-    public void setFavoritesPlaces(List<Place> favoritesPlaces) {
-        this.favoritesPlaces = favoritesPlaces;
-    }
-
-    public void setSessions(List<Session> sessions) {
-        this.sessions = sessions;
-    }
-
-    public User(List<Session> sessions) {
-        this.sessions = sessions;
-    }
 
     public int getId() {
         return id;

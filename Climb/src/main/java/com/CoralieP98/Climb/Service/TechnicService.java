@@ -1,8 +1,7 @@
 package com.CoralieP98.Climb.Service;
 
-import com.CoralieP98.Climb.Model.Route;
-import com.CoralieP98.Climb.Model.Technic;
-import com.CoralieP98.Climb.Repository.TechnicRepository;
+import com.CoralieP98.Climb.Model.Technique;
+import com.CoralieP98.Climb.Repository.TechniqueRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,34 +9,34 @@ import java.util.List;
 @Service
 public class TechnicService {
 
-    private final TechnicRepository technicRepository;
+    private final TechniqueRepository techniqueRepository;
 
-    public TechnicService(TechnicRepository technicRepository) {
-        this.technicRepository = technicRepository;
+    public TechnicService(TechniqueRepository techniqueRepository) {
+        this.techniqueRepository = techniqueRepository;
     }
 
-    public void createTechnic(Technic technic) {
-        technicRepository.save(technic);
+    public void createTechnique(Technique technique) {
+        techniqueRepository.save(technique);
     }
 
-    public void deleteTechnic(int technicId) {
-        technicRepository.deleteById(technicId);
+    public void deleteTechnique(int techniqueId) {
+        techniqueRepository.deleteById(techniqueId);
     }
 
-    public Technic updateTechnic(int technicId, Technic technic) {
-        technic.setTechnicId(technicId);
-        return technicRepository.save(technic);
+    public Technique updateTechnique(int techniqueId, Technique technique) {
+        technique.setTechniqueId(techniqueId);
+        return techniqueRepository.save(technique);
     }
 
-    public List<Technic> getAllTechnics() {
-        return technicRepository.findAll();
+    public List<Technique> getAllTechniques() {
+        return techniqueRepository.findAll();
     }
 
-    public Technic findTechnicById(int technicId) {
-        return technicRepository.findTechnicByTechnicId(technicId).get();
+    public Technique findTechniqueById(int techniqueId) {
+        return techniqueRepository.findTechniqueByTechniqueId(techniqueId).get();
     }
 
-    public List<Technic> getAllTechnicsByRoutes(Route route) {
-        return technicRepository.findAllTechnicsByRoutes(route).get();
-    }
+//    public List<Technique> getAllTechnicsByRoutes(Route route) {
+//        return technicRepository.findAllTechnicsByRoutes(route).get();
+//    }
 }

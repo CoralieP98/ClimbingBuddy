@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS `place`;
 DROP TABLE IF EXISTS `card`;
 DROP TABLE IF EXISTS `media`;
 DROP TABLE IF EXISTS `exercise`;
-DROP TABLE IF EXISTS `technic`;
+DROP TABLE IF EXISTS `technique`;
 DROP TABLE IF EXISTS `exercise`;
 DROP TABLE IF EXISTS `route`;
 DROP TABLE IF EXISTS `user_session`;
@@ -66,9 +66,9 @@ CREATE TABLE `exercise`(
 FOREIGN KEY (`card-id`) REFERENCES `techsheets`(`card-id`)
 );
 
-CREATE TABLE `technic`(
-`technic-id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`label-technic` VARCHAR(255) NOT NULL,
+CREATE TABLE `technique`(
+`technique-id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`label-technique` VARCHAR(255) NOT NULL,
 `card-id` INT NOT NULL,
 FOREIGN KEY (`card-id`) REFERENCES `techsheets`(`card-id`)
 );
@@ -120,7 +120,7 @@ CREATE TABLE route_technic(
 routeId INT NOT NULL,
 technicId INT NOT NULL,
 FOREIGN KEY (routeId) REFERENCES route(routeId),
-FOREIGN KEY (technicId) REFERENCES technic(technicId),
+FOREIGN KEY (technicId) REFERENCES technique(technicId),
 PRIMARY KEY (routeId,technicId)
 );
 
@@ -128,6 +128,6 @@ CREATE TABLE exercise_technic(
 exerciseId INT NOT NULL,
 technicId INT NOT NULL,
 FOREIGN KEY (exerciseId) REFERENCES exercise(exerciseId),
-FOREIGN KEY (technicId) REFERENCES technic(technicId),
+FOREIGN KEY (technicId) REFERENCES technique(technicId),
 PRIMARY KEY (exerciseId,technicId)
 );
