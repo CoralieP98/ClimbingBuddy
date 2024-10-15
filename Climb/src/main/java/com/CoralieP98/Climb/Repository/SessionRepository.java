@@ -17,7 +17,7 @@ public interface SessionRepository extends JpaRepository<Session, Integer> {
 
     public Optional<List<Session>> findAllSessionByUserId(int id);
 
-//    public Optional<List<Session>> findAllSessionsByPlace(Place place);
+    public Optional<List<Session>> findAllSessionsByPlace(Place place);
 
     public Optional<Session> findSessionByDate(Date date);
 

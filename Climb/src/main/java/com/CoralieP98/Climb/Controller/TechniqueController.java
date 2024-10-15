@@ -1,8 +1,7 @@
 package com.CoralieP98.Climb.Controller;
 
-import com.CoralieP98.Climb.Model.Route;
 import com.CoralieP98.Climb.Model.Technique;
-import com.CoralieP98.Climb.Service.TechnicService;
+import com.CoralieP98.Climb.Service.TechniqueService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,11 +9,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-public class TechnicController {
+public class TechniqueController {
 
-    private final TechnicService techniqueService;
+    private final TechniqueService techniqueService;
 
-    public TechnicController(TechnicService techniqueService) {
+    public TechniqueController(TechniqueService techniqueService) {
         this.techniqueService = techniqueService;
     }
 
@@ -44,10 +43,7 @@ public class TechnicController {
         return techniqueService.findTechniqueById(techniqueId);
     }
 
-//    @PostMapping("getAllTechnicsByRoutes")
-//    public List<Technique> getAllTechnicsByRoutes(@RequestParam Route routes){
-//        return technicService.getAllTechnicsByRoutes(routes);
-//    }
+
 
 
 }

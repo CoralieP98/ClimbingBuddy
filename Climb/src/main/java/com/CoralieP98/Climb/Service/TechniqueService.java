@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TechnicService {
+public class TechniqueService {
+
 
     private final TechniqueRepository techniqueRepository;
 
-    public TechnicService(TechniqueRepository techniqueRepository) {
+    public TechniqueService(TechniqueRepository techniqueRepository) {
         this.techniqueRepository = techniqueRepository;
     }
 
@@ -36,7 +37,5 @@ public class TechnicService {
         return techniqueRepository.findTechniqueByTechniqueId(techniqueId).get();
     }
 
-//    public List<Technique> getAllTechnicsByRoutes(Route route) {
-//        return technicRepository.findAllTechnicsByRoutes(route).get();
-//    }
+
 }

@@ -13,7 +13,7 @@ public interface PlaceRepository extends JpaRepository<Place, Integer> {
 
     public Optional<Place> findPlaceByPlaceId(int placeId);
 
-//    public Optional<List<Place>> findAllPlacesByUserId(int id);
+    public Optional<List<Place>> findAllPlacesByUserId(int id);
 
 
 }

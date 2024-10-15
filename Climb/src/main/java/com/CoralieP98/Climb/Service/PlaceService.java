@@ -35,9 +35,9 @@ public class PlaceService {
         return placeRepository.save(place);
     }
 
-//    public List<Place> findFavoitePlacesById(int id) {
-//        return placeRepository.findAllPlacesByUserId(id).get();
-//    }
+    public List<Place> findFavoitePlacesById(int id) {
+        return placeRepository.findAllPlacesByUserId(id).get();
+    }
 
     public List<Place> getAllPlaces() {
         return placeRepository.findAll();

@@ -13,9 +13,18 @@ public class RouteService {
 
     private final SessionService sessionService;
 
-    public RouteService(RouteRepository routeRepository, SessionService sessionService) {
+    private final TypeService typeService;
+
+    private final TechniqueService techniqueService;
+
+    private final ExerciceService exerciceService;
+
+    public RouteService(RouteRepository routeRepository, SessionService sessionService, TypeService typeService, TechniqueService techniqueService, ExerciceService exerciceService) {
         this.routeRepository = routeRepository;
         this.sessionService = sessionService;
+        this.typeService = typeService;
+        this.techniqueService = techniqueService;
+        this.exerciceService = exerciceService;
     }
 
     public void createRoute(Route route) {
@@ -40,21 +49,20 @@ public class RouteService {
         return routeRepository.findAllRouteBySession(session).get();
     }
 
-//    public List<Route> findAllRouteBySessionId(int sessionId) {
-//        return routeRepository.findAllRouteBySessionId(sessionId).get();
-//    }
+    public List<Route> findAllRouteByType(int typeId) {
+        Type type = typeService.getTypeById(typeId);
+        return routeRepository.findAllRoutesByType(type).get();
+    }
 
-//    public List<Route> findAllRouteByType(Type type) {
-//        return routeRepository.findAllRoutesByType(type).get();
-//    }
+    public List<Route> findAllRouteByTechnique(int techniqueId) {
+        Technique techniques = techniqueService.findTechniqueById(techniqueId);
+        return routeRepository.findAllRouteByTechniques(techniques).get();
+    }
 
-//    public List<Route> findAllRouteByTechnics(Technique technics) {
-//        return routeRepository.findAllRouteByTechnics(technics).get();
-//    }
-
-//    public List<Route> findAllRouteByExercices(Exercice exercices) {
-//        return routeRepository.findAllRouteByExercices(exercices).get();
-//    }
+    public List<Route> findAllRouteByExercice(int exerciceId) {
+        Exercice exercices = exerciceService.findExerciceById(exerciceId);
+        return routeRepository.findAllRouteByExercices(exercices).get();
+    }
 
     public List<Route> getAllRoutes() {
         return routeRepository.findAll();

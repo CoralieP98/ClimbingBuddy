@@ -11,9 +11,12 @@ import java.util.List;
 @Service
 public class SessionService {
 
+    private final PlaceService placeService;
+
     private final SessionRepository sessionRepository;
 
-    public SessionService(SessionRepository sessionRepository) {
+    public SessionService(PlaceService placeService, SessionRepository sessionRepository) {
+        this.placeService = placeService;
         this.sessionRepository = sessionRepository;
     }
 
@@ -29,9 +32,10 @@ public class SessionService {
         return sessionRepository.findAllSessionByUserId(id).get();
     }
 
-//    public List<Session> findAllSessionsByPlace(Place place) {
-//        return sessionRepository.findAllSessionsByPlace(place).get();
-//    }
+    public List<Session> findAllSessionsByPlace(int placeId) {
+        Place place = placeService.findPlaceById(placeId);
+        return sessionRepository.findAllSessionsByPlace(place).get();
+    }
 
     public Session findSessionByDate(Date date) {
         return sessionRepository.findSessionByDate(date).get();

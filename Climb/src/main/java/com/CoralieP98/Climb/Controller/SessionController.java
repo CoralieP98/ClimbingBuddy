@@ -35,10 +35,10 @@ public class SessionController {
         return sessionService.findAllSessionByUserId(id);
     }
 
-//    @PostMapping("findAllSessionsByPlace")
-//    public List<Session> findAllSessionsByPlace(@RequestParam Place place){
-//        return sessionService.findAllSessionsByPlace(place);
-
+    @PostMapping("findAllSessionsByPlaceId")
+    public List<Session> findAllSessionsByPlaceId(@RequestParam int placeId){
+        return sessionService.findAllSessionsByPlace(placeId);
+    }
 
     @GetMapping("findSessionByDate")
     public Session findSessionByDate(@RequestParam Date date){

@@ -13,5 +13,4 @@ public interface ExerciceRepository extends JpaRepository<Exercice, Integer> {
 
     public Optional<Exercice> findExerciceByExerciceId(int exerciceId);
 
-//    public Optional<List<Exercice>> findAllExercicesByRoutes(Route routes);
 }

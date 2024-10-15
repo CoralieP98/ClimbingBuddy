@@ -12,15 +12,12 @@ public interface RouteRepository extends JpaRepository<Route,Integer> {
 
     public Optional<Route> findRouteByRouteId(int routeId);
 
-//    public Optional<List<Route>> findAllRouteBySessionId(int sessionId);
-
     public Optional<List<Route>> findAllRouteBySession(Session session);
 
+    public Optional<List<Route>> findAllRoutesByType(Type type);
 
-//    public Optional<List<Route>> findAllRoutesByType(Type type);
+    public Optional<List<Route>> findAllRouteByTechniques(Technique techniques);
 
-//    public Optional<List<Route>> findAllRouteByTechnics(Technique technics);
-
-//    public Optional<List<Route>> findAllRouteByExercices(Exercice exercices);
+    public Optional<List<Route>> findAllRouteByExercices(Exercice exercices);
 
 }
