@@ -18,19 +18,23 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeId;
 
-    private boolean slab;
+    private boolean isSlab;
 
-    private boolean overHang;
+    private boolean isOverHang;
 
-    private boolean lead;
+    private boolean isLead;
 
-    private boolean topRope;
+    private boolean isTopRope;
 
-    private boolean aRepeat;
+    private boolean isARepeat;
 
     private float lenght;
 
     private String routeName;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "grade_id")
@@ -60,7 +64,6 @@ public class Route {
     )
     private List<Exercice> exercices;
 
-
     public int getRouteId() {
         return routeId;
     }
@@ -70,43 +73,43 @@ public class Route {
     }
 
     public boolean isSlab() {
-        return slab;
+        return isSlab;
     }
 
     public void setSlab(boolean slab) {
-        this.slab = slab;
+        isSlab = slab;
     }
 
     public boolean isOverHang() {
-        return overHang;
+        return isOverHang;
     }
 
     public void setOverHang(boolean overHang) {
-        this.overHang = overHang;
+        isOverHang = overHang;
     }
 
     public boolean isLead() {
-        return lead;
+        return isLead;
     }
 
     public void setLead(boolean lead) {
-        this.lead = lead;
+        isLead = lead;
     }
 
     public boolean isTopRope() {
-        return topRope;
+        return isTopRope;
     }
 
     public void setTopRope(boolean topRope) {
-        this.topRope = topRope;
+        isTopRope = topRope;
     }
 
-    public boolean isaRepeat() {
-        return aRepeat;
+    public boolean isARepeat() {
+        return isARepeat;
     }
 
-    public void setaRepeat(boolean aRepeat) {
-        this.aRepeat = aRepeat;
+    public void setARepeat(boolean ARepeat) {
+        isARepeat = ARepeat;
     }
 
     public float getLenght() {

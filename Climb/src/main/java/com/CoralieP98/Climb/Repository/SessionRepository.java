@@ -20,7 +20,6 @@ public interface SessionRepository extends JpaRepository<Session, Integer> {
 
     public Optional<List<Session>> findAllSessionsByPlaceAndUser(Place place,User user);
 
-
     public Optional<Session> findSessionByDate(LocalDate date);
 
 

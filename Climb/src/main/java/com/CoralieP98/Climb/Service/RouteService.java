@@ -21,13 +21,16 @@ public class RouteService {
 
     private final GradeService gradeService;
 
-    public RouteService(RouteRepository routeRepository, SessionService sessionService, TypeService typeService, TechniqueService techniqueService, ExerciceService exerciceService, GradeService gradeService) {
+    private final UserService userService;
+
+    public RouteService(RouteRepository routeRepository, SessionService sessionService, TypeService typeService, TechniqueService techniqueService, ExerciceService exerciceService, GradeService gradeService, UserService userService) {
         this.routeRepository = routeRepository;
         this.sessionService = sessionService;
         this.typeService = typeService;
         this.techniqueService = techniqueService;
         this.exerciceService = exerciceService;
         this.gradeService = gradeService;
+        this.userService = userService;
     }
 
     public void createRoute(Route route) {
@@ -61,22 +64,29 @@ public class RouteService {
         return routeRepository.findAllRoutesByType(type).get();
     }
 
-    public List<Route> findAllRouteByTechnique(int techniqueId) {
+    public List<Route> findAllRouteByTechniqueAndUser(int techniqueId, int id) {
+        User user = userService.findUserById(id);
         Technique techniques = techniqueService.findTechniqueById(techniqueId);
-        return routeRepository.findAllRouteByTechniques(techniques).get();
+        return routeRepository.findAllRouteByTechniquesAndUser(techniques, user).get();
     }
 
-    public List<Route> findAllRouteByExercice(int exerciceId) {
+    public List<Route> findAllRouteByExerciceAndUser(int exerciceId,  int id) {
+        User user = userService.findUserById(id);
         Exercice exercices = exerciceService.findExerciceById(exerciceId);
-        return routeRepository.findAllRouteByExercices(exercices).get();
+        return routeRepository.findAllRouteByExercicesAndUser(exercices, user).get();
     }
 
     public List<Route> getAllRoutes() {
         return routeRepository.findAll();
     }
 
-    public List<Route> findAllRouteByGrade(int gradeId) {
+    public List<Route> findAllRouteByGradeAndUser(int gradeId, int id) {
+        User user = userService.findUserById(id);
         Grade grade = gradeService.getGradeById(gradeId);
-        return routeRepository.findAllRouteByGrade(grade).get();
+        return routeRepository.findAllRouteByGradeAndUser(grade,user).get();
+    }
+
+    public List<Route> getAllRoutesByUser(int id) {
+        return routeRepository.findAllRoutesByUserId(id).get();
     }
 }

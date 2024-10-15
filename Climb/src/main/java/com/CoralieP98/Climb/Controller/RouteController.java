@@ -49,24 +49,29 @@ public class RouteController {
         return routeService.findAllRouteByType(typeId);
     }
 
-    @PostMapping("findAllRouteByGradeId")
-    public List<Route> findAllGradeByType(@RequestParam int gradeId){
-        return routeService.findAllRouteByGrade(gradeId);
+    @PostMapping("findAllRouteByGradeIdAndUserId")
+    public List<Route> findAllGradeByType(@RequestParam int gradeId, @RequestParam int id){
+        return routeService.findAllRouteByGradeAndUser(gradeId, id);
     }
 
-    @PostMapping("findAllRouteByTechnique")
-    public List<Route> findAllRouteByTechnique(@RequestParam int techniqueId){
-        return routeService.findAllRouteByTechnique(techniqueId);
+    @PostMapping("findAllRouteByTechniqueAndUserId")
+    public List<Route> findAllRouteByTechnique(@RequestParam int techniqueId,@RequestParam int id){
+        return routeService.findAllRouteByTechniqueAndUser(techniqueId,id);
     }
 
-    @PostMapping("findAllRouteByExercice")
-    public List<Route> findAllRouteByExercice(@RequestParam int exerciceId){
-        return routeService.findAllRouteByExercice(exerciceId);
+    @PostMapping("findAllRouteByExerciceAndUserId")
+    public List<Route> findAllRouteByExercice(@RequestParam int exerciceId,@RequestParam int id){
+        return routeService.findAllRouteByExerciceAndUser(exerciceId,id);
     }
 
     @GetMapping("getAllRoutes")
     public List<Route> getAllRoutes(){
         return routeService.getAllRoutes();
+    }
+
+    @PostMapping("getAllRoutesByUser")
+    public List<Route> getAllRoutesByUser(@RequestParam int id){
+        return routeService.getAllRoutesByUser(id);
     }
 
 
