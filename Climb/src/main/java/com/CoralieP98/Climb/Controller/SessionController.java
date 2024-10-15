@@ -6,7 +6,7 @@ import com.CoralieP98.Climb.Service.SessionService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -35,14 +35,14 @@ public class SessionController {
         return sessionService.findAllSessionByUserId(id);
     }
 
-    @PostMapping("findAllSessionsByPlaceId")
-    public List<Session> findAllSessionsByPlaceId(@RequestParam int placeId){
-        return sessionService.findAllSessionsByPlace(placeId);
+    @PostMapping("findAllSessionsByPlaceIdAndUserId")
+    public List<Session> findAllSessionsByPlaceIdAndUserId(@RequestParam int placeId, @RequestParam int id){
+        return sessionService.findAllSessionsByPlaceAndUserId(placeId,id);
     }
 
     @GetMapping("findSessionByDate")
-    public Session findSessionByDate(@RequestParam Date date){
-        return sessionService.findSessionByDate(date);
+    public Session findSessionByDate(@RequestParam String dateString) throws ParseException {
+        return sessionService.findSessionByDate(dateString);
     }
 
     @DeleteMapping("deleteSession")

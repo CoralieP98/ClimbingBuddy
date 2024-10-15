@@ -13,11 +13,15 @@ public class PlaceService {
 
     private final PlaceRepository placeRepository;
 
-    public PlaceService(PlaceRepository placeRepository) {
+    private final UserService userService;
+
+    public PlaceService(PlaceRepository placeRepository, UserService userService) {
         this.placeRepository = placeRepository;
+        this.userService = userService;
     }
 
     public void createPlace(Place place){
+        place.setUser(userService.findUserById(place.getUser().getId()));
         placeRepository.save(place);
     }
 
@@ -31,6 +35,7 @@ public class PlaceService {
     }
 
     public Place updatePlace(int placeId, Place place) {
+        place.setUser(userService.findUserById(place.getUser().getId()));
         place.setPlaceId(placeId);
         return placeRepository.save(place);
     }

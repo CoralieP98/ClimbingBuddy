@@ -19,15 +19,20 @@ public class RouteService {
 
     private final ExerciceService exerciceService;
 
-    public RouteService(RouteRepository routeRepository, SessionService sessionService, TypeService typeService, TechniqueService techniqueService, ExerciceService exerciceService) {
+    private final GradeService gradeService;
+
+    public RouteService(RouteRepository routeRepository, SessionService sessionService, TypeService typeService, TechniqueService techniqueService, ExerciceService exerciceService, GradeService gradeService) {
         this.routeRepository = routeRepository;
         this.sessionService = sessionService;
         this.typeService = typeService;
         this.techniqueService = techniqueService;
         this.exerciceService = exerciceService;
+        this.gradeService = gradeService;
     }
 
     public void createRoute(Route route) {
+        route.setSession(sessionService.findSessionById(route.getSession().getSessionId()));
+        route.setType(typeService.getTypeById(route.getType().getTypeId()));
         routeRepository.save(route);
     }
 
@@ -36,6 +41,8 @@ public class RouteService {
     }
 
     public Route updateRoute(int routeId, Route route) {
+        route.setSession(sessionService.findSessionById(route.getSession().getSessionId()));
+        route.setType(typeService.getTypeById(route.getType().getTypeId()));
         route.setRouteId(routeId);
         return routeRepository.save(route);
     }
@@ -66,5 +73,10 @@ public class RouteService {
 
     public List<Route> getAllRoutes() {
         return routeRepository.findAll();
+    }
+
+    public List<Route> findAllRouteByGrade(int gradeId) {
+        Grade grade = gradeService.getGradeById(gradeId);
+        return routeRepository.findAllRouteByGrade(grade).get();
     }
 }

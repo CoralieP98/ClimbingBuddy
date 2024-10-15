@@ -49,6 +49,11 @@ public class RouteController {
         return routeService.findAllRouteByType(typeId);
     }
 
+    @PostMapping("findAllRouteByGradeId")
+    public List<Route> findAllGradeByType(@RequestParam int gradeId){
+        return routeService.findAllRouteByGrade(gradeId);
+    }
+
     @PostMapping("findAllRouteByTechnique")
     public List<Route> findAllRouteByTechnique(@RequestParam int techniqueId){
         return routeService.findAllRouteByTechnique(techniqueId);
@@ -63,5 +68,7 @@ public class RouteController {
     public List<Route> getAllRoutes(){
         return routeService.getAllRoutes();
     }
+
+
 
 }

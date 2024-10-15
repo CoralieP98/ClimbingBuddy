@@ -18,17 +18,23 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeId;
 
-    private boolean isSlab;
+    private boolean slab;
 
-    private boolean isOverHang;
+    private boolean overHang;
 
-    private boolean isLead;
+    private boolean lead;
 
-    private boolean isTopRope;
+    private boolean topRope;
 
-    private boolean isARepeat;
+    private boolean aRepeat;
 
     private float lenght;
+
+    private String routeName;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "grade_id")
+    private Grade grade;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "session_id")
@@ -54,6 +60,7 @@ public class Route {
     )
     private List<Exercice> exercices;
 
+
     public int getRouteId() {
         return routeId;
     }
@@ -63,43 +70,43 @@ public class Route {
     }
 
     public boolean isSlab() {
-        return isSlab;
+        return slab;
     }
 
     public void setSlab(boolean slab) {
-        isSlab = slab;
+        this.slab = slab;
     }
 
     public boolean isOverHang() {
-        return isOverHang;
+        return overHang;
     }
 
     public void setOverHang(boolean overHang) {
-        isOverHang = overHang;
+        this.overHang = overHang;
     }
 
     public boolean isLead() {
-        return isLead;
+        return lead;
     }
 
     public void setLead(boolean lead) {
-        isLead = lead;
+        this.lead = lead;
     }
 
     public boolean isTopRope() {
-        return isTopRope;
+        return topRope;
     }
 
     public void setTopRope(boolean topRope) {
-        isTopRope = topRope;
+        this.topRope = topRope;
     }
 
-    public boolean isARepeat() {
-        return isARepeat;
+    public boolean isaRepeat() {
+        return aRepeat;
     }
 
-    public void setARepeat(boolean ARepeat) {
-        isARepeat = ARepeat;
+    public void setaRepeat(boolean aRepeat) {
+        this.aRepeat = aRepeat;
     }
 
     public float getLenght() {
@@ -108,6 +115,22 @@ public class Route {
 
     public void setLenght(float lenght) {
         this.lenght = lenght;
+    }
+
+    public String getRouteName() {
+        return routeName;
+    }
+
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 
     public Session getSession() {

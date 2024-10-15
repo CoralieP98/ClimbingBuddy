@@ -21,6 +21,11 @@ public class Place {
     @JoinColumn(name = "user_id")
     private User user;
 
+
+
+
+
+
     public int getPlaceId() {
         return placeId;
     }

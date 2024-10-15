@@ -25,6 +25,17 @@ public class User {
     @Column(unique = true)
     private String email;
 
+
+
+
+
+
+
+
+
+
+
+
     public int getId() {
         return id;
     }

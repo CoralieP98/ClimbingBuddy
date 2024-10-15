@@ -16,8 +16,11 @@ public interface RouteRepository extends JpaRepository<Route,Integer> {
 
     public Optional<List<Route>> findAllRoutesByType(Type type);
 
-    public Optional<List<Route>> findAllRouteByTechniques(Technique techniques);
+    public Optional<List<Route>> findAllRouteByTechniques(Technique techniques);//TODO AndUserId for tech & exo & grade
 
     public Optional<List<Route>> findAllRouteByExercices(Exercice exercices);
+
+    public Optional<List<Route>> findAllRouteByGrade(Grade grade);
+
 
 }

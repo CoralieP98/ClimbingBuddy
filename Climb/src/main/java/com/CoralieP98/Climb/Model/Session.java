@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sessionId;
 
-    private Date date;
+    private LocalDate date;
 
     private float duration;
 
@@ -31,6 +32,15 @@ public class Session {
     @JoinColumn(name = "place_id")
     private Place place;
 
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     public int getSessionId() {
         return sessionId;
     }
@@ -39,13 +49,6 @@ public class Session {
         this.sessionId = sessionId;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public float getDuration() {
         return duration;
