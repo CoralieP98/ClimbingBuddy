@@ -39,4 +39,8 @@ public class UserService {
         user.setId(id);
         return userRepository.save(user);
     }
+
+    public void deleteUserByMail(String email) {
+        userRepository.deleteUserByEmail(email).get();
+    }
 }

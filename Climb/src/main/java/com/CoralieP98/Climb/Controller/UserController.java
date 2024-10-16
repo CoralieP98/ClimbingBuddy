@@ -48,4 +48,9 @@ public class UserController {
     public User updateUser(@RequestParam(name = "id")int id, @RequestBody User user){
         return userService.updateUser(id,user);
     }
+
+    @DeleteMapping("deleteUserByMail")
+    public void deleteUserByMail(@RequestParam String email){
+        userService.deleteUserByMail(email);
+    }
 }
