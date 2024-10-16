@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Data
 public class Exercice {
 
@@ -18,27 +17,5 @@ public class Exercice {
 
     private Long cardId; //card etant une table mongo voir comment faire le lien
 
-    public int getExerciceId() {
-        return exerciceId;
-    }
 
-    public void setExerciceId(int exerciceId) {
-        this.exerciceId = exerciceId;
-    }
-
-    public String getLabelExercice() {
-        return labelExercice;
-    }
-
-    public void setLabelExercice(String labelExercice) {
-        this.labelExercice = labelExercice;
-    }
-
-    public Long getCardId() {
-        return cardId;
-    }
-
-    public void setCardId(Long cardId) {
-        this.cardId = cardId;
-    }
 }

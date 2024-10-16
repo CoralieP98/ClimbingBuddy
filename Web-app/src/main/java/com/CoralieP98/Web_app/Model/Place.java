@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Place {
 
     private int placeId;
@@ -18,27 +17,4 @@ public class Place {
 
     private String labelPlace;
 
-    public int getPlaceId() {
-        return placeId;
-    }
-
-    public void setPlaceId(int placeId) {
-        this.placeId = placeId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getLabelPlace() {
-        return labelPlace;
-    }
-
-    public void setLabelPlace(String labelPlace) {
-        this.labelPlace = labelPlace;
-    }
 }
