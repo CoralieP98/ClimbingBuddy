@@ -24,6 +24,7 @@ public class GradeController {
     public Grade getGradeById(@RequestParam int gradeId) {
         return gradeService.getGradeById(gradeId);
     }
+
     @GetMapping("getAllGrades")
     public List<Grade> getAllGrades() {
         return gradeService.getAllGrades();

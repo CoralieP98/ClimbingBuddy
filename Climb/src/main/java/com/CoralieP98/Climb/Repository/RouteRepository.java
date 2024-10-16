@@ -24,5 +24,4 @@ public interface RouteRepository extends JpaRepository<Route,Integer> {
 
     public Optional<List<Route>> findAllRoutesByUserId(int id);
 
-
 }

@@ -1,0 +1,445 @@
+USER///////////////////////////////////////////
+
+[
+    {
+        "id": 1,
+        "userName": "Test1",
+        "password": "t",
+        "email": "tt@t.t"
+    },
+    {
+        "id": 2,
+        "userName": "meh",
+        "password": "m",
+        "email": "m@m.m"
+    },
+    {
+        "id": 3,
+        "userName": "pwet",
+        "password": "p",
+        "email": "p@p.p"
+    }
+]
+
+EXOS//////////////////////////////////////////////////
+
+[
+    {
+        "exerciceId": 1,
+        "labelExercice": "Feet first",
+        "cardId": null
+    },
+    {
+        "exerciceId": 2,
+        "labelExercice": "Plank",
+        "cardId": null
+    },
+    {
+        "exerciceId": 3,
+        "labelExercice": "PullUps",
+        "cardId": null
+    },
+    {
+        "exerciceId": 4,
+        "labelExercice": "PushUps",
+        "cardId": null
+    },
+    {
+        "exerciceId": 5,
+        "labelExercice": "ChinUps",
+        "cardId": null
+    },
+    {
+        "exerciceId": 6,
+        "labelExercice": "PlaymobilArms",
+        "cardId": null
+    },
+    {
+        "exerciceId": 7,
+        "labelExercice": "Gullish",
+        "cardId": null
+    },
+    {
+        "exerciceId": 8,
+        "labelExercice": "Finger Strenghtening",
+        "cardId": null
+    }
+]
+
+
+TECH//////////////////////////////////////////////////////////////////
+[
+    {
+        "techniqueId": 1,
+        "labelTechnique": "Full crimp",
+        "cardId": null
+    },
+    {
+        "techniqueId": 2,
+        "labelTechnique": "Lolotte",
+        "cardId": null
+    },
+    {
+        "techniqueId": 3,
+        "labelTechnique": "DropKnee",
+        "cardId": null
+    },
+    {
+        "techniqueId": 4,
+        "labelTechnique": "KneeBar",
+        "cardId": null
+    },
+    {
+        "techniqueId": 5,
+        "labelTechnique": "Smearing",
+        "cardId": null
+    },
+    {
+        "techniqueId": 6,
+        "labelTechnique": "NoFoot",
+        "cardId": null
+    },
+    {
+        "techniqueId": 7,
+        "labelTechnique": "Figure 4",
+        "cardId": null
+    },
+    {
+        "techniqueId": 8,
+        "labelTechnique": "Edging",
+        "cardId": null
+    },
+    {
+        "techniqueId": 9,
+        "labelTechnique": "Toe Hook",
+        "cardId": null
+    },
+    {
+        "techniqueId": 10,
+        "labelTechnique": "Stemming",
+        "cardId": null
+    },
+    {
+        "techniqueId": 11,
+        "labelTechnique": "Flagging",
+        "cardId": null
+    },
+    {
+        "techniqueId": 12,
+        "labelTechnique": "Mantle",
+        "cardId": null
+    },
+    {
+        "techniqueId": 13,
+        "labelTechnique": "Undercling",
+        "cardId": null
+    },
+    {
+        "techniqueId": 14,
+        "labelTechnique": "Gaston",
+        "cardId": null
+    },
+    {
+        "techniqueId": 15,
+        "labelTechnique": "Palming",
+        "cardId": null
+    },
+    {
+        "techniqueId": 16,
+        "labelTechnique": "HeelHook",
+        "cardId": null
+    },
+    {
+        "techniqueId": 17,
+        "labelTechnique": "Dyno",
+        "cardId": null
+    }
+]
+
+PLACE////////////////////////////////////////////////////////////////////
+
+[
+    {
+        "placeId": 1,
+        "labelPlace": "Arkose Nantes",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 2,
+        "labelPlace": "Arkose Pont de Sevres",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 3,
+        "labelPlace": "Arkose Prado",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 4,
+        "labelPlace": "Arkose Issy",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 5,
+        "labelPlace": "Arkose Starsbourg Saint-Denis",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 6,
+        "labelPlace": "Arkose Montmartre",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 7,
+        "labelPlace": "Arkose Pantin",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 8,
+        "labelPlace": "Arkose Massy",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 9,
+        "labelPlace": "Arkose Chevalret",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 10,
+        "labelPlace": "ClimbUP Aubagne",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 11,
+        "labelPlace": "ClimbUP Marseille",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 12,
+        "labelPlace": "ClimbUP Paris",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 13,
+        "labelPlace": "ClimbUP Aubervillier",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 14,
+        "labelPlace": "ClimbUP Aix-en-Provence",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 15,
+        "labelPlace": "ClimbUP Bouc-Bel-Air",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+    {
+        "placeId": 16,
+        "labelPlace": "VerticalArt Toulon",
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        }
+    },
+{
+    "techniqueId": 17,
+    "labelTechnique": "Dyno",
+    "cardId": null
+}
+]
+
+PROFIL////////////////////////////////////////////////////////
+
+{
+    "profilId": 1,
+    "howManyYears": 2,
+    "age": 26,
+    "gender": "Female",
+    "ratherType": "Both",
+    "favoriteHolds": "crimps",
+    "favoriteClimbingStyle": "Static climbing",
+    "favoritePersonalities": "The Queen, Ai Mori, ChaeYong, AvezouS ...........",
+    "aboutYou": "BlaBlaBla I love to climb plastick holds and real montaign :D",
+    "user": {
+        "id": 2,
+        "userName": "meh",
+        "password": "m",
+        "email": "m@m.m"
+    }
+}
+
+
+SESSION///////////////////////////////////////////////////////////
+
+[
+    {
+        "sessionId": 1,
+        "date": "2024-03-21",
+        "duration": 250.0,
+        "warmUp": true,
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        },
+        "place": {
+            "placeId": 1,
+            "labelPlace": "Arkose Nantes",
+            "user": {
+                "id": 2,
+                "userName": "meh",
+                "password": "m",
+                "email": "m@m.m"
+            }
+        }
+    },
+    {
+        "sessionId": 2,
+        "date": "2024-03-25",
+        "duration": 150.0,
+        "warmUp": true,
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        },
+        "place": {
+            "placeId": 5,
+            "labelPlace": "Arkose Starsbourg Saint-Denis",
+            "user": {
+                "id": 2,
+                "userName": "meh",
+                "password": "m",
+                "email": "m@m.m"
+            }
+        }
+    },
+    {
+        "sessionId": 3,
+        "date": "2024-03-30",
+        "duration": 155.0,
+        "warmUp": true,
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        },
+        "place": {
+            "placeId": 8,
+            "labelPlace": "Arkose Massy",
+            "user": {
+                "id": 2,
+                "userName": "meh",
+                "password": "m",
+                "email": "m@m.m"
+            }
+        }
+    },
+    {
+        "sessionId": 4,
+        "date": "2024-04-02",
+        "duration": 255.0,
+        "warmUp": false,
+        "user": {
+            "id": 2,
+            "userName": "meh",
+            "password": "m",
+            "email": "m@m.m"
+        },
+        "place": {
+            "placeId": 8,
+            "labelPlace": "Arkose Massy",
+            "user": {
+                "id": 2,
+                "userName": "meh",
+                "password": "m",
+                "email": "m@m.m"
+            }
+        }
+    }
+]
+
+ROUTE/////////////////////////////////////////////////
+
+

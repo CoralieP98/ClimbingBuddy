@@ -64,6 +64,14 @@ public class Route {
     )
     private List<Exercice> exercices;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public int getRouteId() {
         return routeId;
     }

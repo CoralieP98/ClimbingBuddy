@@ -38,7 +38,7 @@ public class ProfilController {
     }
 
     @PostMapping("getProfilByUserId")
-    public Profil getProfilByUserId(@RequestParam int Id) {
-        return profilService.getProfilByUserId(Id);
+    public Profil getProfilByUserId(@RequestParam int id) {
+        return profilService.getProfilByUserId(id);
     }
 }

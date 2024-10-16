@@ -34,8 +34,20 @@ public class RouteService {
     }
 
     public void createRoute(Route route) {
+        route.setUser(userService.findUserById(route.getUser().getId()));
         route.setSession(sessionService.findSessionById(route.getSession().getSessionId()));
         route.setType(typeService.getTypeById(route.getType().getTypeId()));
+        route.setGrade(gradeService.getGradeById(route.getGrade().getGradeId()));
+        List<Technique> techniqueList = route.getTechniques();
+        for (Technique technique : techniqueList) {
+            technique.setLabelTechnique(techniqueService.findTechniqueById(technique.getTechniqueId()).getLabelTechnique());
+            technique.setCardId(techniqueService.findTechniqueById(technique.getTechniqueId()).getCardId());
+        }
+        List<Exercice> exerciceList = route.getExercices();
+        for (Exercice exercice : exerciceList) {
+            exercice.setLabelExercice(exerciceService.findExerciceById(exercice.getExerciceId()).getLabelExercice());
+            exercice.setCardId(exerciceService.findExerciceById(exercice.getExerciceId()).getCardId());
+        }
         routeRepository.save(route);
     }
 
@@ -44,9 +56,20 @@ public class RouteService {
     }
 
     public Route updateRoute(int routeId, Route route) {
+        route.setUser(userService.findUserById(route.getUser().getId()));
         route.setSession(sessionService.findSessionById(route.getSession().getSessionId()));
         route.setType(typeService.getTypeById(route.getType().getTypeId()));
-        route.setRouteId(routeId);
+        route.setGrade(gradeService.getGradeById(route.getGrade().getGradeId()));
+        List<Technique> techniqueList = route.getTechniques();
+        for (Technique technique : techniqueList) {
+            technique.setLabelTechnique(techniqueService.findTechniqueById(technique.getTechniqueId()).getLabelTechnique());
+            technique.setCardId(techniqueService.findTechniqueById(technique.getTechniqueId()).getCardId());
+        }
+        List<Exercice> exerciceList = route.getExercices();
+        for (Exercice exercice : exerciceList) {
+            exercice.setLabelExercice(exerciceService.findExerciceById(exercice.getExerciceId()).getLabelExercice());
+            exercice.setCardId(exerciceService.findExerciceById(exercice.getExerciceId()).getCardId());
+        }
         return routeRepository.save(route);
     }
 
