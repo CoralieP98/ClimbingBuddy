@@ -50,7 +50,7 @@ public class RouteController {
     }
 
     @PostMapping("findAllRouteByGradeIdAndUserId")
-    public List<Route> findAllGradeByType(@RequestParam int gradeId, @RequestParam int id){
+    public List<Route> findAllRouteByGradeIdAndUserId(@RequestParam int gradeId, @RequestParam int id){
         return routeService.findAllRouteByGradeAndUser(gradeId, id);
     }
 
