@@ -7,3 +7,13 @@ INSERT INTO `grade` (grade_id,grade_name)VALUES
 (20,"7a"),(21,"7a+"),(22,"7b"),(23,"7b+"),(24,"7c"),(25,"7c+"),
 (26,"8a"),(27,"8a+"),(28,"8b"),(29,"8b+"),(30,"8c"),(31,"8c+"),
 (32,"9a"),(33,"9a+"),(34,"9b"),(35,"9b+"),(36,"9c"),(37,"9c+");
+
+INSERT INTO `technique` (technique_id,card_id,label_technique)VALUES (1,NULL,"Full crimp"),(2,NULL,"Lolotte"),
+(3,NULL,"DropKnee"),(4,NULL,"KneeBar"),(5,NULL,"Smearing"),(6,NULL,"NoFoot"),(7,NULL,"Figure 4"),
+(8,NULL,"Edging"),(9,NULL,"Toe Hook"),(10,NULL,"Stemming"),(11,NULL,"Flagging"),(12,NULL,"Mantle"),
+(13,NULL,"Undercling"),(14,NULL,"Gaston"),(15,NULL,"Palming"),(16,NULL,"HeelHook"),(17,NULL,"Dyno");
+
+INSERT INTO `exercice` (exercice_id,card_id,label_exercice)VALUES (1,NULL,"Feet first"),
+(2,NULL,"Plank"),(3,NULL,"PullUps"),(4,NULL,"PushUps"),(5,NULL,"ChinUp"),(6,NULL,"PlaymobilArms"),
+(7,NULL,"Gullish"),(8,NULL,"Finger Strenghtening"),(9,NULL,"MuscleUp"),(10,NULL,"RemovingHolds"),
+(11,NULL,"3Sec"),(12,NULL,"DownClimbing"),(13,NULL,"Traverse"),(14,NULL,"YogaStretching");

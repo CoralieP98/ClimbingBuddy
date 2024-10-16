@@ -442,4 +442,28 @@ SESSION///////////////////////////////////////////////////////////
 
 ROUTE/////////////////////////////////////////////////
 
+{
+    "lead": false,
+    "arepeat": true,
+    "slab": false,
+    "overHang": false,
+    "topRope": true,
+    "lenght": 25.0,
+    "routeName":"",
+    "user":{
+            "id":2
+            },
+    "grade":{
+            "gradeId":15
+            },        
+    "session":{
+            "sessionId":1
+            },
+    "type":{
+            "typeId":2
+            },
+    "techniques":[{"techniqueId": 1},{"techniqueId": 2}],
+    "exercices":[{"exerciceId": 3}]
+}
+
 
