@@ -1,0 +1,642 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body{
+  font-family: $titleFont;
+  margin: 0;
+}
+
+h1, h2, h3,h4 ,p ,figure{
+  margin: 0;
+  padding: 0;
+}
+
+
+.SignForm{
+  padding-top: $space;
+  background-color: $darkerGrey;
+  box-sizing: border-box;
+  &-layout{
+    margin: $mediumSpace;
+  }
+  &-main{
+    &-tab{
+      margin-bottom: $bigSpace;
+      &-link{
+        text-decoration: none;
+        color: black;
+        &-spe{
+          padding-bottom: 2px;
+          text-decoration: none;
+          color: black;
+          font-weight: 600;
+          border-bottom: solid 2px;
+        }
+      }
+    }
+    &-form{
+      &-title{
+        font-weight: 800;
+        padding-top: 15px;
+        &>h3{
+          padding-top: 15px;
+          font-weight: 400;
+          margin: 0;
+          padding-bottom: $miniSpace;
+        }
+      }
+      &-fields{
+        text-align: center;
+        &-input{
+          background-color:#D9D9D9;
+          padding: $space;
+          margin-top: 10px;
+          width: 87%;
+          border: none;
+        }
+        &-interact{
+          padding: 8px $miniSpace;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+      &-button{
+        border: none;
+        border-radius: 0.5rem;
+        padding: 17px 55px;
+        margin-top: $biggerSpace;
+      }
+    }
+    &-footer{
+      &>p{
+        padding-top: $space;
+        font-weight: 300;
+        font-size:0.7em;
+      }
+    }
+  }
+}
+
+.forgot-password{
+  text-decoration: none;
+  color: black;
+  border-bottom: #000 solid 1px;
+  font-size:0.7em;
+}
+
+.first-link{
+  margin-right: $space;
+}
+
+.remember-me {
+  padding-top: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    & + label {
+      font-size: smaller;
+      position: relative;
+      padding-left: 20px;
+      cursor: pointer;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 13px;
+        height: 13px;
+        border: 2px solid #000; // Bordure pour la case
+        border-radius: 3px; // Coins légèrement arrondis
+        background-color: #ffffff2d; // Fond blanc
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 40%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 3px;
+        height: 6px;
+        border-right: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s ease-in-out;
+        color: #000;
+      }
+    }
+    &:checked + label::before {
+
+      border-color: #000000;
+    }
+    &:checked + label::after {
+      border-right-color: #000000;
+      border-bottom-color: #000000;
+    }
+  }
+}
+
+.Main-content{
+  &-welcome{
+    padding-top: $miniSpace;
+    padding-left: $biggerSpace;
+    padding-bottom: $miniSpace;
+    background-color: $grey;
+  }
+  &-dateinfo{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.158);
+    border-radius: 0.7em;
+    width: 70%;
+    padding: $miniSpace;
+    margin: $miniSpace 0;
+  }
+}
+
+.section-welcome{
+  &-title{
+    width: 150px;
+    font-size: large;
+    text-transform:uppercase;
+    color: white;
+    &-pseudo{
+      color: #452145;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 10px;
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        height: 3px;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+.section-date{
+  &-jourheure{
+    color: white;
+    font-weight: 500;
+    padding-left: $miniSpace;
+  }
+
+}
+
+.Left{
+  &-longPart{
+    margin-top: $bigSpace;
+  }
+  &-tiny{
+    display: flex;
+    margin: $bigSpace;
+    flex-direction: column;
+    // &-techniques{
+    //     align-self: flex-end;
+    // }
+    // &-exercises{
+    //     align-self: flex-end;
+    // }
+
+  }
+}
+
+.Right{
+  &-calendar{
+    text-align: center;
+    margin-bottom: $space;
+  }
+}
+
+.CtaCard{
+  margin-bottom: $mediumSpace;
+  display: flex;flex-direction: row-reverse;
+  align-items: center;
+  padding: $miniSpace $biggerSpace;
+  background-color: $darkishGrey;
+  justify-content: flex-end;
+  position: relative;
+  overflow: visible;
+  height:100px ;
+  &-img{
+    position: absolute;
+    bottom: -3%;
+    left: 70%;
+    &>img{
+      height: 155px;
+
+    }
+  }
+  &-content{
+    &-text{
+      color: white;
+      &-title{
+        font-size: 1.3em;
+        &>span{
+          color: #452145;
+        }
+      }
+      &>p{
+        font-size: 0.8em;
+        font-weight: 300;
+      }
+    }
+    &-button{
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      background-color:$darkGrey;
+      border-radius: 0.6em;
+      padding: 10px 0;
+      margin: 7px 0;
+      width: 140px;
+      &-label{
+        color: white;
+        width: 70px;
+        font-weight: 250;
+      }
+    }
+  }
+}
+
+.session{
+  margin-right: $bigSpace;
+  border-radius: 0 1em 1em 0;
+}
+
+.Cta-parcel{
+  background-color: $grey;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space;
+  width: 200px;
+  margin-bottom: $miniSpace;
+  &-text{
+    width: 150px;
+    &>p{
+      font-weight: 400;
+      font-size: 0.8em;
+    }
+  }
+  &-button{
+    background-color: $darkGrey;
+    border-radius: 0.5em;
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.AsideTech{
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color:$darkishGrey ;
+  border-radius: 1em;
+  padding: $miniSpace;
+  display: flex;
+  &-left{
+    width: 60%;
+    &-title{
+      color: white;
+      font-weight: 300;
+      font-size: 1em;
+    }
+  }
+  &-right{
+    width: 40%;
+    &-button{
+      &>select{
+        width: 100%;
+        padding: 7px;
+        color: white;
+        background-color: $darkGrey;
+        border: none;
+        background-color: none;
+        border-radius: 0.5em;
+        font-family: $titleFont;
+      }
+    }
+    &-content{
+      background-color: $darkerGrey;
+      color: white;
+      border-radius: 0.8em;
+    }
+  }
+}
+
+
+.Exercises{
+  &-title{
+    margin-top: $miniSpace;
+  }
+
+  &-list{
+    &parcel{
+      background-color: $grey;
+      margin-top: $miniSpace;
+      border-radius: 0.8em;
+      padding: $miniSpace;
+      display: flex;
+      height: 60px;
+      &-content{
+        width: 70%;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        align-items: flex-start;
+        &>figure{
+          align-self: center;
+        }
+        &-text{
+          align-self: flex-start;
+          padding-left: 10px;
+          &>h4{
+            font-size: 0.9em;
+          }
+        }
+      }
+      &-button{
+        background-color: $darkGrey;
+        border-radius: 0.6em;
+        padding: 7px;
+        color: white;
+        font-size: 0.8em;
+        font-weight: 300;
+        width:130px ;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-self: flex-end;
+        &>a{
+          height: 20px;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen AND (min-width:900px){
+  .SignForm{
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 1%;
+    right: 1%;
+    top: 10%;
+
+    &-layout{
+
+      overflow: hidden;
+      border-radius: 2em;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    &-aside{
+      box-sizing: border-box;
+      width: 50%;
+      background-color:$grey;
+    }
+    &-main{
+      box-sizing: border-box;
+      background-color: $darkerGrey;
+      width: 50%;
+      padding: $biggerSpace;
+    }
+  }
+  .header{
+    background-color: red;
+    height: 110px;
+  }
+  .Layout{
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  .Main-content{
+    &-welcome{
+
+      border-radius: 2.5em;
+      display: flex;
+      height: 250px;
+      justify-content: space-between;
+    }
+    &-dateinfo{
+      justify-content: flex-start;
+      flex-direction: row;
+      margin-top: 0;
+
+    }
+    &-bottomPart{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: $miniSpace;
+      &-left{
+        width: 100%;
+      }
+
+    }
+  }
+
+  .section-welcome{
+    &-title{
+      font-size: xx-large;
+    }
+  }
+  .section-date{
+    height: 25px;
+    width: 155px;
+    font-weight: 200;
+    font-size:0.8em;
+    text-align: right;
+    margin-right: $mediumSpace;
+    padding: $miniSpace 0 $miniSpace $biggerSpace;
+    &-icon{
+      padding-left: 10px;
+      &>svg{
+        width: 25px;
+      }
+    }
+  }
+
+  .Left{
+    &-tiny{
+      justify-content: space-between;
+      flex-direction: row;
+      margin: 0;
+      margin-right: $miniSpace;
+      &-techniques{
+        width: 70%;
+        margin-right: $bigSpace;
+
+      }
+      &-exercises{
+        width: 30%;
+      }
+    }
+
+  }
+
+  .CtaCard{
+    flex-direction: row;
+    justify-content: space-between;
+    position: initial;
+    height: 80px;
+    border-radius: 1em;
+
+    margin-right:$miniSpace;
+    &-img{
+      position: relative;
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      bottom: 24%;
+      left: -1%;
+    }
+    &-content{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      &-text{
+        &-title{
+          font-size: 2em;
+        }
+      }
+      &-button{
+        align-items: normal;
+        width:200px ;
+        padding: $miniSpace;
+        &-label{
+          width: 150px;
+        }
+      }
+
+    }
+  }
+
+  .Cta-parcel{
+    width:auto;
+  }
+
+
+  // .Right{
+  //     &-calendar{
+  //         &>img{
+  //             height: 400px;
+
+  //         }
+  //     }
+  // }
+
+  .techAndExo{
+    &-tech{
+      width: 50%;
+      background-color:$darkishGrey;
+      border-radius: 1em;
+
+    }
+    &-exo{
+
+      width: 50%;
+      border-radius: 1em;
+
+    }
+  }
+
+  .AsideTech{
+    margin: 0;
+    padding: $miniSpace;
+  }
+
+  .Exercises{
+    // height: 200px;
+    margin: 0;
+    &-title{
+      margin: 0;
+    }
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen AND (min-width:1300px){
+  .SignForm{
+    left: 15%;
+    right: 15%;
+  }
+
+}

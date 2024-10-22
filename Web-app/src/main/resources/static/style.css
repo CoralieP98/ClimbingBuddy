@@ -1,3 +1,506 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+body {
+  font-family: "Karla", sans-serif;
+  margin: 0;
+}
 
+h1, h2, h3, h4, p, figure {
+  margin: 0;
+  padding: 0;
+}
+
+.SignForm {
+  padding-top: 1.3em;
+  background-color: #A5A5A5;
+  box-sizing: border-box;
+}
+.SignForm-layout {
+  margin: 1.5em;
+}
+.SignForm-main-tab {
+  margin-bottom: 2em;
+}
+.SignForm-main-tab-link {
+  text-decoration: none;
+  color: black;
+}
+.SignForm-main-tab-link-spe {
+  padding-bottom: 2px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  border-bottom: solid 2px;
+}
+.SignForm-main-form-title {
+  font-weight: 800;
+  padding-top: 15px;
+}
+.SignForm-main-form-title > h3 {
+  padding-top: 15px;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 1em;
+}
+.SignForm-main-form-fields {
+  text-align: center;
+}
+.SignForm-main-form-fields-input {
+  background-color: #D9D9D9;
+  padding: 1.3em;
+  margin-top: 10px;
+  width: 87%;
+  border: none;
+}
+.SignForm-main-form-fields-interact {
+  padding: 8px 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.SignForm-main-form-button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 17px 55px;
+  margin-top: 3em;
+}
+.SignForm-main-footer > p {
+  padding-top: 1.3em;
+  font-weight: 300;
+  font-size: 0.7em;
+}
+
+.forgot-password {
+  text-decoration: none;
+  color: black;
+  border-bottom: #000 solid 1px;
+  font-size: 0.7em;
+}
+
+.first-link {
+  margin-right: 1.3em;
+}
+
+.remember-me {
+  padding-top: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.remember-me input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.remember-me input[type=checkbox] + label {
+  font-size: smaller;
+  position: relative;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.remember-me input[type=checkbox] + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 13px;
+  border: 2px solid #000;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.1764705882);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.remember-me input[type=checkbox] + label::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 40%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 3px;
+  height: 6px;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+  color: #000;
+}
+.remember-me input[type=checkbox]:checked + label::before {
+  border-color: #000000;
+}
+.remember-me input[type=checkbox]:checked + label::after {
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+}
+
+.Main-content-welcome {
+  padding-top: 1em;
+  padding-left: 3em;
+  padding-bottom: 1em;
+  background-color: #bbbbbb;
+}
+.Main-content-dateinfo {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.158);
+  border-radius: 0.7em;
+  width: 70%;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.section-welcome-title {
+  width: 150px;
+  font-size: large;
+  text-transform: uppercase;
+  color: white;
+}
+.section-welcome-title-pseudo {
+  color: #452145;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 10px;
+}
+.section-welcome-title-pseudo:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #ffffff;
+}
+
+.section-date-jourheure {
+  color: white;
+  font-weight: 500;
+  padding-left: 1em;
+}
+
+.Left-longPart {
+  margin-top: 2em;
+}
+.Left-tiny {
+  display: flex;
+  margin: 2em;
+  flex-direction: column;
+}
+
+.Right-calendar {
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+
+.CtaCard {
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 1em 3em;
+  background-color: #8D8D8D;
+  justify-content: flex-end;
+  position: relative;
+  overflow: visible;
+  height: 100px;
+}
+.CtaCard-img {
+  position: absolute;
+  bottom: -3%;
+  left: 70%;
+}
+.CtaCard-img > img {
+  height: 155px;
+}
+.CtaCard-content-text {
+  color: white;
+}
+.CtaCard-content-text-title {
+  font-size: 1.3em;
+}
+.CtaCard-content-text-title > span {
+  color: #452145;
+}
+.CtaCard-content-text > p {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+.CtaCard-content-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: #424242;
+  border-radius: 0.6em;
+  padding: 10px 0;
+  margin: 7px 0;
+  width: 140px;
+}
+.CtaCard-content-button-label {
+  color: white;
+  width: 70px;
+  font-weight: 250;
+}
+
+.session {
+  margin-right: 2em;
+  border-radius: 0 1em 1em 0;
+}
+
+.Cta-parcel {
+  background-color: #bbbbbb;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3em;
+  width: 200px;
+  margin-bottom: 1em;
+}
+.Cta-parcel-text {
+  width: 150px;
+}
+.Cta-parcel-text > p {
+  font-weight: 400;
+  font-size: 0.8em;
+}
+.Cta-parcel-button {
+  background-color: #424242;
+  border-radius: 0.5em;
+  padding: 5px;
+  height: 20px;
+  width: 20px;
+}
+
+.AsideTech {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #8D8D8D;
+  border-radius: 1em;
+  padding: 1em;
+  display: flex;
+}
+.AsideTech-left {
+  width: 60%;
+}
+.AsideTech-left-title {
+  color: white;
+  font-weight: 300;
+  font-size: 1em;
+}
+.AsideTech-right {
+  width: 40%;
+}
+.AsideTech-right-button > select {
+  width: 100%;
+  padding: 7px;
+  color: white;
+  background-color: #424242;
+  border: none;
+  background-color: none;
+  border-radius: 0.5em;
+  font-family: "Karla", sans-serif;
+}
+.AsideTech-right-content {
+  background-color: #A5A5A5;
+  color: white;
+  border-radius: 0.8em;
+}
+
+.Exercises-title {
+  margin-top: 1em;
+}
+.Exercises-listparcel {
+  background-color: #bbbbbb;
+  margin-top: 1em;
+  border-radius: 0.8em;
+  padding: 1em;
+  display: flex;
+  height: 60px;
+}
+.Exercises-listparcel-content {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+}
+.Exercises-listparcel-content > figure {
+  align-self: center;
+}
+.Exercises-listparcel-content-text {
+  align-self: flex-start;
+  padding-left: 10px;
+}
+.Exercises-listparcel-content-text > h4 {
+  font-size: 0.9em;
+}
+.Exercises-listparcel-button {
+  background-color: #424242;
+  border-radius: 0.6em;
+  padding: 7px;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 300;
+  width: 130px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+.Exercises-listparcel-button > a {
+  height: 20px;
+}
+
+@media screen and (min-width: 900px) {
+  .SignForm {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 1%;
+    right: 1%;
+    top: 10%;
+  }
+  .SignForm-layout {
+    overflow: hidden;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .SignForm-aside {
+    box-sizing: border-box;
+    width: 50%;
+    background-color: #bbbbbb;
+  }
+  .SignForm-main {
+    box-sizing: border-box;
+    background-color: #A5A5A5;
+    width: 50%;
+    padding: 3em;
+  }
+  .header {
+    background-color: red;
+    height: 110px;
+  }
+  .Layout {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  .Main-content-welcome {
+    border-radius: 2.5em;
+    display: flex;
+    height: 250px;
+    justify-content: space-between;
+  }
+  .Main-content-dateinfo {
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 0;
+  }
+  .Main-content-bottomPart {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+  .Main-content-bottomPart-left {
+    width: 100%;
+  }
+  .section-welcome-title {
+    font-size: xx-large;
+  }
+  .section-date {
+    height: 25px;
+    width: 155px;
+    font-weight: 200;
+    font-size: 0.8em;
+    text-align: right;
+    margin-right: 1.5em;
+    padding: 1em 0 1em 3em;
+  }
+  .section-date-icon {
+    padding-left: 10px;
+  }
+  .section-date-icon > svg {
+    width: 25px;
+  }
+  .Left-tiny {
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0;
+    margin-right: 1em;
+  }
+  .Left-tiny-techniques {
+    width: 70%;
+    margin-right: 2em;
+  }
+  .Left-tiny-exercises {
+    width: 30%;
+  }
+  .CtaCard {
+    flex-direction: row;
+    justify-content: space-between;
+    position: initial;
+    height: 80px;
+    border-radius: 1em;
+    margin-right: 1em;
+  }
+  .CtaCard-img {
+    position: relative;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    bottom: 24%;
+    left: -1%;
+  }
+  .CtaCard-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .CtaCard-content-text-title {
+    font-size: 2em;
+  }
+  .CtaCard-content-button {
+    align-items: normal;
+    width: 200px;
+    padding: 1em;
+  }
+  .CtaCard-content-button-label {
+    width: 150px;
+  }
+  .Cta-parcel {
+    width: auto;
+  }
+  .techAndExo-tech {
+    width: 50%;
+    background-color: #8D8D8D;
+    border-radius: 1em;
+  }
+  .techAndExo-exo {
+    width: 50%;
+    border-radius: 1em;
+  }
+  .AsideTech {
+    margin: 0;
+    padding: 1em;
+  }
+  .Exercises {
+    margin: 0;
+  }
+  .Exercises-title {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .SignForm {
+    left: 15%;
+    right: 15%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -5,31 +5,42 @@
 <!--    <link rel="stylesheet" href="style.css">-->
         <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js "></script>
     <title>Home</title>
 </head>
 <body>
-<header th:replace="~{fragments/navBar}"></header>
-
+<header th:fragment="navBar" class="header">
+    <div class="NavBar">
+        <a href="/home" class="NavBar-link">Home</a>
+        <a href="/profil" class="NavBar-link">Profil</a>
+        <a href="/sheets" class="NavBar-link">Sheets</a>
+        <a href="/stats" class="NavBar-link">Stats</a>
+    </div>
+    <figure class="NavBar-figure">
+        <img src="/image/logo.svg" alt="logo" class="NavBar-figure-logo">
+    </figure>
+</header>
 
 <main class="Main-content Layout">
     <section class="Main-content-welcome section-welcome">
         <div class="section-welcome-title">
-<!--            th:text="*{pseudo}"-->
             <h1>Welcome back<span class="section-welcome-title-pseudo">Pseudo</span></h1>
+<!--            <h1>Welcome back<span class="section-welcome-title-pseudo" th:text="*{userName}">Pseudo</span></h1>-->
+
         </div>
         <div class="Main-content-dateinfo section-date">
             <div class="section-date-jourheure">
-<!--                th:text="*{mettre date du jour}"-->
-                <p>18 - march- 2024</p>
-<!--                th:text="*{mettre heure}"-->
-                <p>15:23 pm</p>
+<!--                <p th:text="*{mettre date du jour}">18 - march- 2024</p>-->
+<!--                <p th:text="*{mettre heure}">15:23 pm</p>-->
+                <p >18 - march- 2024</p>
+                <p >15:23 pm</p>
             </div>
             <figure class="section-date-icon">
-                <img src="/image/iconCalendar.svg" alt="icon_calendar">
+                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.58105 5H24.0811C25.4618 5 26.5811 6.11929 26.5811 7.5V25C26.5811 26.3807 25.4618 27.5 24.0811 27.5H6.58105C5.20034 27.5 4.08105 26.3807 4.08105 25V7.5C4.08105 6.11929 5.20034 5 6.58105 5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.3311 2.5V7.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.3311 2.5V7.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.5811 12.5H4.08105" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </figure>
         </div>
     </section>
@@ -38,78 +49,106 @@
         <section class="Main-content-bottomPart-left Left">
 
             <div class="Left-longPart">
-                <div class="Left-longPart-addSession AddSession">
-                    <div class="AddSession-content">
-                        <figure class="AddSession-content-img">
-                            <img src="/image/happyDay" alt="icone femme contente">
-                        </figure>
-                        <div class="AddSession-content-text">
-                            <h2 class="AddSession-content-text-title">IT'S TIME TO CLIMB !!</h2>
+
+                <div class="Left-longPart-ctaCard CtaCard session">
+
+                    <figure class="CtaCard-img session-img">
+                        <img src="/image/happyDay.png" alt="icone femme contente">
+                    </figure>
+                    <div class="CtaCard-content">
+                        <div class="CtaCard-content-text">
+                            <h2 class="CtaCard-content-text-title">IT'S TIME TO CLIMB !!</h2>
                             <p>You decided today was a good day :D</p>
                         </div>
-                        <div class="AddSession-content-button">
-                            <p class="AddSession-content-button-label">Add new session</p>
-                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        <div class="CtaCard-content-button session-btn">
+                            <p class="CtaCard-content-button-label">Add new session</p>
+                            <a href="/addSession">
+                                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
-            <div class="Left-bottom">
-                <div class="Left-bottom-aside-technique Aside-tech">
-                    <div class="Aside-tech-left">
-                        <h4 class="Aside-tech-left-title">Mastered techniques</h4>
-                        <canvas  th:value="${data}" class="Aside-tech-left-graph" id="nbTechnics"></canvas>
-                    </div>
-                    <div class="Aside-tech-right">
-                        <div class="Aside-tech-right-button">
-                            <label for="stat-date-select">this month <span></span><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></label>
-                            <select name="tech" id="stat-date-select">
-                                <option value="month">this month</option>
-                                <option value="sessions">By sessions</option>
-                                <option value="year">By year</option>
-                            </select>
+            <div class="Left-tiny techAndExo">
+                <div class="Left-tiny-techniques techAndExo-tech">
+                    <div class="AsideTech">
+                        <div class="AsideTech-left">
+                            <h4 class="AsideTech-left-title">Mastered techniques</h4>
+<!--                            <canvas  th:value="${data}" class="AsideTech-left-graph" id="nbTechnics"></canvas>-->
+                            <canvas  class="AsideTech-left-graph" id="nbTechnics"></canvas>
                         </div>
-                        <div class="Aside-tech-right-content">
-                            <ul>
-                                <li th:each="data: ${data}">
-                                    <p  class="Aside-tech-right-label-content-number" th:text="${data.total}"></p>
-                                    <p  class="Aside-tech-right-label-content-name" th:text="${data.label}"></p>
-                                </li>
-                            </ul>
+                        <div class="AsideTech-right">
+                            <div class="AsideTech-right-button">
+                                <label for="stat-date-select"><span></span></label>
+                                <select name="tech" id="stat-date-select">
+                                    <option value="month">This month</option>
+                                    <option value="sessions">By sessions</option>
+                                    <option value="year">By year</option>
+                                </select>
+                            </div>
+                            <div class="AsideTech-right-content">
+                                <ul>
+<!--                                    <li th:each="data: ${data}">-->
+<!--                                        <p  class="AsideTech-right-label-content-number" th:text="${data.total}"></p>-->
+<!--                                        <p  class="AsideTech-right-label-content-name" th:text="${data.label}"></p>-->
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="Left-bottom-aside-exo Aside-exo">
-                    <h3 class="Aside-exo-title">Favorite exercices :</h3>
-                    <div class="Aside-exo-parcel">
-                        <div class="Aside-exo-parcel-content">
-                            <figure><img src="/image/logo_exo_01" alt="logo"></figure>
-                            <div class="Aside-exo-parcel-content-text">
-                                <h4>Abbs strengthening</h4>
-<!--                                th:text="${stat.exos.combien}"-->
-                                <p>done: <span >11</span> times</p>
+                <div class="Left-tiny-exercises techAndExo-exo">
+                    <div class="Exercises">
+                        <h3 class="Exercises-title">Favorite exercices :</h3>
+                        <div class="Exercises-list">
+
+                            <div class="Exercises-listparcel">
+                                <div class="Exercises-listparcel-content">
+                                    <figure><img src="image/exo_01.png" alt="logo"></figure>
+                                    <div class="Exercises-listparcel-content-text">
+                                        <h4>Abbs strengthening</h4>
+<!--                                        <p>done: <span th:text="${stat.exos.combien}">11</span> times</p>-->
+                                        <p>done: <span >11</span> times</p>
+                                    </div>
+                                </div>
+                                <div class="Exercises-listparcel-button">
+                                    <p>Keep going</p>
+                                    <a href="/addSession">
+                                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                            <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="Aside-exo-parcel-button">
-                            <p>Keep going</p>
-                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
-                        </div>
-                    </div>
-                    <div class="Aside-exo-parcel">
-                        <div class="Aside-exo-parcel-content">
-                            <figure><img src="/image/logo_exo_01" alt="logo"></figure>
-                            <div class="Aside-exo-parcel-content-text">
-                                <h4>Pullups</h4>
-<!--                                th:text="${stat.exos.combien}"-->
-                                <p>done: <span >8</span> times</p>
+                            <div class="Exercises-listparcel">
+                                <div class="Exercises-listparcel-content">
+                                    <figure><img src="image/exo_02.png" alt="logo"></figure>
+                                    <div class="Exercises-listparcel-content-text">
+                                        <h4>Pullups</h4>
+<!--                                        <p>done: <span th:text="${stat.exos.combien}">8</span> times</p>-->
+                                        <p>done: <span >8</span> times</p>
+                                    </div>
+                                </div>
+                                <div class="Exercises-listparcel-button">
+                                    <p>Keep going</p>
+                                    <a href="/addSession">
+                                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                            <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
+
                         </div>
-                        <div class="Aside-exo-parcel-button">
-                            <p>Keep going</p>
-                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -118,7 +157,8 @@
 
         <section class="Main-content-bottomPart-right Right">
             <div class="Right-calendar">
-                <div class="Right-calendar-header">
+                <img src="image/Calendar_section.png" alt="">
+                <!-- <div class="Right-calendar-header">
                     <h3 class="Right-calendar-header-title">Calendar</h3>
                     <div class="Right-calendar-header-link">
                         <a href="/lastMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
@@ -128,16 +168,16 @@
                     <div class="Right-calendar-content Calendar">
                         <table class="Calendar-table">
                             <thead class="Calendar-table-title">
-                            <th>Mo</th>
-                            <th>Tu</th>
-                            <th>We</th>
-                            <th>Th</th>
-                            <th>Fr</th>
-                            <th>Sa</th>
-                            <th>Su</th>
+                                <th>Mo</th>
+                                <th>Tu</th>
+                                <th>We</th>
+                                <th>Th</th>
+                                <th>Fr</th>
+                                <th>Sa</th>
+                                <th>Su</th>
                             </thead>
                             <tbody class="Calendar-table-jour">
-                            <!-- trouver calendrier API blabla -->
+                                trouver calendrier API blabla
                             </tbody>
                         </table>
                     </div>
@@ -149,8 +189,7 @@
                             </div>
                             <div class="Right-calendar-footer-detail-content">
                                 <h5>Bloc session</h5>
-<!--                                th:text="*{date}" th:text="*{place}"-->
-                                <p><span>fev.22</span> - <span >ClimbUP Aubagne</span></p>
+                                <p><span th:text="*{date}">fev.22</span> - <span th:text="*{place}">ClimbUP Aubagne</span></p>
                             </div>
                         </div>
                         <div class="Right-calendar-footer-detail">
@@ -160,44 +199,19 @@
                                 </div>
                                 <div class="Right-calendar-footer-detail-content">
                                     <h5>Renforcement</h5>
-<!--                                    th:text="*{date}" th:text="*{place}"-->
-                                    <p><span>fev.02</span> - <span >Home</span></p>
+                                    <p><span th:text="*{date}">fev.02</span> - <span th:text="*{place}">Home</span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </section>
 
     </div>
 
 </main>
-
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    const ctx = document.getElementById("nbTechnics")
-
-    const htmlData = /*[[${data}]]*/ 'meh';
-
-
-    const charData = {
-        labels : htmlData.map(row => row.label),
-        datasets : [{
-            label : "nbTech",
-            data: htmlData.map(row => row.total),
-            backgroundColor:["blue","cyan","navy","royalblue","indigo","lightblue"]
-        }]
-    }
-
-    const myChart = new Chart(ctx,{
-        type: "pie",
-        data:charData
-
-    })
-    /*]]>*/
-</script>
 
 </body>
 </html>

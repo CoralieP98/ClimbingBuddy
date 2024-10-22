@@ -8,83 +8,125 @@
     <title>Home</title>
 </head>
 <body>
-<header th:replace="~{fragments/navBar}"></header>
-
+<header th:fragment="navBar" class="header">
+    <div class="NavBar">
+        <a href="/home" class="NavBar-link">Home</a>
+        <a href="/profil" class="NavBar-link">Profil</a>
+        <a href="/sheets" class="NavBar-link">Sheets</a>
+        <a href="/stats" class="NavBar-link">Stats</a>
+    </div>
+    <figure class="NavBar-figure">
+        <img src="/image/logo.svg" alt="logo" class="NavBar-figure-logo">
+    </figure>
+</header>
 
 <main class="Main-content Layout">
     <section class="Main-content-welcome section-welcome">
         <div class="section-welcome-title">
-<!--            th:text="*{pseudo}"-->
             <h1>Welcome <span class="section-welcome-title-pseudo">Pseudo</span></h1>
+<!--            <h1>Welcome <span class="section-welcome-title-pseudo" th:text="*{userName}">Pseudo</span></h1>-->
         </div>
         <div class="Main-content-dateinfo section-date">
             <div class="section-date-jourheure">
-<!--                th:text="*{mettre date du jour}"-->
-                <p>18 - march- 2024</p>
-<!--                th:text="*{mettre heure}"-->
-                <p>15:23 pm</p>
+                <p >18 - march- 2024</p>
+                <p >15:23 pm</p>
+<!--                <p th:text="*{mettre date du jour}">18 - march- 2024</p>-->
+<!--                <p th:text="*{mettre heure}">15:23 pm</p>-->
             </div>
             <figure class="section-date-icon">
-                <img src="/image/iconCalendar.svg" alt="icon_calendar">
+                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.58105 5H24.0811C25.4618 5 26.5811 6.11929 26.5811 7.5V25C26.5811 26.3807 25.4618 27.5 24.0811 27.5H6.58105C5.20034 27.5 4.08105 26.3807 4.08105 25V7.5C4.08105 6.11929 5.20034 5 6.58105 5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.3311 2.5V7.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.3311 2.5V7.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M26.5811 12.5H4.08105" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </figure>
         </div>
     </section>
     <div class="Main-content-bottomPart">
-        <section class="Main-content-bottomPart-left Left">
+        <div class="Main-content-bottomPart-left Left">
             <div class="Left-longPart">
-                <div class="Left-longPart-addSession AddSession">
-                    <div class="AddSession-content">
-                        <figure class="AddSession-content-img">
-                            <img src="/image/happyDay" alt="icone femme contente">
-                        </figure>
-                        <div class="AddSession-content-text">
-                            <h2 class="AddSession-content-text-title">IT'S TIME TO CLIMB !!</h2>
+
+                <div class="Left-longPart-ctaCard CtaCard session">
+                    <figure class="CtaCard-img session-img">
+                        <img src="image/happyDay.png" alt="icone femme contente">
+                    </figure>
+                    <div class="CtaCard-content">
+                        <div class="CtaCard-content-text">
+                            <h2 class="CtaCard-content-text-title">IT'S TIME TO CLIMB !!</h2>
                             <p>You decided today was a good day :D</p>
                         </div>
-                        <div class="AddSession-content-button">
-                            <p class="AddSession-content-button-label">Add new session</p>
-                            <a href="/addSession"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                        <div class="CtaCard-content-button session-btn">
+                            <p class="CtaCard-content-button-label">Add new session</p>
+                            <a href="/addSession">
+                                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="Left-longPart-setProfil SetProfil">
-                    <div class="SetProfil-text">
-                        <h2 class="SetProfil-text-title">Tell us more about <span>YOU</span></h2>
-                        <p>What is your climbing journey? What’s your favorite types of hold?
-                            Slab or overhang? ...</p>
-                    </div>
-                    <div class="SetProfil-button">
-                        <p class="SetProfil-button-button-label">Set your profil</p>
-                        <a href="/setProfil"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
+                <div class="Left-longPart-ctaCard CtaCard">
+                    <div class="CtaCard-content">
+                        <div class="CtaCard-content-text">
+                            <h2 class="CtaCard-content-text-title">Tell us more about <span>YOU</span></h2>
+                            <p>What is your climbing journey? What’s your favorite types of hold?
+                                Slab or overhang? ...</p>
+                        </div>
+                        <div class="CtaCard-content-button">
+                            <p class="CtaCard-content-button-label">Set your profil</p>
+                            <a href="/setProfil">
+                                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                </svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="Left-tiny">
-                <div class="Left-tiny-newExo">
-                    <div class="Left-tiny-newExo-text">
-                        <h4>Try new exercice</h4>
-                        <p>work on your weak point and get stronger</p>
-                    </div>
-                    <div class="Left-tiny-newExo-button">
-                        <a href="/getAllExercices"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
-                    </div>
-                </div>
-                <div class="Left-tiny-img"></div>
-                <div class="Left-tiny-newtech">
-                    <div class="Left-tiny-newtech-text">
-                        <h4>Learn technics</h4>
-                        <p>Learn awesome tricks and level up your game!</p>
-                    </div>
-                    <div class="Left-tiny-newtech-button">
-                        <a href="/getAllTechnic"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="Main-content-bottomPart-right Right">
+                <div class="Left-tiny-techniques">
+                    <div class=" Cta-parcel">
+                        <div class=" Cta-parcel-text">
+                            <h4>Learn techniques</h4>
+                            <p>Learn awesome tricks and level up your game!</p>
+                        </div>
+                        <div class=" Cta-parcel-button">
+                            <a href="/getAllTechnic">
+                                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Left-tiny-exercises">
+                    <div class=" Cta-parcel">
+                        <div class=" Cta-parcel-text">
+                            <h4>Try new exercice</h4>
+                            <p>work on your weak point and get stronger</p>
+                        </div>
+                        <div class="Cta-parcel-button">
+                            <a href="/getAllExercices">
+                                <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="Main-content-bottomPart-right Right">
             <div class="Right-calendar">
-                <div class="Right-calendar-header">
+                <img src="image/Mobile_Calendar_section.png" alt="">
+                <!-- <div class="Right-calendar-header">
                     <h3 class="Right-calendar-header-title">Calendar</h3>
                     <div class="Right-calendar-header-link">
                         <a href="/lastMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
@@ -93,26 +135,26 @@
                     <div class="Right-calendar-content Calendar">
                         <table class="Calendar-table">
                             <thead class="Calendar-table-title">
-                            <th>Mo</th>
-                            <th>Tu</th>
-                            <th>We</th>
-                            <th>Th</th>
-                            <th>Fr</th>
-                            <th>Sa</th>
-                            <th>Su</th>
+                                <th>Mo</th>
+                                <th>Tu</th>
+                                <th>We</th>
+                                <th>Th</th>
+                                <th>Fr</th>
+                                <th>Sa</th>
+                                <th>Su</th>
                             </thead>
                             <tbody class="Calendar-table-jour">
-                            <!-- trouver calendrier API blabla -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="Right-calendar-footer">
-                        <div class="Right-calendar-footer-detail"></div>
-                        <div class="Right-calendar-footer-detail"></div>
-                    </div>
-                </div>
+                                 trouver calendrier API blabla
+                </tbody>
+            </table>
+        </div>
+        <div class="Right-calendar-footer">
+            <div class="Right-calendar-footer-detail"></div>
+            <div class="Right-calendar-footer-detail"></div>
+        </div>
+                 </div>  -->
             </div>
-        </section>
+        </div>
     </div>
 
 
