@@ -1,13 +1,30 @@
-<header th:fragment="navBar" class="header">
-    <div class="NavBar">
-        <a href="/home" class="NavBar-link">Home</a>
-        <a href="/profil" class="NavBar-link">Profil</a>
-        <a href="/sheets" class="NavBar-link">Sheets</a>
-        <a href="/stats" class="NavBar-link">Stats</a>
-        <a href="/logout" class="NavBar-link">Logout</a>
+<header th:fragment="navBar" class="Header">
+    <nav role="navigation" class="NavSide">
+        <div id="menuToggle" class="NavSide-content">
 
-    </div>
-    <figure class="NavBar-figure">
-        <img src="/image/logo.svg" alt="logo" class="NavBar-figure-logo">
-    </figure>
+            <input type="checkbox" id="burger"/>
+            <label for="burger" class="l">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul id="menu" class="NavSide-content-menu">
+                <a href="/home" class="NavSide-content-menu-link"><li>Home</li></a>
+                <a href="/profil" class="NavSide-content-menu-link"><li>Profil</li></a>
+                <a href="/sheets" class="NavSide-content-menu-link"><li>Sheets</li></a>
+                <a href="/sessions" class="NavSide-content-menu-link"><li>Sessions</li></a>
+                <a href="/logout" class="NavSide-content-menu-link-logout"><li>Logout</li></a>
+                <ul id="footer" class="NavSide-content-footer">
+                    <a href="#" class="NavSide-content-footer-link"><li>about us</li></a>
+                    <a href="#" class="NavSide-content-footer-link"><li>settings</li></a>
+                    <a href="#" class="NavSide-content-footer-link"><li>contact us</li></a>
+                    <figure class="NavSide-content-footer-figure">
+                        <img src="/image/logo.svg" alt="logo" class="NavBar-content-footer-figure-logo">
+                    </figure>
+                </ul>
+
+            </ul>
+        </div>
+    </nav>
 </header>

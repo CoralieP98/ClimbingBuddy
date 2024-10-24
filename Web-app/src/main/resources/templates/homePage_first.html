@@ -8,16 +8,21 @@
     <title>Home</title>
 </head>
 <body>
-<header th:fragment="navBar" class="header">
-    <div class="NavBar">
-        <a href="/home" class="NavBar-link">Home</a>
-        <a href="/profil" class="NavBar-link">Profil</a>
-        <a href="/sheets" class="NavBar-link">Sheets</a>
-        <a href="/stats" class="NavBar-link">Stats</a>
-    </div>
-    <figure class="NavBar-figure">
-        <img src="/image/logo.svg" alt="logo" class="NavBar-figure-logo">
-    </figure>
+<header th:replace="~{fragments/navBar}" class="Header">
+</header>
+<header class="Header-dash">
+    <nav class="NavBar">
+        <div class="NavBar-content">
+            <a href="/home" class="NavBar-content-link">Home</a>
+            <a href="/profil" class="NavBar-content-link">Profil</a>
+            <a href="/sheets" class="NavBar-content-link">Sheets</a>
+            <a href="/stats" class="NavBar-content-link">Sessions</a>
+            <a href="/logout" class="NavBar-content-link logout">Logout</a>
+        </div>
+        <figure class="NavBar-figure">
+            <img src="image/logo_placeholder.png" alt="logo" class="NavBar-figure-logo">
+        </figure>
+    </nav>
 </header>
 
 <main class="Main-content Layout">
