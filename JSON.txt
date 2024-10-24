@@ -337,7 +337,7 @@ PROFIL////////////////////////////////////////////////////////
     "favoriteHolds": "crimps",
     "favoriteClimbingStyle": "Static climbing",
     "favoritePersonalities": "The Queen, Ai Mori, ChaeYong, AvezouS ...........",
-    "aboutYou": "BlaBlaBla I love to climb plastick holds and real montaign :D",
+    "aboutYou": " ",
     "user": {
         "id": 2,
         "userName": "meh",
