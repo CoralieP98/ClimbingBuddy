@@ -2,6 +2,8 @@ package com.CoralieP98.Web_app.Service;
 
 
 import com.CoralieP98.Web_app.Model.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.CoralieP98.Web_app.Service.UserServiceImpl;
@@ -26,5 +28,12 @@ public class CustomUserDetailsService  implements UserDetailsService{
                 .username(user.getEmail())
                 .password(user.getPassword())
                 .build();
+    }
+
+    public User actualUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String actualUserName = authentication.getName();
+        User user = userService.findByUserName(actualUserName);
+        return user;
     }
 }

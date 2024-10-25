@@ -20,6 +20,8 @@ public class Profil {
     private String favoriteClimbingStyle;
     private String favoritePersonalities;
     private String aboutYou;
+    private float height;
+    private float apex;
 
 
     private User user;

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kosugi+Maru&display=swap");
 body {
   font-family: "Karla", sans-serif;
   margin: 0;
@@ -477,6 +478,126 @@ h1, h2, h3, h4, p, figure {
   display: none;
 }
 
+.AddSession-header-figure {
+  text-align: right;
+  margin: 1em;
+}
+.AddSession-header-figure-logo {
+  width: 60px;
+}
+
+.SetProfil-main-userInfo {
+  background-color: #8D8D8D;
+  margin-bottom: 2em;
+}
+.SetProfil-main-userInfo > h1 {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 100;
+  padding: 0.7em 1.5em;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  font-stretch: condensed;
+  text-transform: uppercase;
+}
+.SetProfil-main-userInfo > h1 > span {
+  color: #452145;
+}
+.SetProfil-main-userInfo-update {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding-bottom: 2em;
+}
+.SetProfil-main-userInfo-update-fields {
+  width: 45%;
+}
+.SetProfil-main-userInfo-update-fields > p {
+  background-color: #d3d3d3;
+  padding: 0.5em 0.8em;
+  margin-top: 1em;
+}
+.SetProfil-main-userInfo-update > a {
+  text-decoration: none;
+  color: white;
+  padding: 7px 15px;
+  border: solid #bbbbbb 2px;
+  border-radius: 0.5em;
+}
+.SetProfil-main-profil-layout-form {
+  margin: 0 7%;
+}
+
+.Profil-form-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.Profil-form-content-label {
+  color: #424242;
+  padding-bottom: 8px;
+}
+.Profil-form-content > input {
+  padding: 0.8em;
+  border: solid 2px #424242;
+}
+.Profil-form-content > input::placeholder {
+  color: #A5A5A5;
+}
+.Profil-form-content > p {
+  padding: 0.6em;
+  border: solid 2px #424242;
+}
+
+.About-place {
+  margin: 0 5%;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.About-place-label {
+  color: #424242;
+  padding-bottom: 8px;
+}
+.About-place > textarea {
+  padding: 0.8em;
+  border: solid 2px #424242;
+  color: #A5A5A5;
+  height: 110px;
+  text-align: start;
+}
+.About-place > p {
+  padding: 0.6em;
+  border: solid 2px #424242;
+}
+.About-quote {
+  display: none;
+}
+
+.PhotoAndSubmit {
+  margin-bottom: 1.5em;
+}
+.PhotoAndSubmit-photo {
+  display: none;
+}
+.PhotoAndSubmit-submit > button {
+  margin-top: 1em;
+  margin-left: 5%;
+  padding: 0.6em 2em;
+  background-color: #424242;
+  border: none;
+  border-radius: 0.5em;
+  color: #ffffff;
+  width: 30%;
+  text-align: start;
+  font-weight: 300;
+}
+.PhotoAndSubmit-submit > button > a {
+  text-decoration: none;
+  color: white;
+}
+
 @media screen and (min-width: 900px) {
   .SignForm {
     background-color: white;
@@ -650,6 +771,92 @@ h1, h2, h3, h4, p, figure {
   }
   .Header {
     display: none;
+  }
+  .SetProfil-main-userInfo {
+    background: none;
+  }
+  .SetProfil-main-userInfo > h1 {
+    font-size: 3.5em;
+    color: #424242;
+  }
+  .SetProfil-main-userInfo-update {
+    align-items: center;
+  }
+  .SetProfil-main-userInfo-update-fields {
+    display: flex;
+  }
+  .SetProfil-main-userInfo-update-fields > p {
+    margin-right: 3em;
+    margin-top: 0;
+    padding-right: 2em;
+  }
+  .SetProfil-main-userInfo-update > a {
+    color: #8D8D8D;
+  }
+  .SetProfil-main-profil {
+    background-color: #d3d3d3;
+    border-radius: 2em 2em 0 0;
+    margin: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2em;
+  }
+  .SetProfil-main-profil-layout-form {
+    margin: 0;
+  }
+  .About {
+    margin: 0 1em;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .About-place {
+    margin: 0;
+  }
+  .About-place > textarea {
+    height: 140px;
+  }
+  .About > h2 {
+    margin-top: 1em;
+    display: inline;
+    font-family: "Kosugi Maru", sans-serif;
+    font-weight: 100;
+    border-bottom: solid 2px #424242;
+    text-align: right;
+    padding-bottom: 5px;
+    width: fit-content;
+    align-self: flex-end;
+  }
+  .PhotoAndSubmit {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
+  .PhotoAndSubmit-photo {
+    display: inline;
+  }
+  .PhotoAndSubmit-photo > figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3em;
+  }
+  .PhotoAndSubmit-photo > figure > a {
+    text-decoration: none;
+    color: #8D8D8D;
+    font-size: 1em;
+    padding-top: 8px;
+  }
+  .PhotoAndSubmit-submit {
+    margin: 0;
+    margin-top: 440px;
+  }
+  .PhotoAndSubmit-submit > button {
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    margin: 0;
   }
 }
 @media screen and (min-width: 1300px) {

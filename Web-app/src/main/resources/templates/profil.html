@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+<!--        <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>Profil</title>
+</head>
+<body>
+
+        <header th:replace="~{fragments/navBar_side}">
+            <figure class="AddSession-header-figure">
+                <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
+            </figure>
+        </header>
+      
+
+    <main class="SetProfil-main">
+        <div class="SetProfil-main-userInfo" th:object="${user}">
+            <h1>Hey <span th:text="${user.userName}">MEH</span> tell us more about you!</h1>
+            <div class="SetProfil-main-userInfo-update">
+                <div class="SetProfil-main-userInfo-update-fields">
+                    <p th:text="${user.userName}">Pseudo</p>
+                    <p th:text="${user.email}">email</p>
+                    <p>AKA Spiderman</p>
+                </div>
+                <a href="/updateUser">Modify</a>
+            </div>
+        </div>
+        <section class="SetProfil-main-profil">
+            <div class="SetProfil-main-profil-layout-form">
+                <form class="SetProfil-main-profil-layout-form Profil-form" th:object="${profil}" id="form-profil">
+
+                    <div class="Profil-form-content howMany">
+                        <label class="Profil-form-content-label">How long have you been climbing? *</label>
+                        <p th:field="${profil.howManyYears}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content age">
+                        <label class="Profil-form-content-label">What's your age?</label>
+                        <p th:field="${profil.age}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content gender">
+                        <label class="Profil-form-content-label">What's your gender?</label>
+                         <p th:field="${profil.gender}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content height">
+                        <label class="Profil-form-content-label">What's your height?</label>
+                         <p th:field="${profil.height}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content apex">
+                        <label class="Profil-form-content-label">What's your apex?</label>
+                        <p th:field="${profil.apex}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content ratherType">
+                        <label class="Profil-form-content-label">Are you into bouldering? sport climbing?</label>
+                        <p th:field="${profil.ratherType}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content holds">
+                        <label class="Profil-form-content-label">What's your favorite types of holds?</label>
+                        <p th:field="${profil.favoriteHolds}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content style">
+                        <label class="Profil-form-content-label">What's your climbing style?</label>
+                         <p th:field="${profil.favoriteClimbingStyle}">Tell us more about y</p>
+                    </div>
+
+                    <div class="Profil-form-content perso">
+                        <label class="Profil-form-content-label">Favorite personality in the climbing community?</label>
+                        <p th:field="${profil.favoritePersonalities}">Tell us more about y</p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="SetProfil-main-profil-layout-about About">
+                <div class="About-place">
+                    <label class="About-place-label">Tell us more about your climbing journey...</label>
+
+                    <p th:field="${profil.aboutYou}">Tell us more about y</p>
+                </div>
+                <h2 class="About-quote">Allez!</h2>
+            </div>
+
+            <div class="SetProfil-main-profil-layout-photoAndSubmit PhotoAndSubmit">
+                <div class="PhotoAndSubmit-photo">
+                    <figure>
+                        <img src="image/photo_profil.png" alt="Avatar ou photo user">
+                        <a href="/addPhoto"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico">add an Avatar</a>
+                    </figure>
+                </div>
+                <div class="PhotoAndSubmit-submit"> 
+                    <button  for="form-profil"  class="PhotoAndSubmit-submit-button"><a href="/updateProfil">Update</a></button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    
+
+
+
+
+</body>
+</html>
