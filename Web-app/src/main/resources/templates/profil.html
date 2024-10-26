@@ -9,12 +9,12 @@
 </head>
 <body>
 
-        <header th:replace="~{fragments/navBar_side}">
-            <figure class="AddSession-header-figure">
-                <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
-            </figure>
-        </header>
-      
+    <header th:replace="~{fragments/navBar}">
+    </header>
+    <figure class="AddSession-header-figure">
+        <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
+    </figure>
+
 
     <main class="SetProfil-main">
         <div class="SetProfil-main-userInfo" th:object="${user}">

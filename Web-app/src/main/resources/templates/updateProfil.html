@@ -9,20 +9,20 @@
 </head>
 <body>
 
-        <header th:replace="~{fragments/navBar_side}">
-            <figure class="AddSession-header-figure">
-                <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
-            </figure>
+        <header th:replace="~{fragments/navBar}">
         </header>
+        <figure class="AddSession-header-figure">
+            <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
+        </figure>
       
 
     <main class="SetProfil-main">
-        <div class="SetProfil-main-userInfo">
-            <h1>Hey <span th:text="*{userName}">MEH</span> tell us more about you!</h1>
+        <div class="SetProfil-main-userInfo" th:object="${user}">
+            <h1>Hey <span th:text="${user.userName}">MEH</span> tell us more about you!</h1>
             <div class="SetProfil-main-userInfo-update">
                 <div class="SetProfil-main-userInfo-update-fields">
-                    <p th:text="*{userName}">Pseudo</p>
-                    <p th:text="*{email}">email</p>
+                    <p th:text="${user.userName}">Pseudo</p>
+                    <p th:text="${user.email}">email</p>
                     <p>AKA Spiderman</p>
                 </div>
                 <a href="/updateUser">Modify</a>
@@ -30,7 +30,7 @@
         </div>
         <section class="SetProfil-main-profil">
             <div class="SetProfil-main-profil-layout-form">
-                <form class="SetProfil-main-profil-layout-form Profil-form" th:action="@{/createProfil}" th:object="${Profil}" method="POST" id="form-profil">
+                <form class="SetProfil-main-profil-layout-form Profil-form" th:action="@{/updateProfil}" th:object="${profil}" method="PUT" id="form-profil">
 
                     <div class="Profil-form-content howMany">
                         <label for="howManyYears" class="Profil-form-content-label">How long have you been climbing? *</label>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="SetProfil-main-profil-layout-about About">
-                <div class="About-place">
+                <div class="About-place" th:object="${profil}">
                     <label for="aboutYou" class="About-place-label">Tell us more about your climbing journey...</label>
                     <textarea name="aboutYou" id="aboutYou" for="form-profil" type="textarea" th:field="*{aboutYou}" name="aboutYou">What do you love about climbing? Overhang? slab? Do you still have skin left? Are you a short queen?...
                     </textarea>
