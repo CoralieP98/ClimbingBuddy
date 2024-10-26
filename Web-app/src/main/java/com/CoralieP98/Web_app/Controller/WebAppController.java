@@ -42,6 +42,9 @@ public class WebAppController {
         return new ModelAndView("homePage");
     }
 
+    @GetMapping("/homeNew")
+    public ModelAndView homeNew(){return new ModelAndView("homePage_first");}
+
 
     @PostMapping("/signUp")
     public ModelAndView userSignUp(@ModelAttribute("user") User user){
@@ -58,6 +61,12 @@ public class WebAppController {
     public String userProfilHome(String email){
         userDetailsService.loadUserByUsername(email);
         return "redirect:/home";
+    }
+
+    @GetMapping("/homePageNew")
+    public String homePageNew(String email){
+        userDetailsService.loadUserByUsername(email);
+        return "redirect:/homeNew";
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -24,26 +24,18 @@ public class ProfilController {
 
     private final ProfilService profilService;
 
-    @GetMapping("/profilOld")
-    public ModelAndView userProfil(Model model,@RequestParam int profilId){
-        model.addAttribute("user",userDetailsService.actualUser());
-        model.addAttribute("profil",climbFeignClient.getProfilById(profilId));
-        return new ModelAndView("profil");
-    }
-
-
     @GetMapping("profil")
     public ModelAndView profil(Model model){
         model.addAttribute("user",userDetailsService.actualUser());
         model.addAttribute("profil",profilService.actualProfil());
         return new ModelAndView("profil");
-
     }
 
 
-
     @PostMapping("/setProfil")
-    public String saveProfil(@ModelAttribute("user") User user,@ModelAttribute("profil") Profil profil){
+    public String saveProfil(@ModelAttribute("user") User user,@ModelAttribute("profil") Profil profil, Model model){
+        model.addAttribute("user",userDetailsService.actualUser());
+        profil.setUser(user);
         climbFeignClient.createProfil(profil);
         return "redirect:/profil";
     }
@@ -51,10 +43,21 @@ public class ProfilController {
     @GetMapping("/setProfil")
     public ModelAndView setProfilForm(Model model){
         model.addAttribute("user",userDetailsService.actualUser());
-//        model.addAttribute("profil",userDetailsService.actualUser());//maybe new profil plutot ??
+//        model.addAttribute("profil",profilService.actualProfil());
         model.addAttribute("profil",new Profil());
         return new ModelAndView("setProfil");
     }
+
+//    @GetMapping("/setProfil/{id}")
+//    public ModelAndView setProfilForm(Model model,@PathVariable("id") int id){
+////        User actualUser = userDetailsService.actualUser();
+////        model.addAttribute("id",actualUser.getId());
+//        model.addAttribute("user",climbFeignClient.findUserById(id).getBody());
+//        model.addAttribute("id",id);
+////        model.addAttribute("profil",profilService.actualProfil());
+//        model.addAttribute("profil",new Profil());
+//        return new ModelAndView("setProfil");
+//    }
 
     @GetMapping("/updateProfil")
     public ModelAndView updateProfilForm(@RequestParam(name = "profilId") int profilId,Model model ){
