@@ -25,7 +25,7 @@
                 <p th:text="*{email}">email</p>
                 <p>AKA Spiderman</p>
             </div>
-            <a href="/updateUser">Modify</a>
+            <a href="/#">Modify</a>
         </div>
     </div>
     <section class="">
@@ -35,8 +35,8 @@
                     <input type="hidden" name="profilId" th:value="${profil.profilId}" />
 
                     <div class="Profil-form-content howMany">
-                        <label for="howManyYears" class="Profil-form-content-label">How long have you been climbing? *</label>
-                        <input type="text" th:field="*{howManyYears}" name="howManyYears" id="howManyYears" placeholder="which year did you start climbing?" required>
+                        <label for="howManyYears" class="Profil-form-content-label">How long have you been climbing?</label>
+                        <input type="text" th:field="*{howManyYears}" name="howManyYears" id="howManyYears" placeholder="which year did you start climbing?" >
                     </div>
 
                     <div class="Profil-form-content age">
@@ -62,8 +62,8 @@
                     </div>
 
                     <div class="Profil-form-content ratherType">
-                        <label for="ratherType" class="Profil-form-content-label">Are you into bouldering? sport climbing?</label>
-                        <input type="text" th:field="*{ratherType}" name="ratherType" id="ratherType" placeholder="Boulder? sport climbing ? or both?">
+                        <label for="ratherType" class="Profil-form-content-label">Are you into bouldering? sport climbing? *</label>
+                        <input type="text" th:field="*{ratherType}" required name="ratherType" id="ratherType" placeholder="Boulder? sport climbing ? or both?">
                     </div>
 
                     <div class="Profil-form-content holds">

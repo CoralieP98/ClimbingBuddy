@@ -28,9 +28,10 @@
 
 <main class="Main-content Layout">
     <section class="Main-content-welcome section-welcome">
-        <div class="section-welcome-title">
+        <div class="section-welcome-title" th:object="${user}">
             <h1>Welcome <span class="section-welcome-title-pseudo">Pseudo</span></h1>
-<!--            <h1>Welcome <span class="section-welcome-title-pseudo" th:text="*{userName}">Pseudo</span></h1>-->
+<!--            <h1>Welcome back<span class="section-welcome-title-pseudo"  th:text="${user.userName}">Pseudo</span></h1>-->
+
         </div>
         <div class="Main-content-dateinfo section-date">
             <div class="section-date-jourheure">

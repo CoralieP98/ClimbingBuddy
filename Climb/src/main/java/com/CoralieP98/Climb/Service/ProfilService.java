@@ -36,6 +36,6 @@ public class ProfilService {
     }
 
     public Profil getProfilByUserId(int id) {
-        return profilRepository.findProfilByUserId(id).get();
+        return profilRepository.findProfilByUserId(id).orElse(null);
     }
 }

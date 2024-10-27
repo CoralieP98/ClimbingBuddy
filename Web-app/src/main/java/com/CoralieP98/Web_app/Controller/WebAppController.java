@@ -1,8 +1,10 @@
 package com.CoralieP98.Web_app.Controller;
 
+import com.CoralieP98.Web_app.Model.Profil;
 import com.CoralieP98.Web_app.Model.User;
 import com.CoralieP98.Web_app.Service.Client.ClimbFeignClient;
 import com.CoralieP98.Web_app.Service.CustomUserDetailsService;
+import com.CoralieP98.Web_app.Service.ProfilService;
 import com.CoralieP98.Web_app.Service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ public class WebAppController {
 
     private final CustomUserDetailsService userDetailsService;
 
+    private final ProfilService profilService;
+
 
     @GetMapping("/")
     public String home(Model model){
@@ -35,16 +39,6 @@ public class WebAppController {
     public ModelAndView loadingPage(){
         return new ModelAndView("loading");
     }
-
-
-    @GetMapping("/home")
-    public ModelAndView home(){
-        return new ModelAndView("homePage");
-    }
-
-    @GetMapping("/homeNew")
-    public ModelAndView homeNew(){return new ModelAndView("homePage_first");}
-
 
     @PostMapping("/signUp")
     public ModelAndView userSignUp(@ModelAttribute("user") User user){
@@ -57,17 +51,28 @@ public class WebAppController {
         return new ModelAndView("signUp", "user",new User());
     }
 
+
+    @GetMapping("/homeNew")
+    public ModelAndView homeNew(){return new ModelAndView("homePage_first");}
+
+    @GetMapping("/home")
+    public ModelAndView home(){
+        User actualUser = userDetailsService.actualUser();
+        Profil profil = climbFeignClient.getProfilByUserId(actualUser.getId()).getBody();
+        if (profil == null) {
+                return new ModelAndView("homePage_first");
+            }
+        return new ModelAndView("homePage");
+    }
+
     @GetMapping("/profilHome")
-    public String userProfilHome(String email){
+    public String userProfilHome(String email) {
         userDetailsService.loadUserByUsername(email);
         return "redirect:/home";
     }
 
-    @GetMapping("/homePageNew")
-    public String homePageNew(String email){
-        userDetailsService.loadUserByUsername(email);
-        return "redirect:/homeNew";
-    }
+
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
