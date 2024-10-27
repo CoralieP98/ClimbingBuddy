@@ -30,10 +30,10 @@ public class WebAppController {
     private final ProfilService profilService;
 
 
-    @GetMapping("/")
-    public String home(Model model){
-        return "redirect:/loadingPage";
-    }
+//    @GetMapping("/")
+//    public String home(Model model){
+//        return "redirect:/loadingPage";
+//    }
 
     @GetMapping("/loadingPage")
     public ModelAndView loadingPage(){
@@ -56,8 +56,9 @@ public class WebAppController {
     public ModelAndView homeNew(){return new ModelAndView("homePage_first");}
 
     @GetMapping("/home")
-    public ModelAndView home(){
+    public ModelAndView home(Model model){
         User actualUser = userDetailsService.actualUser();
+        model.addAttribute("user", actualUser);
         Profil profil = climbFeignClient.getProfilByUserId(actualUser.getId()).getBody();
         if (profil == null) {
                 return new ModelAndView("homePage_first");
