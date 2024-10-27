@@ -31,7 +31,6 @@ public class ProfilController {
         return new ModelAndView("profil");
     }
 
-
     @PostMapping("/setProfil")
     public String saveProfil(@ModelAttribute("profil") Profil profil, Model model){
         User user = userDetailsService.actualUser();
@@ -44,33 +43,23 @@ public class ProfilController {
     @GetMapping("/setProfil")
     public ModelAndView setProfilForm(Model model){
         model.addAttribute("user",userDetailsService.actualUser());
-//        model.addAttribute("profil",profilService.actualProfil());
         model.addAttribute("profil",new Profil());
         return new ModelAndView("setProfil");
     }
 
-//    @GetMapping("/setProfil/{id}")
-//    public ModelAndView setProfilForm(Model model,@PathVariable("id") int id){
-////        User actualUser = userDetailsService.actualUser();
-////        model.addAttribute("id",actualUser.getId());
-//        model.addAttribute("user",climbFeignClient.findUserById(id).getBody());
-//        model.addAttribute("id",id);
-////        model.addAttribute("profil",profilService.actualProfil());
-//        model.addAttribute("profil",new Profil());
-//        return new ModelAndView("setProfil");
-//    }
-
     @GetMapping("/updateProfil")
-    public ModelAndView updateProfilForm(@RequestParam(name = "profilId") int profilId,Model model ){
-        Profil updateProfil = climbFeignClient.getProfilById(profilId).getBody();
+    public ModelAndView updateProfilForm(Model model ){
+        Profil updateProfil = profilService.actualProfil();
         model.addAttribute("user",userDetailsService.actualUser());
         model.addAttribute("profil",updateProfil);
         return new ModelAndView("updateProfil");
 
     }
 
-    @PutMapping("/updateProfil")
-    public String updateProfil(@RequestParam(name = "profilId") int profilId,Profil profil){
+    @PostMapping("/updateProfil")
+    public String updateProfil(@RequestParam(name = "profilId") int profilId,@ModelAttribute("profil") Profil profil){
+        User user = userDetailsService.actualUser();
+        profil.setUser(user);
         climbFeignClient.updateProfil(profilId,profil);
         return "redirect:/profil";
     }
