@@ -33,10 +33,11 @@ public class ProfilController {
 
 
     @PostMapping("/setProfil")
-    public String saveProfil(@ModelAttribute("user") User user,@ModelAttribute("profil") Profil profil, Model model){
-        model.addAttribute("user",userDetailsService.actualUser());
+    public String saveProfil(@ModelAttribute("profil") Profil profil, Model model){
+        User user = userDetailsService.actualUser();
         profil.setUser(user);
         climbFeignClient.createProfil(profil);
+        model.addAttribute("profil",profilService.actualProfil());
         return "redirect:/profil";
     }
 

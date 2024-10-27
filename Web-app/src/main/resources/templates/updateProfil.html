@@ -2,35 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-<!--        <link rel="stylesheet" href="style.css">-->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <!--    <link rel="stylesheet" href="../style.css">-->
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
     <title>Modify your Profil</title>
 </head>
 <body>
 
-        <header th:replace="~{fragments/navBar}">
-        </header>
-        <figure class="AddSession-header-figure">
-            <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
-        </figure>
-      
+<header th:replace="~{fragments/navBar_side}">
+    <figure class="AddSession-header-figure">
+        <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
+    </figure>
+</header>
 
-    <main class="SetProfil-main">
-        <div class="SetProfil-main-userInfo" th:object="${user}">
-            <h1>Hey <span th:text="${user.userName}">MEH</span> tell us more about you!</h1>
-            <div class="SetProfil-main-userInfo-update">
-                <div class="SetProfil-main-userInfo-update-fields">
-                    <p th:text="${user.userName}">Pseudo</p>
-                    <p th:text="${user.email}">email</p>
-                    <p>AKA Spiderman</p>
-                </div>
-                <a href="/updateUser">Modify</a>
+
+<main class="SetProfil-main">
+    <div class="SetProfil-main-userInfo" th:object="${user}">
+        <h1>Hey <span th:text="*{userName}">MEH</span> tell us more about you!</h1>
+        <div class="SetProfil-main-userInfo-update">
+            <div class="SetProfil-main-userInfo-update-fields">
+                <p th:text="*{userName}">Pseudo</p>
+                <p th:text="*{email}">email</p>
+                <p>AKA Spiderman</p>
             </div>
+            <a href="/updateUser">Modify</a>
         </div>
-        <section class="SetProfil-main-profil">
-            <div class="SetProfil-main-profil-layout-form">
-                <form class="SetProfil-main-profil-layout-form Profil-form" th:action="@{/updateProfil}" th:object="${profil}" method="PUT" id="form-profil">
+    </div>
+    <section class="">
+        <div class="SetProfil-main-profil-layout-form">
+            <form class="SetProfil-main-profil form" th:action="@{/updateProfil}" th:object="${profil}" method="PUT" id="form-profil">
+                <div class="SetProfil-main-profil-layout-form Profil-form">
 
                     <div class="Profil-form-content howMany">
                         <label for="howManyYears" class="Profil-form-content-label">How long have you been climbing? *</label>
@@ -42,7 +43,7 @@
                         <input type="text" th:field="*{age}" name="age" id="age" placeholder="age:">
                     </div>
 
-                    
+
 
                     <div class="Profil-form-content gender">
                         <label for="gender" class="Profil-form-content-label">What's your gender?</label>
@@ -78,36 +79,37 @@
                         <label for="favoritePersonalities" class="Profil-form-content-label">Favorite personality in the climbing community?</label>
                         <input type="text" th:field="*{favoritePersonalities}" name="favoritePersonalities" id="favoritePersonalities" placeholder="Your favorite personality?">
                     </div>
-                </form>
-            </div>
-
-            <div class="SetProfil-main-profil-layout-about About">
-                <div class="About-place" th:object="${profil}">
-                    <label for="aboutYou" class="About-place-label">Tell us more about your climbing journey...</label>
-                    <textarea name="aboutYou" id="aboutYou" for="form-profil" type="textarea" th:field="*{aboutYou}" >What do you love about climbing? Overhang? slab? Do you still have skin left? Are you a short queen?...
-                    </textarea>
-                    <!-- <input for="form-profil" type="textarea" th:field="*{aboutYou}" name="aboutYou" id="aboutYou" placeholder="What do you love about climbing? Overhang? slab? Do you still have skin left? Are you a short queen?..."> -->
                 </div>
-                <h2 class="About-quote">Allez!</h2>
-            </div>
+                <div class="SetProfil-main-profil-layout-about About">
+                    <div class="About-place" th:object="${profil}">
+                        <label for="aboutYou" class="About-place-label">Tell us more about your climbing journey...</label>
+                        <textarea name="aboutYou" id="aboutYou" for="form-profil" type="textarea" th:field="*{aboutYou}" name="aboutYou">What do you love about climbing? Overhang? slab? Do you still have skin left? Are you a short queen?...
+                            </textarea>
 
-            <div class="SetProfil-main-profil-layout-photoAndSubmit PhotoAndSubmit">
-                <div class="PhotoAndSubmit-photo">
-                    <figure>
-                        <img src="image/photo_profil.png" alt="Avatar ou photo user">
-                        <a href="/addPhoto"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico">add an Avatar</a>
-                    </figure>
-                </div>
-                <div class="PhotoAndSubmit-submit"> 
-                    <button type="submit"  for="form-profil"  class="PhotoAndSubmit-submit-button">Update</button>
-                    <!-- <input type="submit" value="Modify" for="form-profil" class="PhotoAndSubmit-submit-button"> -->
+                    </div>
+                    <h2 class="About-quote">Allez!</h2>
                 </div>
 
-            </div>
-        </section>
+                <div class="SetProfil-main-profil-layout-photoAndSubmit PhotoAndSubmit">
+                    <div class="PhotoAndSubmit-photo">
+                        <figure>
+                            <img src="image/photo_profil.png" alt="Avatar ou photo user">
+                            <a href="/addPhoto"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico">add an Avatar</a>
+                        </figure>
+                    </div>
+                    <div class="PhotoAndSubmit-submit">
+                        <button type="submit"  for="form-profil"  class="PhotoAndSubmit-submit-button">Modify</button>
+                    </div>
 
-    </main>
-    
+                </div>
+            </form>
+        </div>
+
+
+    </section>
+
+</main>
+
 
 
 
