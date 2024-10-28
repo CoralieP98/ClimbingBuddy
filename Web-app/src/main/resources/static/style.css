@@ -484,6 +484,9 @@ h1, h2, h3, h4, p, figure {
 }
 .AddSession-header-figure-logo {
   width: 60px;
+  position: absolute;
+  top: 3%;
+  left: 80%;
 }
 
 .SetProfil-main-userInfo {
@@ -596,6 +599,99 @@ h1, h2, h3, h4, p, figure {
 .PhotoAndSubmit-submit > button > a {
   text-decoration: none;
   color: white;
+}
+
+.AddSession-header-joy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #8D8D8D;
+  border-radius: 0 1em 1em 0;
+  margin-top: 5em;
+  height: 80px;
+  padding: 1em 1.5em;
+  overflow: visible;
+  width: 280px;
+}
+.AddSession-header-joy-img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  position: absolute;
+  bottom: -3%;
+  left: 10%;
+}
+.AddSession-header-joy-title {
+  color: white;
+  font-size: 1em;
+  background-color: #A5A5A5;
+  padding: 0.8em 1.2em;
+  border-radius: 0 0.6em 0.6em 0;
+  padding-left: 20%;
+}
+.AddSession-main {
+  margin-top: 3em;
+  background-color: #d3d3d3;
+  margin-left: 2em;
+  border-radius: 2em 0 0 2em;
+  padding: 1.5em;
+  height: 350px;
+}
+.AddSession-main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.AddSession-main-layout-form-content-field {
+  width: 250px;
+  margin-bottom: 1.5em;
+}
+.AddSession-main-layout-aside-figure {
+  display: none;
+}
+.AddSession-main-layout-aside-button {
+  padding: 0.6em 1.5em;
+  background-color: white;
+  border: solid 2px #8D8D8D;
+  border-radius: 0.7em;
+  margin-top: 1.3em;
+}
+
+.FormSession-title {
+  margin-bottom: 1.3em;
+  font-weight: 400;
+  font-family: "Kosugi Maru", sans-serif;
+}
+.FormSession-place {
+  padding: 1px 0;
+  border: solid 2px #8D8D8D;
+  border-radius: 0.4em;
+}
+.FormSession-place-label {
+  margin-top: 0.3px;
+  background-color: #8D8D8D;
+  color: white;
+  padding: 2.7px 3px;
+  height: 100%;
+  border-radius: 0.3em;
+  margin-left: 1px;
+}
+.FormSession-place > select {
+  width: 80%;
+  border: none;
+  padding: 4px 0;
+}
+.FormSession-duration > input {
+  border: none;
+  width: 55%;
+  border-radius: 0.2em;
+  padding: 5px 0;
+}
+.FormSession-date-label {
+  margin-right: 5px;
+}
+.FormSession-date > input {
+  width: 55%;
 }
 
 @media screen and (min-width: 900px) {
@@ -857,6 +953,32 @@ h1, h2, h3, h4, p, figure {
     padding: 1em;
     text-align: center;
     margin: 0;
+  }
+  .AddSession-header-joy {
+    border-radius: 1em;
+    margin-left: 20%;
+  }
+  .AddSession-main {
+    border-radius: 2em;
+    margin: 0 10%;
+    height: 550px;
+  }
+  .AddSession-main-layout {
+    margin-top: 1.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .AddSession-main-layout-aside {
+    display: flex;
+    flex-direction: column;
+  }
+  .AddSession-main-layout-aside-figure {
+    display: block;
+  }
+  .AddSession-main-layout-aside-button {
+    align-self: flex-end;
   }
 }
 @media screen and (min-width: 1300px) {

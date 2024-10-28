@@ -30,15 +30,12 @@ public class WebAppController {
     private final ProfilService profilService;
 
 
-//    @GetMapping("/")
-//    public String home(Model model){
-//        return "redirect:/loadingPage";
-//    }
 
-    @GetMapping("/loadingPage")
-    public ModelAndView loadingPage(){
-        return new ModelAndView("loading");
-    }
+
+//    @GetMapping("/loadingPage")
+//    public ModelAndView loadingPage(){
+//        return new ModelAndView("loading");
+//    }
 
     @PostMapping("/signUp")
     public ModelAndView userSignUp(@ModelAttribute("user") User user){

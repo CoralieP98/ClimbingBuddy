@@ -28,6 +28,9 @@ public class Route {
 
     private boolean isARepeat;
 
+//    champ isFlash ???
+//    champ detailPerso ???
+
     private float lenght;
 
     private String routeName;

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+<!--    <link rel="stylesheet" href="../style.css">-->
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>update Session</title>
+</head>
+<body>
+    
+
+        <header th:replace="~{fragments/navBar}"></header>
+        <div class="AddSession-header-joy">
+            <figure class="AddSession-header-joy-img"><img src="image/happyDay.png" alt="dessin d'une personne enjoyé"></figure>
+            <h3 class="AddSession-header-joy-title">Let's GO climbing!</h3>
+        </div>
+        <figure class="AddSession-header-figure">
+            <img src="image/logo.png" alt="logo" class="AddSession-header-figure-logo">
+        </figure>
+  
+
+    <Main class="AddSession-main">
+        <section class="AddSession-main-layout">
+            <div class="AddSession-main-layout-form">
+                <form class="AddSession-main-layout-form-content FormSession" th:action="@{/updateSession}" th:object="${session}" method="POST" id="form-session">
+                    <h2 class="FormSession-title">Session</h2>
+
+                    <div class="AddSession-main-layout-form-content-field FormSession-place">
+                        <label for="place" class="FormSession-place-label" >Place</label>
+                        <select name="place-list" id="places" for="form-session" th:field="*{place}">
+                            <option th:each="place : ${placelist}" th:value="${place.placeId}" th:text="${place.label}"></option>
+                            <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
+                        </select>
+                        <!-- <a href="/addNewFavorite" class="AddSession-main-layout-place-">add new address</a> -->
+                    </div>
+
+                    <!-- <div class="AddSession-main-layout-form-type">
+                        <input type="radio"  th:field="*{type}" id="rope" value="Rope Climbing" name="type">
+                        <label for="rope" class="AddSession-main-layout-form-type-label">Rope Climbing</label>
+                        <input type="radio"  th:field="*{type}" id="boulder" value="Boulder Climbing" name="type">
+                        <label for="boulder" class="AddSession-main-layout-form-type-label">Boulder Climbing</label>
+                    </div> -->
+
+                    <div class="AddSession-main-layout-form-content-field FormSession-duration">
+                        <label for="duration" class="FormSessio-duration-label">Duration</label>
+                        <input type="number" th:field="*{duration}" name="duration" id="duration" min="30" max="500"><span> min</span>
+                    </div>
+
+                    <div class="AddSession-main-layout-form-content-field FormSession-warmUp">
+                        <label for="warmUp" class="FormSessio-warmUp-label">with warm up</label>
+                        <input type="checkbox" name="warmUp" th:field="*{warmUp}" id="warmUp">
+                    </div>
+
+                    <div class="AddSession-main-layout-form-content-field FormSession_date">
+                        <label for="date" class="FormSession-date-label">Date</label>
+                        <input type="date" name="date" th:field="*{date}" id="date">
+                    </div>
+                    
+                </form>
+
+            </div>
+
+            <div class="AddSession-main-layout-aside">
+                <figure class="AddSession-main-layout-aside-figure"><img src="image/img_addSession.png" alt=""></figure>
+                <button type="submit" class="AddSession-main-layout-aside-button">Modify Session</button>
+            </div>
+        </section>
+    </Main>
+
+</body>
+</html>

@@ -535,6 +535,9 @@ h1, h2, h3,h4 ,p ,figure{
   margin: $miniSpace;
   &-logo{
     width: 60px;
+    position: absolute;
+    top: 3%;
+    left: 80%;
   }
 }
 
@@ -665,6 +668,153 @@ h1, h2, h3,h4 ,p ,figure{
     }
   }
 }
+
+////////////////////////////////////////////
+/// SESSION //////////////////////////////
+
+.AddSession{
+  &-header-joy{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: $darkishGrey;
+    border-radius: 0 1em 1em 0;
+    margin-top: 5em;
+    height: 80px;
+    padding: 1em 1.5em;
+    overflow: visible;
+    width: 280px;
+    &-img{
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      position: absolute;
+      bottom: -3%;
+      left: 10%;
+    }
+    &-title{
+      color: white;
+      font-size: 1em;
+      background-color: $darkerGrey;
+      padding: 0.8em 1.2em;
+      border-radius: 0 0.6em 0.6em 0;
+      padding-left: 20%;
+    }
+  }
+  &-main{
+    margin-top: $biggerSpace;
+    background-color: $lightGrey;
+    margin-left: $bigSpace;
+    border-radius: 2em 0 0 2em;
+    padding: $mediumSpace;
+    height: 350px;
+    &-layout{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-form-content-field{
+        width: 250px;
+
+        margin-bottom: $mediumSpace;
+      }
+      &-aside{
+        &-figure{
+          display: none;
+        }
+        &-button{
+          padding: 0.6em 1.5em;
+          background-color: white;
+          border: solid 2px $darkishGrey;
+          border-radius: 0.7em;
+          margin-top: $space;
+
+        }
+      }
+    }
+  }
+}
+
+.FormSession{
+  &-title{
+    margin-bottom: $space;
+    font-weight: 400;
+    font-family: $fontSpe;
+  }
+  &-place{
+    padding: 1px 0;
+    border: solid 2px $darkishGrey;
+    border-radius: 0.4em;
+    &-label{
+      margin-top: 0.3px;
+      background-color: $darkishGrey;
+      color: white;
+      padding: 2.7px 3px;
+      height: 100%;
+      border-radius: 0.3em;
+      margin-left: 1px;
+    }
+    &>select{
+      width: 80%;
+      border: none;
+      padding: 4px 0;
+    }
+  }
+  &-duration{
+    &>input{
+      border: none;
+      width: 55%;
+      border-radius: 0.2em;
+      padding: 5px 0;
+    }
+  }
+  &-date{
+    &-label{
+      margin-right: 5px;
+    }
+    &>input{
+      width: 55%;
+
+
+
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -988,6 +1138,36 @@ h1, h2, h3,h4 ,p ,figure{
     }
   }
 
+  .AddSession{
+    &-header-joy{
+      border-radius: 1em;
+      margin-left: 20%;
+    }
+    &-main{
+      border-radius: 2em;
+      margin: 0 10%;
+      height: 550px;
+      &-layout{
+        margin-top: $space;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        &-aside{
+          display: flex;
+          flex-direction: column;
+
+          &-figure{
+            display: block;
+          }
+          &-button{
+            align-self: flex-end;
+          }
+        }
+      }
+
+    }
+  }
 
 
 
