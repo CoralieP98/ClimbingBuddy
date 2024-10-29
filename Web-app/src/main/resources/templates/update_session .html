@@ -27,7 +27,7 @@
                     <h2 class="FormSession-title">Session</h2>
 
                     <div class="AddSession-main-layout-form-content-field FormSession-place">
-                        <label for="place" class="FormSession-place-label" >Place</label>
+                        <label for="places" class="FormSession-place-label" >Place</label>
                         <select name="place-list" id="places" for="form-session" th:field="*{place}">
                             <option th:each="place : ${placelist}" th:value="${place.placeId}" th:text="${place.label}"></option>
                             <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
