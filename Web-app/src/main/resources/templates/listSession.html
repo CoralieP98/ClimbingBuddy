@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+<!--    <link rel="stylesheet" href="../style.css">-->
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>All your sessions</title>
+</head>
+<body>
+    
+ 
+    <header th:replace="~{fragments/navBar}"></header>
+
+    <figure class="AddSession-header-figure">
+        <img src="image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
+    </figure>
+
+
+    <main class="SessionS">
+        <h1 class="SessionS-title">All your sessions & Hard Work</h1>
+
+        <section class="SessionS-content">
+            <div class="SessionS-content-cards CardSession" th:each="meh : ${sessions}">
+                <div class="CardSession-info">
+                    <div class="CardSession-info-titleDate">
+<!--                        <input type="hidden" th:text="${meh.sessionId}" />-->
+                        <h3>Session - </h3>
+                        <p th:text="${meh.date}"></p>
+                    </div>
+                    <h3 th:text="${meh.place.labelPlace}"></h3>
+                </div>
+
+                <div class="CardSession-stats">
+<!--                    <p class="CardSession-stats-total">Total Route : <span th nombre route in session>12</span></p>-->
+                    <p class="CardSession-stats-total">Total Route : <span>12</span></p>
+                    <p >Duration : <span th:text="${meh.duration}"></span > min</p>
+                    <!-- <div class="CardSession-stats-keys" th each technique qui ressorttent le plus des routes de la session lol>mot-clé</div> -->
+                </div>
+
+                <div class="CardSession-nav">
+                    <a th:href="@{/deleteSession/{sessionId}(sessionId=${meh.sessionId})}">Delete</a>
+                    <a th:href="@{/updateSession/{sessionId}(sessionId=${meh.sessionId})}">Modify</a>
+                    <a class="CardSession-nav-spe" href="/getAllRouteBySessionId">
+                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5879 10.0627L7.52522 2" stroke="grey" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M8.06299 17.5878L15.5881 10.0627" stroke="grey" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+    
+    
+</body>
+</html>

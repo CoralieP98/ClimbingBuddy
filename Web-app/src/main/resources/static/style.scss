@@ -680,7 +680,7 @@ h1, h2, h3,h4 ,p ,figure{
     justify-content: flex-end;
     background-color: $darkishGrey;
     border-radius: 0 1em 1em 0;
-    margin-top: 5em;
+    margin-top: 9em;
     height: 80px;
     padding: 1em 1.5em;
     overflow: visible;
@@ -710,17 +710,10 @@ h1, h2, h3,h4 ,p ,figure{
     height: 350px;
     &-layout{
       display: flex;
+
       flex-direction: column;
       align-items: center;
-      &-form-content-field{
-        width: 250px;
-
-        margin-bottom: $mediumSpace;
-      }
-      &-aside{
-        &-figure{
-          display: none;
-        }
+      &-form-content{
         &-button{
           padding: 0.6em 1.5em;
           background-color: white;
@@ -729,6 +722,17 @@ h1, h2, h3,h4 ,p ,figure{
           margin-top: $space;
 
         }
+        &-field{
+          width: 250px;
+
+          margin-bottom: $mediumSpace;
+        }
+      }
+      &-aside{
+        &-figure{
+          display: none;
+        }
+
       }
     }
   }
@@ -780,14 +784,401 @@ h1, h2, h3,h4 ,p ,figure{
   }
 }
 
+.welldone{
+  margin-top: 9em;
+  border-radius:  1em 0 0 1em ;
+  justify-content: flex-start;
+  margin-left: 20%;
+  width: auto;
+  &-figure{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    left: 45%;
+  }
+  &-title{
+    border-radius: 0.6em;
+    text-align: center;
+    padding: 0.8em 1.2em;
+    width: 45%;
+  }
+
+}
+
+.Session-layout{
+  margin-top: $bigSpace;
+  // height: 100%;
+  &-main{
+    background-color: $lightGrey;
+    padding: $bigSpace $biggerSpace;
+    &-info{
+      display: flex;
+      align-items: center;
+      margin-bottom: $space;
+      &-title{
+        margin-right: 10px;
+      }
+    }
+    &-content{
+      &-title{
+        background-color: rgb(230, 229, 229);
+        padding: $space;
+        border-radius: 1em;
+        width: 50%;
+        padding-bottom: $biggerSpace;
+        font-size: small;
+        font-weight: 300;
+        margin-bottom: $mediumSpace;
+      }
+      &-add{
+        border-radius: 50%;
+        background-color: white;
+        margin-top: $space;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        &>a{
+          &>svg{
+            padding-top: 6px;
+          }
+        }
+
+
+      }
+    }
+  }
+  &-footer{
+    margin-top: $mediumSpace;
+    display: flex;
+    justify-content: space-evenly;
+    &>a{
+      background-color: $lightGrey;
+      border-radius: 0.6em;
+      text-align: center;
+      text-decoration: none;
+      color: $darkGrey;
+      padding: $miniSpace;
+      font-weight: 500;
+      width: 20%;
+    }
+  }
+}
+
+.CardRouteSession{
+  background-color: rgb(230, 229, 229);
+  padding: $miniSpace;
+  border-radius: 1em;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $miniSpace;
+  &-type{
+    background-color: $lightGrey;
+    border-radius: 0.8em;
+    font-size: large;
+    font-weight: 700;
+    text-align:center;
+    width: 80px;
+    padding: 30px 0;
+  }
+  &-grade{
+    font-weight: 600;
+  }
+  &-button{
+    background-color: $lightGrey;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    align-self: flex-end;
+    margin-left: 20%;
+    &>a{
+      text-align: center;
+      padding-left: 5px;
+      &>svg{
+        padding-top: 5px;
+      }
+    }
+  }
 
 
 
 
+}
+
+.SessionS{
+  margin: 9em $space 0 $space;
+  &-title{
+    margin: 0 $space;
+    margin-bottom: $space;
+    font-family: $fontSpe;
+    color: $darkGrey;
+    font-weight: 500;
+    text-align: center;
+  }
+
+}
+
+.CardSession{
+  height: 300px;
+  background-color: $darkishGrey;
+  border-radius: 2em 2em 0 0;
+  padding: $space;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: $biggerSpace;
+  &-info{
+    margin-bottom: $bigSpace;
+    &-titleDate{
+      margin-bottom: 5px;
+      display: flex;
+      &>h3{
+        padding-right: 10px;
+      }
+
+    }
+
+  }
+  &-stats{
+    background-color: $lightGrey;
+    border-radius: 1em;
+    padding: $space;
+    margin-bottom: $bigSpace;
+    &>p{
+      font-weight: 500;
+      padding-bottom: 5px;
+    }
+  }
+  &-nav{
+    display: flex;
+    align-self: flex-end;
+    margin-top: $biggerSpace;
+    &>a{
+      margin-right: $miniSpace;
+      padding: 5px 10px;
+      background-color: $lightGrey;
+      border-radius: 5em;
+      text-decoration: none;
+      color: $darkGrey;
+    }
+
+  }
+}
+
+
+////////////////////////////////////////////
+/// ROUTE //////////////////////////////
 
 
 
+.AddRoute{
+  margin-top: 9em;
+  &-layout{
+    background-color: $grey;
+    padding: $miniSpace $bigSpace;
+  }
+}
 
+.FormRoute{
+  &-left{
+    &-title{
+      font-family: $fontSpe;
+      margin-bottom: $space;
+      font-weight: 400;
+    }
+    &-fields{
+      background-color: white;
+      padding: $miniSpace;
+      border-radius: 1em;
+      &-each{
+        margin-bottom: $miniSpace;
+      }
+    }
+  }
+  &-right{
+    margin-top: $miniSpace;
+    &-tech{
+      margin-bottom: $space;
+      &>h3{margin-bottom: 10px;}
+    }
+    &-exo{
+      margin-bottom: $space;
+      &>h3{margin-bottom: 10px;}
+    }
+    &-submit{
+      text-align: center;
+      &>input{
+        padding: 7px 7px;
+        border-radius: 0.6em;
+        border: solid 2px $darkGrey;
+
+      }
+    }
+
+
+
+  }
+
+}
+.Select{
+  width: 70%;
+  padding: 1px 0;
+  border: solid 2px $darkishGrey;
+  border-radius: 0.4em;
+  &>label{
+    margin-top: 0.3px;
+    background-color: $darkishGrey;
+    color: white;
+    padding: 2.7px 5px;
+    height: 100%;
+    border-radius: 0.3em;
+    margin-left: 1px;
+  }
+  &>select{
+    width: 81%;
+    border: none;
+    padding: 4px 0;
+  }
+
+}
+
+.FieldsR{
+  &-type{
+    &>label{
+      padding-right: 10px;
+    }
+  }
+  &-grade{
+    width: 70%;
+    padding: 1px 0;
+    border: solid 2px $darkishGrey;
+    border-radius: 0.4em;
+    &>label{
+      margin-top: 0.3px;
+      background-color: $darkishGrey;
+      color: white;
+      padding: 2.7px 3px;
+      height: 100%;
+      border-radius: 0.3em;
+      margin-left: 1px;
+    }
+    &>select{
+      width: 75%;
+      border: none;
+      padding: 4px 0;
+    }
+  }
+  &-lenght{
+    &>input{
+      margin-left: 5px;
+      border: solid 2px $darkishGrey;
+      width: 55%;
+      border-radius: 0.2em;
+      padding: 5px 2px;
+    }
+  }
+  &-check{
+    margin-top: $bigSpace;
+    &-each{
+      padding-bottom: $miniSpace;
+    }
+
+  }
+
+}
+
+.voie{
+  display: flex;
+  align-items: center;
+  &>input{
+    margin-right: 10px;
+  }
+  &>p{
+    margin-right: 10px;
+  }
+}
+
+.Route{
+  margin: 9em 1em 0 1em;
+  &-card{
+    background-color: $darkishGrey;
+    padding: $mediumSpace;
+    border-radius: 1em;
+    &-info{
+      margin-bottom: $space;
+      display: flex;
+      &>p{
+        background-color: $lightGrey;
+        border-radius: 0.4em;
+        font-size: 2em;
+        font-weight: 700;
+        text-align:center;
+        width: 70px;
+        padding: 16px 0;
+      }
+      &-grade{
+        color: white;
+        padding-left: $miniSpace;
+        &>h3{
+          padding-bottom: 0.4em;
+        }
+      }
+    }
+    &-keys{
+      display: flex;
+      margin-bottom: $space;
+      color: white;
+      justify-content: space-evenly;
+      &>p{
+        padding-right: 10px;
+      }
+    }
+    &-exosTech{
+      display: flex;
+      flex-direction: column;
+      &-content{
+        flex-direction: column;
+        align-items: center;
+        &>h4{
+          align-self: flex-start;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  &-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &>a{
+      padding: $miniSpace $mediumSpace;
+      background-color: $grey;
+      border-radius: 0.6em;
+      margin: $miniSpace 0;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      width: 30%;
+    }
+  }
+}
+
+.RouteUl{
+  list-style-type: none;
+  background-color: $grey;
+  width: 80%;
+  border-radius: 0.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  &>li{
+    background-color: $lightGrey;
+    text-align: center;
+    width: 90%;
+    border-radius: 0.2em;
+    margin: 5px 0;
+  }
+}
 
 
 
@@ -1169,8 +1560,154 @@ h1, h2, h3,h4 ,p ,figure{
     }
   }
 
+  .welldone{
+    margin-left: 40%;
+    margin-right: 10%;
+    width: 30%;
+  }
+
+  .Session-layout{
+    margin-left: 6%;
+    margin-right: 6%;
+    &-main{
+      height:315px;
+
+      border-radius: 2em 2em 0 0;
+      &-content{
+        margin-bottom: 0;
 
 
+        display: flex;
+        &-title{
+          margin-right: $space;
+          margin-bottom: 0;
+
+          width: 200px;
+        }
+        &-route{
+          margin-right: $space;
+
+          width: 250px;
+        }
+        &-add{
+          margin-top: 0;
+
+          align-self: center;
+        }
+
+
+      }
+    }
+    &-footer{
+      height: 230px;
+      background-image: url("image/session_img_full.jpg");
+      background-repeat: no-repeat;
+      background-position: 0 -500px;
+      background-size: cover;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0;
+
+      &>a{
+        margin-right: $miniSpace;
+
+      }
+    }
+  }
+
+  .CardRouteSession{
+    margin-bottom: 0;
+  }
+
+  .SessionS{
+    margin: 9em $biggerSpace 0 $biggerSpace;
+    &-content{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+    }
+  }
+
+  .CardSession{
+    width: 30%;
+
+
+  }
+
+  .AddRoute{
+    &-layout{
+      padding-top: 4em;
+      height: 674px;
+      margin: 0 4em;
+      border-radius: 2em 2em 0 0;
+    }}
+
+  .FormRoute{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    &-right{
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+      &-submit{
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .Select{
+    width: 100%;
+    &>select{
+      width: 85%;
+    }
+  }
+  .Route{
+    margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    &-card{
+      width: 60%;
+      &-info{
+        &>p{
+          width: 110px;
+          padding: 32px 0;
+        }
+        &-grade{
+          margin-bottom: $biggerSpace;
+          &>h3{
+            font-size: 2em;
+            padding-bottom: 0.2em;
+          }
+        }
+      }
+      &-keys{
+        margin-bottom: $biggerSpace;
+        &>p{
+          font-size: 1.5em;
+
+        }
+      }
+      &-exosTech{
+        margin-bottom: $biggerSpace;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        &-content{
+          width: 45%;
+        }
+      }
+    }
+    &-nav{
+      width: 30%;
+      &>a{
+      }
+    }
+  }
 
 
 }
@@ -1219,6 +1756,16 @@ h1, h2, h3,h4 ,p ,figure{
   .SignForm{
     left: 15%;
     right: 15%;
+  }
+
+  .SessionS{
+    margin: 9em $biggerSpace 0 6em;
+  }
+
+  .CardSession{
+    width: 35%;
+
+
   }
 
 }

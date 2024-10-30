@@ -1,0 +1,81 @@
+package com.CoralieP98.Web_app.Controller;
+
+import com.CoralieP98.Web_app.Model.Place;
+import com.CoralieP98.Web_app.Model.Session;
+import com.CoralieP98.Web_app.Model.User;
+import com.CoralieP98.Web_app.Service.Client.ClimbFeignClient;
+import com.CoralieP98.Web_app.Service.CustomUserDetailsService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
+
+import java.util.List;
+
+@Controller
+@RequiredArgsConstructor
+public class SessionController {
+
+    private final CustomUserDetailsService userDetailsService;
+    private final ClimbFeignClient climbFeignClient;
+
+
+    @GetMapping("/addSession")
+    public ModelAndView addSession(Model model){
+        model.addAttribute("user",userDetailsService.actualUser());
+        model.addAttribute("session", new Session());
+        User user = userDetailsService.actualUser();
+        List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
+        model.addAttribute("places", places);
+        return new ModelAndView("addSession");
+    }
+
+    @PostMapping("/addSession")
+    public String addSession(@ModelAttribute("session") Session session, Model model){
+        User user = userDetailsService.actualUser();
+        List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
+        model.addAttribute("places", places);
+        session.setUser(user);
+        model.addAttribute("session",climbFeignClient.createSession(session).getBody());
+        return "redirect:/allRouteBySession";
+    }
+
+    @GetMapping("/updateSession/{sessionId}")
+    public ModelAndView updateSession(@PathVariable int sessionId, Model model){
+        Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
+        model.addAttribute("user",userDetailsService.actualUser());
+        model.addAttribute("session", actualSession);
+        User user = userDetailsService.actualUser();
+        List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
+        model.addAttribute("places", places);
+        return new ModelAndView("updateSession");
+    }
+
+    @PostMapping("/updateSession/{sessionId}")
+    public String updateSession(@PathVariable int sessionId, @ModelAttribute("session") Session session,Model model){
+        User user = userDetailsService.actualUser();
+        List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
+        model.addAttribute("places", places);
+        session.setUser(user);
+        model.addAttribute("session",climbFeignClient.updateSession(sessionId,session).getBody());
+        return "redirect:/allRouteBySession";
+    }
+
+    @GetMapping("/listSession")
+    public ModelAndView listSession(Model model){
+        model.addAttribute("user",userDetailsService.actualUser());
+        model.addAttribute("sessions", climbFeignClient.findAllSessionByUserId(userDetailsService.actualUser().getId()).getBody());
+        return new ModelAndView("listSession");
+    }
+
+    @GetMapping("/deleteSession/{sessionId}")
+    public String deleteSession(@PathVariable("sessionId") int sessionId, Model model){
+        model.addAttribute("session", climbFeignClient.findSessionById(sessionId).getBody());
+        climbFeignClient.deleteSession(sessionId);
+        return "redirect:/listSession";
+    }
+
+
+
+}
