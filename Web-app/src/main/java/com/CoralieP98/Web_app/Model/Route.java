@@ -23,7 +23,15 @@ public class Route {
 
     private boolean isARepeat;
 
+    private boolean isFlash;
+
     private float lenght;
+
+    private String routeName;
+
+    private User user;
+
+    private Grade grade;
 
     private Session session;
 

@@ -28,6 +28,8 @@ public class Route {
 
     private boolean isARepeat;
 
+    private boolean isFlash;
+
 //    champ isFlash ???
 //    champ detailPerso ???
 
@@ -85,6 +87,14 @@ public class Route {
 
     public boolean isSlab() {
         return isSlab;
+    }
+
+    public boolean isFlash() {
+        return isFlash;
+    }
+
+    public void setFlash(boolean flash) {
+        isFlash = flash;
     }
 
     public void setSlab(boolean slab) {

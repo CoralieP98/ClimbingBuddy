@@ -20,23 +20,25 @@
         </figure>
   
 
-    <main class="Session-layout" th:object"$session">
-        <section class="Session-layout-main" th:each ici !!!!>
+    <main class="Session-layout" >
+        <section class="Session-layout-main" >
             <div class="Session-layout-main-info">
                 <h2 class="Session-layout-main-info-title">Session - </h2>
-                <p class="Session-layout-main-info-date" th:text$"session.date"> 18 - march - 2024</p>
-                <!-- mettre date de la session -->
+                <p class="Session-layout-main-info-date" th:text="${session.date}"></p>
+                <input type="hidden" th:text="${session.sessionId}" />
+
             </div>
             <div class="Session-layout-main-content">
                 <div class="Session-layout-main-content-title ">
                     <p>Tell us more about the route and the project of your session !</p>
                 </div>
-                <div class="Session-layout-main-content-route CardRouteSession">
+                <div class="Session-layout-main-content-route CardRouteSession" th:each="route ${routes}">
+
                     <div class="CardRouteSession-type">
                         <p th label type >ty</p>
                     </div>
                     <div class="CardRouteSession-grade">
-                        <p th grade>Grade</p>
+                        <p th:text="${route.grade.gradeName}"></p>
                     </div>
                     <div class="CardRouteSession-button">
                         <a href="/getRouteById">
