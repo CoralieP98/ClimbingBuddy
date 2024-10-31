@@ -2,6 +2,7 @@ package com.CoralieP98.Web_app.Controller;
 
 import com.CoralieP98.Web_app.Model.Grade;
 import com.CoralieP98.Web_app.Model.Route;
+import com.CoralieP98.Web_app.Model.Session;
 import com.CoralieP98.Web_app.Model.User;
 import com.CoralieP98.Web_app.Service.Client.ClimbFeignClient;
 import com.CoralieP98.Web_app.Service.CustomUserDetailsService;
@@ -34,9 +35,10 @@ public class RouteController {
     @GetMapping("/allRouteBySession/{sessionId}")
     public ModelAndView allRouteBySession(Model model,@PathVariable int sessionId){
         model.addAttribute("user", userDetailsService.actualUser());
-        model.addAttribute("session", climbFeignClient.findSessionById(sessionId).getBody());
+        Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
+        model.addAttribute("actualSession", actualSession);
         model.addAttribute("routes",climbFeignClient.findAllRouteBySession(sessionId).getBody());
-        return new ModelAndView("session","sessionId",sessionId);
+        return new ModelAndView("session");
 
     }
 }

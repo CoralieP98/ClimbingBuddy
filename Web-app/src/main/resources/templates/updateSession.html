@@ -23,13 +23,12 @@
 <Main class="AddSession-main">
     <section class="AddSession-main-layout">
         <div class="AddSession-main-layout-form">
-            <form class="AddSession-main-layout-form-content FormSession" th:action="@{/updateSession/{sessionId}(sessionId=${actualUser.sessionId})}" th:object="${actualUser}" method="POST" id="form-session">
+            <form class="AddSession-main-layout-form-content FormSession" th:action="@{/updateSession/{sessionId}(sessionId=${actualSession.sessionId})}" th:object="${actualSession}" method="POST" id="form-session">
                 <h2 class="FormSession-title">New Session</h2>
-                <p th:text="${actualUser.sessionId}"></p>
 
                 <div class="AddSession-main-layout-form-content-field FormSession-place">
                     <label for="places" class="FormSession-place-label" >Place</label>
-                    <select name="place-list" id="places" for="form-session" th:field="${actualUser.place.placeId}">
+                    <select name="place-list" id="places" for="form-session" th:field="${actualSession.place.placeId}">
                         <option th:each="place : ${places}" th:value="${place.placeId}" th:text="${place.labelPlace}"></option>
                     </select>
                     <!-- <a href="/addNewFavorite" class="AddSession-main-layout-place-">add new address</a> -->
@@ -38,21 +37,21 @@
 
                 <div class="AddSession-main-layout-form-content-field FormSession-duration">
                     <label for="duration" class="FormSessio-duration-label">Duration</label>
-                    <input type="number" th:field="${actualUser.duration}" name="duration" id="duration" min="30" max="500"><span> min</span>
+                    <input type="number" th:field="${actualSession.duration}" name="duration" id="duration" min="30" max="500"><span> min</span>
                 </div>
 
                 <div class="AddSession-main-layout-form-content-field FormSession-warmUp">
                     <label for="warmUp" class="FormSessio-warmUp-label">with warm up</label>
-                    <input type="checkbox" name="warmUp" th:field="${actualUser.warmUp}" id="warmUp">
+                    <input type="checkbox" name="warmUp" th:field="${actualSession.warmUp}" id="warmUp">
                 </div>
 
                 <div class="AddSession-main-layout-form-content-field FormSession_date">
                     <label for="date" class="FormSession-date-label">Date</label>
-                    <input type="date" name="date" th:field="${actualUser.date}" id="date">
+                    <input type="date" name="date" th:field="${actualSession.date}" id="date">
                 </div>
 
                 <button type="submit" for="form-session" class="AddSession-main-layout-content-form-button">
-                    <input type="hidden" th:field="${actualUser.sessionId}">Modify Session</button>
+                    <input type="hidden" th:field="${actualSession.sessionId}">Modify Session</button>
 
 
             </form>

@@ -25,7 +25,7 @@ public class SessionController {
     public ModelAndView addSession(Model model){
         User user = userDetailsService.actualUser();
         model.addAttribute("user",user);
-        model.addAttribute("session", new Session());
+        model.addAttribute("createdSession", new Session());
         List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
         model.addAttribute("places", places);
         return new ModelAndView("addSession");
@@ -37,16 +37,17 @@ public class SessionController {
         List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
         model.addAttribute("places", places);
         session.setUser(user);
-        model.addAttribute("session",climbFeignClient.createSession(session).getBody());
-        return "redirect:/allRouteBySession";
+        Session createdSession = climbFeignClient.createSession(session).getBody();
+        model.addAttribute("createdSession", createdSession);
+        return "redirect:/allRouteBySession/" + createdSession.getSessionId();
     }
 
     @GetMapping("/updateSession/{sessionId}")
     public ModelAndView updateSession(@PathVariable("sessionId") int sessionId, Model model){
-        Session actualUser = climbFeignClient.findSessionById(sessionId).getBody();
+        Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
         User user = userDetailsService.actualUser();
         model.addAttribute("user",user);
-        model.addAttribute("actualUser", actualUser);
+        model.addAttribute("actualSession", actualSession);
         List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
         model.addAttribute("places", places);
         return new ModelAndView("updateSession");
@@ -58,10 +59,8 @@ public class SessionController {
         List<Place> places = climbFeignClient.findFavoritePlaceById(user.getId()).getBody();
         model.addAttribute("places", places);
         session.setUser(user);
-//        model.addAttribute("session",climbFeignClient.updateSession(sessionId,session).getBody());
         climbFeignClient.updateSession(sessionId,session).getBody();
-
-        return "redirect:/allRouteBySession";
+        return "redirect:/allRouteBySession/{sessionId}";
     }
 
     @GetMapping("/listSession")
