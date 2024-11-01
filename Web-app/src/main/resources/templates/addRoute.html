@@ -88,7 +88,7 @@
                         <h3>Techniques used :</h3>
                         <div class=" FormRoute-right-tech-select Select">
                             <label for="techniques">Tech</label>
-                            <select name="techniques" id="techniques" for="technique" multiple="multiple" th:field="*{techniques}">
+                            <select name="techniques" id="techniques" for="technique" th:field="*{techniques}" multiple="multiple" >
                                 <option th:each="technique : ${techniquelist}" th:value="${technique.techniqueId}" th:text="${technique.labelTechnique}"></option>
                                 <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
                             </select>
@@ -98,7 +98,7 @@
                         <h3>Exercices done :</h3>
                         <div class=" FormRoute-right-exo-select Select">
                             <label for="exercices">Exos</label>
-                            <select name="exercices" id="exercices" for="exercice" multiple="multiple" th:field="*{exercices}">
+                            <select name="exercices" id="exercices" for="exercice" th:field="*{exercices}" multiple="multiple" >
                                 <option th:each="exercice : ${exercicelist}" th:value="${exercice.exerciceId}" th:text="${exercice.labelExercice}"></option>
                                 <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
                             </select>
