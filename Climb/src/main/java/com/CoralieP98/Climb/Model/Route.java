@@ -30,7 +30,6 @@ public class Route {
 
     private boolean isFlash;
 
-//    champ isFlash ???
 //    champ detailPerso ???
 
     private float lenght;

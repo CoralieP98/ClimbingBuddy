@@ -8,9 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class Technique {
 
-    private int technicId;
+    private int techniqueId;
 
-    private String labelTechnic;
+
+    private String labelTechnique;
 
     private Long cardId; //card etant une table mongo voir comment faire le lien
 
