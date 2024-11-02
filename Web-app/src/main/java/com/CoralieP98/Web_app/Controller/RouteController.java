@@ -22,36 +22,37 @@ public class RouteController {
     private final CustomUserDetailsService userDetailsService;
     private final ClimbFeignClient climbFeignClient;
 
-    @GetMapping("/addRoute")
-    public ModelAndView addRoute(Model model){
+    @GetMapping("/addRoute/{sessionId}")
+    public ModelAndView addRoute(Model model,@PathVariable int sessionId){
         model.addAttribute("route", new Route());
 
         List<Grade> grades = climbFeignClient.getAllGrades().getBody();
         List<Type> types = climbFeignClient.getAll3Types().getBody();
         List<Technique> techniques = climbFeignClient.getAllTechniques().getBody();
         List<Exercice> exercices = climbFeignClient.getAllExercices().getBody();
-//        User user = userDetailsService.actualUser();
-//        Session session = climbFeignClient.findSessionById(sessionId).getBody();
+        Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
 
 
         model.addAttribute("grades", grades);
         model.addAttribute("types", types);
-        model.addAttribute("techniquelist", techniques);
-        model.addAttribute("exercicelist", exercices);
-//        model.addAttribute("user", user);
-//        model.addAttribute("session", session);
+        model.addAttribute("techniques", techniques);
+        model.addAttribute("exercices", exercices);
+        model.addAttribute("actualSession", actualSession);
 
         return new ModelAndView("addRoute");
     }
 
 
-    @PostMapping("/addRoute")
-    public String addRoute(@ModelAttribute("route") Route route,Model model){
+    @PostMapping("/addRoute/{sessionId}")
+    public String addRoute(@PathVariable("sessionId") int sessionId,@ModelAttribute("route") Route route,Model model){
         User user = userDetailsService.actualUser();
+        Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
+        route.setSession(actualSession);
         route.setUser(user);
-        climbFeignClient.createRoute(route);
 
-        return "redirect:/allRouteBySession/" + route.getSession().getSessionId();
+        Route createdRoute = climbFeignClient.createRoute(route).getBody();
+
+        return "redirect:/allRouteBySession/" + createdRoute.getSession().getSessionId();
 
 
     }
