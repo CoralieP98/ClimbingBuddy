@@ -2,6 +2,7 @@ package com.CoralieP98.Climb.Controller;
 
 import com.CoralieP98.Climb.Model.Exercice;
 import com.CoralieP98.Climb.Model.Route;
+import com.CoralieP98.Climb.Model.Technique;
 import com.CoralieP98.Climb.Service.ExerciceService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +43,11 @@ public class ExerciceController {
     @GetMapping("findExerciceById")
     public Exercice findExerciceById(@RequestParam int exerciceId){
         return exerciceService.findExerciceById(exerciceId);
+    }
+
+    @GetMapping("findAllExercicesById")
+    public List<Exercice> findAllExercicesById(@RequestParam List<Integer> exercicesIds){
+        return exerciceService.findAllExercicesById(exercicesIds);
     }
 
 }

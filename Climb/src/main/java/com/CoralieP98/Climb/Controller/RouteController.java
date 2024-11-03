@@ -74,6 +74,13 @@ public class RouteController {
         return routeService.getAllRoutesByUser(id);
     }
 
+    @DeleteMapping("deleteAllRouteBySessionId")
+    public void deleteAllRouteBySessionId(@RequestParam int sessionId){
+        routeService.deleteAllRouteBySessionId(sessionId);
+    }
+
+
+
 
 
 }

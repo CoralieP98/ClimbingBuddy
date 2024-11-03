@@ -38,4 +38,8 @@ public class TechniqueService {
     }
 
 
+    public List<Technique> findAllTechniquesById(List<Integer> techniqueIds) {
+        return techniqueRepository.findAllById(techniqueIds);
+
+    }
 }

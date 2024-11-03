@@ -140,6 +140,9 @@ public interface ClimbFeignClient {
     @GetMapping(value = "/api/findExerciceById", consumes = "application/json")
     public ResponseEntity<Exercice> findExerciceById(@RequestParam int exercieId);
 
+    @GetMapping(value = "/api/findAllExercicesById", consumes = "application/json")
+    public ResponseEntity<List<Exercice>> findAllExercicesById(@RequestParam List<Integer> exercicesIds);
+
 
 // Technic //////////////////////
 
@@ -157,6 +160,10 @@ public interface ClimbFeignClient {
 
     @GetMapping(value = "/api/findTechniqueById", consumes = "application/json")
     public ResponseEntity<Technique> findTechniqueById(@RequestParam int technicId);
+
+    @GetMapping(value = "/api/findAllTechniquesById", consumes = "application/json")
+    public ResponseEntity<List<Technique>> findAllTechniquesById(@RequestParam List<Integer> techniqueIds);
+
 
 
 // Profil //////////////////////

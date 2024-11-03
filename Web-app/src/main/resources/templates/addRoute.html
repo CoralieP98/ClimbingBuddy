@@ -30,9 +30,9 @@
                     <div class="FormRoute-left-fields FieldsR">
 
                         <div class="FormRoute-left-fields-each FieldsR-type">
-                            <input type="radio"  th:field="*{type.typeId}" id="rope" value="1" name="type">
+                            <input type="radio"  th:field="*{type.typeId}" id="rope" value="1" name="type" required>
                             <label for="rope" class="AddSession-main-layout-form-type-label">Rope Climbing</label>
-                            <input type="radio"  th:field="*{type.typeId}" id="boulder" value="2" name="type">
+                            <input type="radio"  th:field="*{type.typeId}" id="boulder" value="2" name="type" required>
                             <label for="boulder" class="AddSession-main-layout-form-type-label">Boulder Climbing</label>
                         </div>
 
@@ -85,33 +85,19 @@
                 <div class="FormRoute-right">
                     <section class="FormRoute-right-tech ">
                         <h3>Techniques used :</h3>
-                        <div class=" FormRoute-right-tech-select Select">
-                            <label for="techniques">Tech</label>
-                            <select name="techniques" id="techniques" for="technique" th:field="*{techniques}"  multiple onchange="updateSelectedTechniques()" >
-
-                                    <input th:each="technique : ${techniques}" type="checkbox" th:value="${technique.techniqueId}" th:text="${technique.labelTechnique}" />
-                                <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
-                            </select>
-                        </div>
-                        <div id="selected-techniques-container">
-                            <h3>Selected Techniques:</h3>
-                            <ul id="selected-techniques"></ul>
+                        <div class=" FormRoute-right-tech-select Select" th:each="technique : ${techniques}">
+                            <input  th:value="${technique.techniqueId}" name="techniqueIds"  type="checkbox"   />
+                            <span th:text="${technique.labelTechnique}"></span>
                         </div>
                     </section>
 
                     <section class="FormRoute-right-exo ">
                         <h3>Exercices done :</h3>
-                        <div class=" FormRoute-right-exo-select Select">
-                            <label for="exercices">Exos</label>
-                            <select name="exercices" id="exercices" for="exercice" th:field="*{exercices}" multiple onchange="updateSelectedExercices()">
-                                <input th:each="exercice : ${exercices}" type="checkbox" th:value="${exercice.exerciceId}" th:text="${exercice.labelExercice}">
-                                <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
-                            </select>
+                        <div class=" FormRoute-right-exo-select Select"  th:each="exercice : ${exercices}">
+                            <input  th:value="${exercice.exerciceId}" name="exerciceIds"  type="checkbox"   />
+                            <span th:text="${exercice.labelExercice}"></span>
                         </div>
-                        <div id="selected-exercices-container">
-                            <h3>Selected Exercices:</h3>
-                            <ul id="selected-exercices"></ul>
-                        </div>
+
                     </section>
 
 

@@ -43,6 +43,11 @@ public class TechniqueController {
         return techniqueService.findTechniqueById(techniqueId);
     }
 
+    @GetMapping("findAllTechniquesById")
+    public List<Technique> findAllTechniquesById(@RequestParam List<Integer> techniqueIds){
+        return techniqueService.findAllTechniquesById(techniqueIds);
+    }
+
 
 
 

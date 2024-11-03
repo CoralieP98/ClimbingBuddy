@@ -37,4 +37,7 @@ public class ExerciceService {
         return exerciceRepository.findExerciceByExerciceId(exerciceId).get();
     }
 
+    public List<Exercice> findAllExercicesById(List<Integer> exercicesIds) {
+        return exerciceRepository.findAllById(exercicesIds);
+    }
 }

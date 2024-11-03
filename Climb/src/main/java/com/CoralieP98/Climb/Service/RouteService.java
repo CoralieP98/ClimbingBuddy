@@ -112,4 +112,9 @@ public class RouteService {
     public List<Route> getAllRoutesByUser(int id) {
         return routeRepository.findAllRoutesByUserId(id).get();
     }
+
+    public void deleteAllRouteBySessionId(int sessionId) {
+        Session session = sessionService.findSessionById(sessionId);
+        routeRepository.deleteAllRouteBySessionSessionId(sessionId);
+    }
 }

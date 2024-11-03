@@ -41,7 +41,7 @@
                         <p th:text="${route.grade.gradeName}"></p>
                     </div>
                     <div class="CardRouteSession-button">
-                        <a href="/getRouteById">
+                        <a th:href="@{/getRoute/{routeId}/{sessionId}(sessionId=${actualSession.sessionId}, routeId=${route.routeId})}">
                             <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.5879 10.0627L7.52522 2" stroke="grey" stroke-width="3" stroke-linecap="round"/>
                             <path d="M8.06299 17.5878L15.5881 10.0627" stroke="grey" stroke-width="3" stroke-linecap="round"/>
