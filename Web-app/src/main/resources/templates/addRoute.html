@@ -30,9 +30,9 @@
                     <div class="FormRoute-left-fields FieldsR">
 
                         <div class="FormRoute-left-fields-each FieldsR-type">
-                            <input type="radio"  th:field="*{type.typeId}" id="rope" value="1" name="type" required>
+                            <input type="radio"  th:field="*{type.typeId}" id="rope" value="1" name="type">
                             <label for="rope" class="AddSession-main-layout-form-type-label">Rope Climbing</label>
-                            <input type="radio"  th:field="*{type.typeId}" id="boulder" value="2" name="type" required>
+                            <input type="radio"  th:field="*{type.typeId}" id="boulder" value="2" name="type">
                             <label for="boulder" class="AddSession-main-layout-form-type-label">Boulder Climbing</label>
                         </div>
 
@@ -93,34 +93,25 @@
                                 <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
                             </select>
                         </div>
-<!--                        <div id="selected-techniques-container">-->
-<!--                            <h3>Selected Techniques:</h3>-->
-<!--                            <ul id="selected-techniques"></ul>-->
-<!--                        </div>-->
+                        <div id="selected-techniques-container">
+                            <h3>Selected Techniques:</h3>
+                            <ul id="selected-techniques"></ul>
+                        </div>
                     </section>
 
                     <section class="FormRoute-right-exo ">
                         <h3>Exercices done :</h3>
-<!--                        <div class=" FormRoute-right-exo-select Select">-->
-<!--                            <label for="exercices">Exos</label>-->
-<!--                            <select name="exercices" id="exercices" for="exercice" th:field="*{exercices}" multiple onchange="updateSelectedExercices()">-->
-<!--                                <input th:each="exercice : ${exercices}" type="checkbox" th:value="${exercice.exerciceId}" th:text="${exercice.labelExercice}">-->
-<!--                                &lt;!&ndash; <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> &ndash;&gt;-->
-<!--                            </select>-->
-<!--                        </div>-->
-                        <div>
-                            <ul>
-                                <li th:each="exercice : ${exercices}">
-                                    <label>
-                                        <input type="checkbox" name="exercices" th:value="${exercice.exerciceId}" th:text="${exercice.labelExercice}">
-                                    </label>
-                                </li>
-                            </ul>
+                        <div class=" FormRoute-right-exo-select Select">
+                            <label for="exercices">Exos</label>
+                            <select name="exercices" id="exercices" for="exercice" th:field="*{exercices}" multiple onchange="updateSelectedExercices()">
+                                <input th:each="exercice : ${exercices}" type="checkbox" th:value="${exercice.exerciceId}" th:text="${exercice.labelExercice}">
+                                <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
+                            </select>
                         </div>
-<!--                        <div id="selected-exercices-container">-->
-<!--                            <h3>Selected Exercices:</h3>-->
-<!--                            <ul id="selected-exercices"></ul>-->
-<!--                        </div>-->
+                        <div id="selected-exercices-container">
+                            <h3>Selected Exercices:</h3>
+                            <ul id="selected-exercices"></ul>
+                        </div>
                     </section>
 
 
