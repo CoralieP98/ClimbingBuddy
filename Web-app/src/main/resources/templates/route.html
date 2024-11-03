@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-<!--    <link rel="stylesheet" href="../style.css">-->
+<!--        <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="/../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
     <title>Route</title>
 </head>
@@ -13,40 +13,40 @@
     <header th:replace="~{fragments/navBar}"></header>
     
     <figure class="AddSession-header-figure">
-        <img src="image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
+        <img src="../../image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
     </figure>
 
     <main class="Route">
         <section class="Route-card">
             <div class="Route-card-info">
-                <p th type session>ty</p>
+                <p th:text="${actualRoute.type.lapelType}"></p>
                 <div class="Route-card-info-grade">
-                    <h3 th grade session>Grade</h3>
-                    <p th lenght session>lenght: <span>15</span> m</p>
+                    <h3 th:text="${actualRoute.grade.gradeName}"></h3>
+                    <p >lenght: <span th:text="${actualRoute.lenght}"></span> m</p>
                 </div>
             </div>
 
-            <div class="Route-card-keys" each pour chaque boolean a 1>
-                <p>lead</p>
-                <p>overhang</p>
-                <p>flash</p>
-            </div>
+<!--            <div class="Route-card-keys" each pour chaque boolean a 1>-->
+<!--                <p>lead</p>-->
+<!--                <p>overhang</p>-->
+<!--                <p>flash</p>-->
+<!--            </div>-->
 
             <div class="Route-card-exosTech">
 
                 <div class="Route-card-exosTech-content RouteTech">
                     <h4>Techniques used :</h4>
-                    <ul class="RouteUl" th each tech route>
-                        <li>lolotte</li>
-                        <li>lolotte</li>
+                    <ul class="RouteUl" th:each="technique: ${techniques}">
+                        <li   th:text="${technique.labelTechnique}"></li>
                     </ul>
                 </div>
 
                 <div class="Route-card-exosTech-content RouteExo">
                     <h4>Exercices done :</h4>
-                    <ul class="RouteUl" th each exos route>
-                        <li>lolotte</li>
-                        <li>lolotte</li>
+                    <ul class="RouteUl">
+                        <li  th:each="exercice: ${exercices}">
+                            <div th:text="${exercice.labelExercice}"></div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -58,7 +58,7 @@
         <section class="Route-nav">
             <a href="/updateRoute">Modify</a>
             <a href="/deleteRoute">Delete</a>
-            <a href="/getAllRoutesBySessionId">Go back</a>
+            <a th:href="@{/allRouteBySession/{sessionId}(sessionId=${actualSession.sessionId})}">Go back</a>
 
         </section>
     </main>
