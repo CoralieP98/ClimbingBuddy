@@ -1,10 +1,13 @@
 package com.CoralieP98.Climb.Service;
 
 import com.CoralieP98.Climb.Model.Place;
+import com.CoralieP98.Climb.Model.Route;
 import com.CoralieP98.Climb.Model.Session;
 import com.CoralieP98.Climb.Model.User;
+import com.CoralieP98.Climb.Repository.RouteRepository;
 import com.CoralieP98.Climb.Repository.SessionRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.text.ParseException;
@@ -21,10 +24,14 @@ public class SessionService {
 
     private final UserService userService;
 
-    public SessionService(PlaceService placeService, SessionRepository sessionRepository, UserService userService) {
+    private final RouteRepository routeRepository;
+
+    public SessionService(PlaceService placeService, SessionRepository sessionRepository, UserService userService, RouteRepository routeRepository) {
         this.placeService = placeService;
         this.sessionRepository = sessionRepository;
         this.userService = userService;
+
+        this.routeRepository = routeRepository;
     }
 
     public void createSession(Session session){
@@ -54,7 +61,16 @@ public class SessionService {
         return sessionRepository.findSessionByDate(date).get();
     }
 
+    @Transactional
     public void deleteSession(int sessionId) {
+        Session session = findSessionById(sessionId);
+
+
+        List<Route> routes = routeRepository.findAllRouteBySession(session).get();
+        for (Route route : routes) {
+            route.setSession(null);
+            routeRepository.save(route);
+        }
         sessionRepository.deleteById(sessionId);
     }
 

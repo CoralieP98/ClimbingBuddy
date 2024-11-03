@@ -93,7 +93,7 @@
 
                     <section class="FormRoute-right-exo ">
                         <h3>Exercices done :</h3>
-                        <div class=" FormRoute-right-exo-select Select"  th:each="exercice : ${exercices}">
+                        <div class=" FormRoute-right-exo-select Select"   th:each="exercice : ${exercices}">
                             <input  th:value="${exercice.exerciceId}" name="exerciceIds"  type="checkbox"   />
                             <span th:text="${exercice.labelExercice}"></span>
                         </div>

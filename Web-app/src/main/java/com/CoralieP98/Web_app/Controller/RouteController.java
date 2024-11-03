@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -55,11 +56,15 @@ public class RouteController {
         if (techniqueIds != null) {
             List<Technique> selectedTechniques = climbFeignClient.findAllTechniquesById(techniqueIds).getBody();
             route.setTechniques(selectedTechniques);
+        }else {
+            route.setTechniques(new ArrayList<>());
         }
 
         if (exerciceIds != null) {
             List<Exercice> selectedExercices = climbFeignClient.findAllExercicesById(exerciceIds).getBody();
             route.setExercices(selectedExercices);
+        }else {
+            route.setExercices(new ArrayList<>());
         }
 
         Route createdRoute = climbFeignClient.createRoute(route).getBody();

@@ -65,6 +65,10 @@ public interface ClimbFeignClient {
     @DeleteMapping(value = "/api/deleteRoute", consumes = "application/json")
     public void deleteRoute(@RequestParam int routeId);
 
+    @DeleteMapping(value = "/api/deleteAllRouteBySessionId", consumes = "application/json")
+    public void deleteAllRouteBySessionId(@RequestParam int sessionId);
+
+
     @PutMapping(value = "/api/updateRoute", consumes = "application/json")
     public ResponseEntity<Route> updateRoute(@RequestParam int routeId, Route route);
 

@@ -71,8 +71,7 @@ public class SessionController {
     }
 
     @GetMapping("/deleteSession/{sessionId}")
-    public String deleteSession(@PathVariable("sessionId") int sessionId, Model model){
-        model.addAttribute("session", climbFeignClient.findSessionById(sessionId).getBody());
+    public String deleteSession(@PathVariable("sessionId") int sessionId){
         climbFeignClient.deleteSession(sessionId);
         return "redirect:/listSession";
     }

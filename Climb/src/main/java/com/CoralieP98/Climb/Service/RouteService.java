@@ -114,7 +114,6 @@ public class RouteService {
     }
 
     public void deleteAllRouteBySessionId(int sessionId) {
-        Session session = sessionService.findSessionById(sessionId);
         routeRepository.deleteAllRouteBySessionSessionId(sessionId);
     }
 }
