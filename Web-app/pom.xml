@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.CoralieP98</groupId>
-	<artifactId>Web-app</artifactId>
+	<artifactId>web-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Web-app</name>
+	<name>web-app</name>
 	<description>web-app climbing buddy</description>
 	<properties>
 		<java.version>17</java.version>

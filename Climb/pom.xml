@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.CoralieP98</groupId>
-	<artifactId>Climb</artifactId>
+	<artifactId>climb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Climb</name>
+	<name>climb</name>
 	<description>micro-service Climb ClimbingBuddy</description>
 	<properties>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
