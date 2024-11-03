@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+<!--    <link rel="stylesheet" href="../style.css">-->
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>Add New favorite place</title>
+</head>
+<body>
+    
+    <header th:replace="~{fragments/navBar}"></header>
+    
+    <figure class="AddSession-header-figure">
+        <img src="image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
+    </figure>
+
+    <main class="AddPlace">
+        <h1 class="AddPlace-title">Add a new favorite place !</h1>
+        <form class="AddPlace-form" th:action="@{/addNewFavPlace}" th:object="${place}"  method="POST" id="FormPlace">
+            <div class="AddPlace-form-content">
+                <label for="placeform">Name :*</label>
+                <input type="text" th:field="*{labelPlace}" name="placeform" id="placeform" placeholder="Name of this wonderful place" required>
+            </div>
+            <button type="submit"  for="FormPlace"  class="AddPlace-form-button">add</button>
+        </form>
+
+    </main>
+  
+
+ 
+
+</body>
+</html>

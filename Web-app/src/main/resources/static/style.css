@@ -653,6 +653,9 @@ h1, h2, h3, h4, p, figure {
   width: 250px;
   margin-bottom: 1.5em;
 }
+.AddSession-main-layout-form-content-link {
+  color: #424242;
+}
 .AddSession-main-layout-aside-figure {
   display: none;
 }
@@ -1053,6 +1056,42 @@ h1, h2, h3, h4, p, figure {
   width: 90%;
   border-radius: 0.2em;
   margin: 5px 0;
+}
+
+.AddPlace {
+  margin: 9em 2em 0 2em;
+}
+.AddPlace-title {
+  background-color: #bbbbbb;
+  padding: 0.5em 0.3em;
+  border-radius: 0.4em;
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+.AddPlace-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.AddPlace-form-content {
+  margin-bottom: 1em;
+  border: solid 2px #8D8D8D;
+}
+.AddPlace-form-content > label {
+  background-color: #d3d3d3;
+  font-weight: 500;
+  padding: 2px 4px 4px 3px;
+}
+.AddPlace-form-content > input {
+  padding: 5px;
+  border: none;
+}
+.AddPlace-form-button {
+  padding: 8px;
+  background-color: #424242;
+  color: white;
+  border-radius: 0.4em;
+  border: none;
 }
 
 @media screen and (min-width: 900px) {
@@ -1462,6 +1501,26 @@ h1, h2, h3, h4, p, figure {
   }
   .Route-nav {
     width: 30%;
+  }
+  .AddPlace {
+    margin-top: 12em;
+  }
+  .AddPlace-title {
+    margin-left: 5%;
+    width: 50%;
+  }
+  .AddPlace-form {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .AddPlace-form-content {
+    margin-right: 9em;
+  }
+  .AddPlace-form-content > input {
+    width: 170px;
   }
 }
 @media screen and (min-width: 1300px) {
