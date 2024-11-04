@@ -17,23 +17,13 @@ public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeId;
-
     private boolean isSlab;
-
     private boolean isOverHang;
-
     private boolean isLead;
-
     private boolean isTopRope;
-
     private boolean isARepeat;
-
     private boolean isFlash;
-
-//    champ detailPerso ???
-
     private float lenght;
-
     private String routeName;
 
     @ManyToOne(fetch = FetchType.EAGER)

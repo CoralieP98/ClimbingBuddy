@@ -3,22 +3,17 @@ spring:
     name: configserver
 
   profiles:
-    # active: native
     active: git
   cloud:
     config:
       server:
-        # native
-          # search-locations: "classpath:/config"
-          # search-locations: "file:///users//coralieperez//Documents//config"
         git:
-          uri: https://github.com/CoralieP98/climbingBuddy-config
+          uri: "https://github.com/CoralieP98/climbingBuddy-config"
           default-label: main
           timeout: 5000
           clone-on-start: true
           force-pull: true
 
-###
 
 management:
   endpoints:
@@ -30,9 +25,9 @@ management:
       probes:
         enabled: true
   health:
-    readinessstate:
+    readiness-state:
       enabled: true
-    livenessstate:
+    liveness-state:
       enabled: true
 
 server:

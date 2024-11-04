@@ -69,7 +69,7 @@ public class SessionService {
         List<Route> routes = routeRepository.findAllRouteBySession(session).get();
         for (Route route : routes) {
             route.setSession(null);
-            routeRepository.save(route);
+            routeRepository.delete(route);
         }
         sessionRepository.deleteById(sessionId);
     }
