@@ -2,24 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-<!--        <link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
     <title>Session</title>
 </head>
 <body>
-    
-   
         <header th:replace="~{fragments/navBar}"></header>
         <div class="AddSession-header-joy welldone">
-            <figure class="AddSession-header-joy-img welldone-figure"><img src="../image/well_done.png" alt="dessin d'une personne enjoyé"></figure>
+            <figure class="AddSession-header-joy-img welldone-figure">
+                <img src="../image/well_done.png" alt="dessin d'une personne enjoyé"></figure>
             <h3 class="AddSession-header-joy-title welldone-title">Well done !</h3>
         </div>
         <figure class="AddSession-header-figure">
             <img src="../image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
         </figure>
-  
-
     <main class="Session-layout" >
         <section class="Session-layout-main" >
             <div class="Session-layout-main-info">
@@ -59,12 +55,10 @@
                 </div>
             </div>
         </section>
-
         <section class="Session-layout-footer">
             <a th:href="@{/updateSession/{sessionId}(sessionId=${actualSession.sessionId})}" class="Session-layout-footer-link">Modify Info</a>
             <a href="/listSession" class="Session-layout-footer-link">Finish</a>
         </section>
-
     </main>
 
 </body>

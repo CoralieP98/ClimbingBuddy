@@ -74,12 +74,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: courgette123
     ports:
       - 27018:27017
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017 --quiet
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
+#    healthcheck:
+#      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017 --quiet
+#      interval: 10s
+#      timeout: 10s
+#      retries: 5
+#      start_period: 10s
     networks:
       - climbingbuddy-networks
 
@@ -114,6 +114,24 @@ services:
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/climbingbuddy"
+
+  sheets:
+    image: coralieperez/sheets
+    container_name: sheets-ms
+    ports:
+      - "9020:9020"
+    depends_on:
+      eurekaserver:
+        condition: service_healthy
+    networks:
+      - climbingbuddy-networks
+    mem_limit: 700m
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_HOST: mongo
 
 
 

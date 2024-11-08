@@ -1,0 +1,21 @@
+server:
+  port: 9020
+spring:
+  application:
+    name: sheets
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: courgette123
+      database: techsheets
+      port: 27018
+      host: localhost
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
