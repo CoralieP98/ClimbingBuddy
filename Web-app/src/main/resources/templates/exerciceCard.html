@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+   <!-- <link rel="stylesheet" href="../style.css"> -->
+    <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
+    <title>Exercice card</title>
+</head>
+<body>
+    
+   
+    <header th:replace="~{fragments/navBar}"></header>
+
+    <figure class="AddSession-header-figure">
+        <img src="image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
+    </figure>
+
+    <main class="CardLayout">
+        <section class="CardLayout-Card">
+            <h1 class="CardLayout-Card-title" th:text="${exerciceCard.exerciceName}">Name</h1>
+            <div class="CardLayout-Card-content">
+                <div class="CardLayout-Card-content-left">
+                    <div class="CardLayout-Card-content-left-description">
+                        <textarea name="descTech" id="descTech" th:text="${exerciceCard.exerciceDescription}">blablablablablablablablablablabla</textarea>
+                    </div>
+                    <div class="CardLayout-Card-content-left-diff">
+                        <h5>Difficulty :</h5>
+                        <p th:text="${exerciceCard.difficulty}">blablalba</p>
+                </div>
+                </div>
+                <div class="CardLayout-Card-content-right">
+                    <div class="CardLayout-Card-content-right-equip">
+                        <h5>Equipment required :</h5>
+                        <p th:text="${exerciceCard.equipmentRequired}">blablalba</p>
+                    </div>
+                    <div class="CardLayout-Card-content-right-muscle">
+                        <h5>Muscles targeted :</h5>
+                        <p th:text="${exerciceCard.musclesTargeted}">blablalba</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a href="" class="CardLayout-link">Go back</a>
+ 
+    </main>
+
+
+
+</body>
+</html>
