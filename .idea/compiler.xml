@@ -10,10 +10,13 @@
         <module name="Web-app" />
         <module name="sheets" />
         <module name="configserver" />
+        <module name="stats" />
         <module name="Climb" />
-        <module name="strat" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="strat" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -22,6 +25,7 @@
       <module name="configserver" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
       <module name="sheets" options="-parameters" />
+      <module name="stats" options="-parameters" />
       <module name="strat" options="-parameters" />
     </option>
   </component>

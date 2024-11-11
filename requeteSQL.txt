@@ -17,3 +17,22 @@ INSERT INTO `exercice` (exercice_id,card_id,label_exercice)VALUES (1,NULL,"Feet 
 (2,NULL,"Plank"),(3,NULL,"PullUps"),(4,NULL,"PushUps"),(5,NULL,"ChinUp"),(6,NULL,"PlaymobilArms"),
 (7,NULL,"Gullish"),(8,NULL,"Finger Strenghtening"),(9,NULL,"MuscleUp"),(10,NULL,"RemovingHolds"),
 (11,NULL,"3Sec"),(12,NULL,"DownClimbing"),(13,NULL,"Traverse"),(14,NULL,"YogaStretching");
+
+ DROP PROCEDURE IF EXISTS TechniqueStatSp;
+DELIMITER //
+
+CREATE PROCEDURE TechniqueStatSp(user_id INT,session_id INT)
+
+BEGIN
+
+SELECT t.label_technique AS technique_name,
+       COUNT(rt.technique_id) AS technique_count
+  FROM session s
+ INNER JOIN route r ON s.session_id = r.session_id
+ INNER JOIN route_technique rt ON r.route_id = rt.route_id
+ INNER JOIN technique t ON rt.technique_id = t.technique_id
+ WHERE s.user_id = user_id
+   AND s.session_id = session_id
+ GROUP BY t.label_technique;
+
+END //
