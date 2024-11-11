@@ -329,7 +329,6 @@ h1, h2, h3,h4 ,h5,p ,figure{
         color: white;
         background-color: $darkGrey;
         border: none;
-        background-color: none;
         border-radius: 0.5em;
         font-family: $titleFont;
       }
@@ -1252,6 +1251,10 @@ h1, h2, h3,h4 ,h5,p ,figure{
     margin-left: $mediumSpace;
     background-color: $darkGrey;
     border-radius: 0.5em;
+    padding: 8px;
+    padding-bottom: 3px;
+    padding-top: 12px;
+    text-align: center;
     text-decoration: none;
     border: none;
     width: 40px;

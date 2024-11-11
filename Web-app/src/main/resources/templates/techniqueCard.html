@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-   <!-- <link rel="stylesheet" href="../style.css"> -->
+<!--        <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
     <title>Technique card</title>
 </head>
@@ -13,24 +13,24 @@
     <header th:replace="~{fragments/navBar}"></header>
 
     <figure class="AddSession-header-figure">
-        <img src="image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
+        <img src="../image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
     </figure>
 
     <main class="CardLayout">
         <section class="CardLayout-Card">
-            <h1 class="CardLayout-Card-title" th:text="${techniqueCard.techniqueName}">Name</h1>
+            <h1 class="CardLayout-Card-title" th:text="${actualTechniqueCard.techniqueName}"></h1>
             <div class="CardLayout-Card-content">
                 <div class="CardLayout-Card-content-description">
-                    <textarea name="descTech" id="descTech" th:text="${techniqueCard.techniqueDescription}">blablablablablablablablablablabla</textarea>
+                    <textarea name="descTech" id="descTech" th:text="${actualTechniqueCard.techniqueDescription}"></textarea>
                 </div>
                 <div class="CardLayout-Card-content-tips">
                     <h5>Tips :</h5>
-                    <p th:text="${techniqueCard.techniqueTips}">blablalba</p>
+                    <p th:text="${actualTechniqueCard.techniqueTips}"></p>
                 </div>
             </div>
         </section>
 
-        <a href="" class="CardLayout-link">Go back</a>
+        <a href="/getListSheets" class="CardLayout-link">Go back</a>
  
     </main>
 

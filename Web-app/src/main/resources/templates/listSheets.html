@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-       <!-- <link rel="stylesheet" href="../style.css"> -->
+<!--    <link rel="stylesheet" href="style.css">-->
+        <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
     <title>Sheets</title>
 </head>
@@ -18,85 +18,19 @@
             <h2 class="Sheets-part-title">Technique sheets</h2>
 
             <Div class="Sheets-part-layout">
-                <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
+                <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${techniqueCards}">
                     <div class="eachTechExos-content">
                         <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
+                        <h4 class="eachTechExos-content-label" th:text="${TechniqueCard.techniqueName}">name</h4>
                     </div>
-                    <button class="eachTechExos-button">
+                    <a th:href="@{/{techniqueCardId}/getTechniqueCard(techniqueCardId=${TechniqueCard.techniqueCardID})}" class="eachTechExos-button">
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
                         <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
                         </svg>
-                    </button>
+                    </a>
                 </div>
-                <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
-                    <div class="eachTechExos-content">
-                        <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
-                    </div>
-                    <button class="eachTechExos-button">
-                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div> <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
-                    <div class="eachTechExos-content">
-                        <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
-                    </div>
-                    <button class="eachTechExos-button">
-                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div> <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
-                    <div class="eachTechExos-content">
-                        <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
-                    </div>
-                    <button class="eachTechExos-button">
-                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div> <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
-                    <div class="eachTechExos-content">
-                        <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
-                    </div>
-                    <button class="eachTechExos-button">
-                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div> <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
-                    <div class="eachTechExos-content">
-                        <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
-                    </div>
-                    <button class="eachTechExos-button">
-                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div> <div class="Sheets-part-layout-list eachTechExos"  th:each="TechniqueCard : ${TechniqueCards}">
-                    <div class="eachTechExos-content">
-                        <img src="image/techCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${cardTechniques.techniqueName}">name</h4>
-                    </div>
-                    <button class="eachTechExos-button">
-                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div>
+
 
             </Div>
         </section>
@@ -105,17 +39,17 @@
             <h2 class="Sheets-part-title">Exercice sheets</h2>
 
             <Div class="Sheets-part-layout">
-                <div class="Sheets-part-layout-list eachTechExos" th:each="ExerciceCard : ${ExerciceCards}">
+                <div class="Sheets-part-layout-list eachTechExos" th:each="exerciceCard : ${exerciceCards}">
                     <div class="eachTechExos-content">
                         <img src="image/exoCard.png" alt="" class="eachTechExos-content-img">
-                        <h4 class="eachTechExos-content-label" th:text="${ExerciceCard.exerciceName}">name</h4>
+                        <h4 class="eachTechExos-content-label" th:text="${exerciceCard.exerciceName}">name</h4>
                     </div>
-                    <button class="eachTechExos-button">
+                    <a th:href="@{/{exerciceCardId}/getExerciceCard(exerciceCardId=${exerciceCard.exerciceCardId})}" class="eachTechExos-button">
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.5879 10.0627L7.52522 2" stroke="white" stroke-width="3" stroke-linecap="round"/>
                         <path d="M8.06299 17.5878L15.5881 10.0627" stroke="white" stroke-width="3" stroke-linecap="round"/>
                         </svg>
-                    </button>
+                    </a>
                 </div>
 
             </Div>

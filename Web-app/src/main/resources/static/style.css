@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4, p, figure {
+h1, h2, h3, h4, h5, p, figure {
   margin: 0;
   padding: 0;
 }
@@ -302,7 +302,6 @@ h1, h2, h3, h4, p, figure {
   color: white;
   background-color: #424242;
   border: none;
-  background-color: none;
   border-radius: 0.5em;
   font-family: "Karla", sans-serif;
 }
@@ -608,7 +607,7 @@ h1, h2, h3, h4, p, figure {
   justify-content: flex-end;
   background-color: #8D8D8D;
   border-radius: 0 1em 1em 0;
-  margin-top: 9em;
+  margin-top: 5em;
   height: 80px;
   padding: 1em 1.5em;
   overflow: visible;
@@ -642,22 +641,19 @@ h1, h2, h3, h4, p, figure {
   flex-direction: column;
   align-items: center;
 }
-.AddSession-main-layout-form-content-button {
+.AddSession-main-layout-form-content-field {
+  width: 250px;
+  margin-bottom: 1.5em;
+}
+.AddSession-main-layout-aside-figure {
+  display: none;
+}
+.AddSession-main-layout-aside-button {
   padding: 0.6em 1.5em;
   background-color: white;
   border: solid 2px #8D8D8D;
   border-radius: 0.7em;
   margin-top: 1.3em;
-}
-.AddSession-main-layout-form-content-field {
-  width: 250px;
-  margin-bottom: 1.5em;
-}
-.AddSession-main-layout-form-content-link {
-  color: #424242;
-}
-.AddSession-main-layout-aside-figure {
-  display: none;
 }
 
 .FormSession-title {
@@ -1094,6 +1090,150 @@ h1, h2, h3, h4, p, figure {
   border: none;
 }
 
+.Sheets {
+  margin-top: 9em;
+  background-color: #bbbbbb;
+  padding-bottom: 5%;
+}
+.Sheets-part {
+  margin: 1.3em;
+}
+.Sheets-part-title {
+  font-family: "Kosugi Maru", sans-serif;
+  padding-top: 1.3em;
+  font-weight: 550;
+}
+.Sheets-part-layout {
+  margin: 5px 0;
+}
+.Sheets-part-layout-list {
+  margin: 1em 0;
+}
+
+.eachTechExos-content {
+  background-color: #d3d3d3;
+  padding: 10px;
+  border-radius: 0.8em;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.eachTechExos-content > h4 {
+  margin-left: 1em;
+}
+.eachTechExos-button {
+  margin-left: 1.5em;
+  background-color: #424242;
+  border-radius: 0.5em;
+  padding: 8px;
+  padding-bottom: 3px;
+  padding-top: 12px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  width: 40px;
+  height: 30px;
+}
+
+.CardLayout {
+  margin-top: 9em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.CardLayout-Card {
+  background-color: #bbbbbb;
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+.CardLayout-Card-title {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 500;
+  margin: 10px 1.5em;
+}
+.CardLayout-Card-content {
+  margin: 0 1.5em;
+}
+.CardLayout-Card-content-left-description {
+  margin-bottom: 10px;
+}
+.CardLayout-Card-content-left-description > textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+.CardLayout-Card-content-left-diff {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.CardLayout-Card-content-left-diff > h5 {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+.CardLayout-Card-content-right-equip {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.CardLayout-Card-content-right-equip > h5 {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+.CardLayout-Card-content-right-muscle {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.CardLayout-Card-content-right-muscle > h5 {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+.CardLayout-Card-content-description {
+  margin-bottom: 10px;
+}
+.CardLayout-Card-content-description > textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+.CardLayout-Card-content-tips {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.CardLayout-Card-content-tips > h5 {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+.CardLayout-link {
+  text-decoration: none;
+  background-color: #424242;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 0.6em;
+}
+
 @media screen and (min-width: 900px) {
   .SignForm {
     background-color: white;
@@ -1521,6 +1661,70 @@ h1, h2, h3, h4, p, figure {
   }
   .AddPlace-form-content > input {
     width: 170px;
+  }
+  .Sheets {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+  }
+  .Sheets-part {
+    width: 40%;
+  }
+  .Sheets-part-title {
+    padding-left: 1em;
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .Sheets-part-layout {
+    margin-top: 1.3em;
+    background-color: #bbbbbb;
+    padding: 1.5em;
+    height: 100%;
+    border-radius: 2em 2em 0 0;
+  }
+  .eachTechExos {
+    display: flex;
+    align-items: center;
+  }
+  .eachTechExos-content {
+    width: 80%;
+  }
+  .CardLayout {
+    margin-top: 11em;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 0;
+  }
+  .CardLayout-Card {
+    margin: 0;
+    background-color: white;
+  }
+  .CardLayout-Card-title {
+    font-size: 2em;
+    padding-left: 1.3em;
+    padding-bottom: 33px;
+  }
+  .CardLayout-Card-content {
+    background-color: #bbbbbb;
+    border-radius: 1em 1em 0 0;
+    padding: 1.5em;
+    height: 500px;
+    margin-bottom: 0;
+    display: flex;
+    padding-top: 5em;
+    justify-content: space-around;
+  }
+  .CardLayout-Card-content-description {
+    width: 60%;
+  }
+  .CardLayout-Card-content-left {
+    width: 60%;
+  }
+  .CardLayout-Card-content-right-equip {
+    margin-bottom: 3em;
   }
 }
 @media screen and (min-width: 1300px) {
