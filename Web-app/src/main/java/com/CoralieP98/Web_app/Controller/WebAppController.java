@@ -9,6 +9,7 @@ import com.CoralieP98.Web_app.Service.CustomUserDetailsService;
 import com.CoralieP98.Web_app.Service.ProfilService;
 import com.CoralieP98.Web_app.Service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import feign.FeignException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,9 +62,16 @@ public class WebAppController {
     public ModelAndView home(Model model){
         User actualUser = userDetailsService.actualUser();
         model.addAttribute("user", actualUser);
-        Session lastSessionByUserId = climbFeignClient.getListLastSession(actualUser.getId()).getBody();
-        String data = statsFeignClient.statWithData(actualUser.getId(), lastSessionByUserId.getSessionId()).getBody();
-        model.addAttribute("data", data);
+
+        try {
+            Session lastSessionByUserId = climbFeignClient.getListLastSession(actualUser.getId()).getBody();
+
+            String data = statsFeignClient.statWithData(actualUser.getId(), lastSessionByUserId.getSessionId()).getBody();
+            model.addAttribute("data", data);
+
+        } catch (FeignException.NotFound e) {
+            return new ModelAndView("homePage_first");
+        }
 
 
         Profil profil = climbFeignClient.getProfilByUserId(actualUser.getId()).getBody();

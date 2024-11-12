@@ -3,7 +3,9 @@ package com.CoralieP98.Climb.Controller;
 import com.CoralieP98.Climb.Model.Place;
 import com.CoralieP98.Climb.Model.Session;
 import com.CoralieP98.Climb.Service.SessionService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -66,8 +68,16 @@ public class SessionController {
 //    }
 
     @GetMapping("getListLastSession")
-    public Session getListLastSession(@RequestParam int id){
-        return sessionService.findLastSessionByUserIdList(id);
+    public ResponseEntity<Session> getListLastSession(@RequestParam int id){
+        Session lastSession = sessionService.findLastSessionByUserIdList(id);
+
+        if (lastSession == null) {
+            // Retourner une réponse 404 si aucune session n'est trouvée
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        // Retourner la session si elle existe
+        return ResponseEntity.ok(lastSession);
     }
 
 

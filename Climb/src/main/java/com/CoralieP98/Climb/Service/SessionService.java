@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SessionService {
@@ -49,9 +50,16 @@ public class SessionService {
     }
 
     public Session findLastSessionByUserIdList(int id) {
-        List<Session> sessions = sessionRepository.findAllSessionByUserId(id).get();
-        return sessions.get(sessions.size()-1);
+        Optional<List<Session>> optionalSessions = sessionRepository.findAllSessionByUserId(id);
 
+        // Vérifier si la liste est présente et non vide
+        if (optionalSessions.isPresent() && !optionalSessions.get().isEmpty()) {
+            List<Session> sessions = optionalSessions.get();
+            return sessions.get(sessions.size() - 1); // Retourner la dernière session
+        }
+
+        // Retourner null si aucune session n'est trouvée
+        return null;
     }
 
 
@@ -92,6 +100,6 @@ public class SessionService {
     }
 
 //    public Session getLastSessionByUserId(int id) {
-//        return sessionRepository.findTopByUserIdOrderByUserIdDesc(id).get();
+//        return sessionRepository.findLastByUserIdOrderByUserIdDesc(id).get();
 //    }
 }

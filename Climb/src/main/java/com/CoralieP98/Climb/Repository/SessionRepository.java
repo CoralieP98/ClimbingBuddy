@@ -23,8 +23,10 @@ public interface SessionRepository extends JpaRepository<Session, Integer> {
 
     public Optional<Session> findSessionByDate(LocalDate date);
 
-//    @Query("SELECT s TOP FROM Session s WHERE s.user.id= :id ORDER BY sessionId DESC")
-//    public Optional<Session> findTopByUserIdOrderByUserIdDesc(int id);
+//    public Optional<Session> findTopByUserIdOrderByUserIdAsc(int id);
+//
+//    public Optional<Session> findLastByUserIdOrderByUserIdDesc(int id);
+
 
 
 
