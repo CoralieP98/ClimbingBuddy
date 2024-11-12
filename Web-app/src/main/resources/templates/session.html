@@ -31,10 +31,11 @@
                 <div class="Session-layout-main-content-route CardRouteSession" th:each="route: ${routes}">
 
                     <div class="CardRouteSession-type">
-                        <p th:text="${route.type.lapelType}" >ty</p>
+                        <p th:text="${route.grade.gradeName}"></p>
+
                     </div>
                     <div class="CardRouteSession-grade">
-                        <p th:text="${route.grade.gradeName}"></p>
+                        <p th:text="${route.type.lapelType}" ></p>
                     </div>
                     <div class="CardRouteSession-button">
                         <a th:href="@{/getRoute/{routeId}/{sessionId}(sessionId=${actualSession.sessionId}, routeId=${route.routeId})}">

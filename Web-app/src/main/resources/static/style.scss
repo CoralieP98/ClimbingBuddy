@@ -894,7 +894,8 @@ canvas{
     font-weight: 700;
     text-align:center;
     width: 80px;
-    padding: 30px 0;
+    padding: 25px 25px;
+    margin-right: 10px;
   }
   &-grade{
     font-weight: 600;
@@ -902,10 +903,10 @@ canvas{
   &-button{
     background-color: $lightGrey;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    padding: 5px 11px 5px 5px;
+
     align-self: flex-end;
-    margin-left: 20%;
+    //margin-left: 20%;
     &>a{
       text-align: center;
       padding-left: 5px;
@@ -1005,6 +1006,7 @@ canvas{
       background-color: white;
       padding: $miniSpace;
       border-radius: 1em;
+      margin-bottom: $space;
       &-each{
         margin-bottom: $miniSpace;
       }
@@ -1796,6 +1798,7 @@ canvas{
 
 
         display: flex;
+        flex-wrap: wrap;
         &-title{
           margin-right: $space;
           margin-bottom: 0;
@@ -1804,8 +1807,9 @@ canvas{
         }
         &-route{
           margin-right: $space;
+          margin-top: $space;
 
-          width: 250px;
+          width: 200px;
         }
         &-add{
           margin-top: 0;
@@ -1863,14 +1867,14 @@ canvas{
 
   .FormRoute{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     &-right{
       display: flex;
       flex-direction: column;
       width: 35%;
       &-submit{
-        align-self: flex-end;
+        //align-self: flex-end;
       }
     }
   }

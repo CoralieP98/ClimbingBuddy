@@ -797,7 +797,8 @@ canvas {
   font-weight: 700;
   text-align: center;
   width: 80px;
-  padding: 30px 0;
+  padding: 25px 25px;
+  margin-right: 10px;
 }
 .CardRouteSession-grade {
   font-weight: 600;
@@ -805,10 +806,8 @@ canvas {
 .CardRouteSession-button {
   background-color: #d3d3d3;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  padding: 5px 11px 5px 5px;
   align-self: flex-end;
-  margin-left: 20%;
 }
 .CardRouteSession-button > a {
   text-align: center;
@@ -891,6 +890,7 @@ canvas {
   background-color: white;
   padding: 1em;
   border-radius: 1em;
+  margin-bottom: 1.3em;
 }
 .FormRoute-left-fields-each {
   margin-bottom: 1em;
@@ -1562,6 +1562,7 @@ canvas {
   .Session-layout-main-content {
     margin-bottom: 0;
     display: flex;
+    flex-wrap: wrap;
   }
   .Session-layout-main-content-title {
     margin-right: 1.3em;
@@ -1570,7 +1571,8 @@ canvas {
   }
   .Session-layout-main-content-route {
     margin-right: 1.3em;
-    width: 250px;
+    margin-top: 1.3em;
+    width: 200px;
   }
   .Session-layout-main-content-add {
     margin-top: 0;
@@ -1611,16 +1613,13 @@ canvas {
   }
   .FormRoute {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
   }
   .FormRoute-right {
     display: flex;
     flex-direction: column;
     width: 35%;
-  }
-  .FormRoute-right-submit {
-    align-self: flex-end;
   }
   .Select {
     width: 100%;

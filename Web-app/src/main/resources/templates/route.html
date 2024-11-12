@@ -19,9 +19,10 @@
 <main class="Route">
     <section class="Route-card">
         <div class="Route-card-info">
-            <p th:text="${actualRoute.type.lapelType}"></p>
+            <p th:text="${actualRoute.grade.gradeName}" ></p>
+
             <div class="Route-card-info-grade">
-                <h3 th:text="${actualRoute.grade.gradeName}"></h3>
+                <h3  th:text="${actualRoute.type.lapelType}"></h3>
                 <p >lenght: <span th:text="${actualRoute.lenght}"></span> m</p>
             </div>
         </div>
@@ -36,8 +37,10 @@
 
             <div class="Route-card-exosTech-content RouteTech">
                 <h4>Techniques used :</h4>
-                <ul class="RouteUl" th:each="technique: ${techniques}">
-                    <li   th:text="${technique.labelTechnique}"></li>
+                <ul class="RouteUl" >
+                    <li th:each="technique: ${techniques}"  >
+                        <div th:text="${technique.labelTechnique}"></div>
+                    </li>
                 </ul>
             </div>
 
