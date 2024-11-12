@@ -3,7 +3,6 @@ package com.CoralieP98.Web_app.Controller;
 import com.CoralieP98.Web_app.Model.*;
 import com.CoralieP98.Web_app.Service.Client.ClimbFeignClient;
 import com.CoralieP98.Web_app.Service.CustomUserDetailsService;
-import com.CoralieP98.Web_app.Service.SessionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +30,6 @@ public class RouteController {
         List<Exercice> exercices = climbFeignClient.getAllExercices().getBody();
         Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
 
-//        route.setTechniques(techniques);
-//        route.setExercices(exercices);
 
 
         model.addAttribute("grades", grades);
@@ -100,6 +97,11 @@ public class RouteController {
         model.addAttribute("actualSession", actualSession);
         model.addAttribute("routes",climbFeignClient.findAllRouteBySession(sessionId).getBody());
         return new ModelAndView("session");
+    }
 
+    @GetMapping("/{routeId}/{sessionId}/deleteRoute")
+    public String deleteRoute(@PathVariable int routeId,@PathVariable int sessionId){
+        climbFeignClient.deleteRoute(routeId);
+        return "redirect:/allRouteBySession/{sessionId}";
     }
 }
