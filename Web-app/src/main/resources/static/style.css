@@ -277,28 +277,29 @@ h1, h2, h3, h4, h5, p, figure {
   width: 20px;
 }
 
+canvas {
+  width: auto;
+}
+
 .AsideTech {
   margin-left: 5%;
   margin-right: 5%;
   background-color: #8D8D8D;
   border-radius: 1em;
-  display: flex;
-  height: 250px;
   padding: 1em;
   display: flex;
+  flex-direction: column;
 }
-.AsideTech-up {
+.AsideTech-left {
   width: 60%;
 }
-.AsideTech-up-graph {
-  position: absolute;
-  top: 63%;
-  left: 15%;
-}
-.AsideTech-up-title {
+.AsideTech-left-title {
   color: white;
   font-weight: 300;
   font-size: 1em;
+}
+.AsideTech-up-graph {
+  height: 30%;
 }
 .AsideTech-up-button > select {
   width: 100%;
@@ -311,6 +312,15 @@ h1, h2, h3, h4, h5, p, figure {
 }
 .AsideTech-right {
   width: 40%;
+}
+.AsideTech-right-button > select {
+  width: 100%;
+  padding: 7px;
+  color: white;
+  background-color: #424242;
+  border: none;
+  border-radius: 0.5em;
+  font-family: "Karla", sans-serif;
 }
 .AsideTech-right-content {
   background-color: #A5A5A5;
@@ -1376,14 +1386,19 @@ h1, h2, h3, h4, h5, p, figure {
   }
   .AsideTech {
     margin: 0;
-    padding: 1em;
-    position: relative;
+    height: 205px;
   }
-  .AsideTech-left-graph {
-    top: -5%;
+  .AsideTech-up {
+    display: flex;
+    justify-content: space-around;
+  }
+  .AsideTech-up-graph {
+    position: absolute;
+    top: 68%;
   }
   .Exercises {
     margin: 0;
+    height: 205px;
   }
   .Exercises-title {
     margin: 0;

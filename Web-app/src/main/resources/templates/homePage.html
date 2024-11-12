@@ -92,30 +92,15 @@
                                 </select>
                             </div>
                         </div>
-<!--                            <canvas  th:value="${data}" class="AsideTech-left-graph" id="nbTechnics"></canvas>-->
+                        <div class="AsideTech-up-graph">
                             <div th:text="${data}" id="jsonData" hidden="hidden"></div>
-                            <canvas  class="AsideTech-left-graph" id="nbTechniques"></canvas>
-
+                            <canvas   id="nbTechniques"></canvas>
                         </div>
-<!--                        <div class="AsideTech-right">-->
-<!--                            <div class="AsideTech-right-button">-->
-<!--                                <label for="stat-date-select"><span></span></label>-->
-<!--                                <select name="tech" id="stat-date-select">-->
-<!--                                    <option value="month">This month</option>-->
-<!--                                    <option value="sessions">By sessions</option>-->
-<!--                                    <option value="year">By year</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="AsideTech-right-content">-->
-<!--                                <ul>-->
-<!--                                    <li th:each="oneData : ${data}">-->
-<!--                                        <p  class="AsideTech-right-label-content-number" th:text="${oneData.key}"></p>-->
-<!--                                        <p  class="AsideTech-right-label-content-name" th:text="${oneData.value}"></p>-->
-<!--                                    </li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        </div>-->
+
+
                     </div>
+
+
                 </div>
 
                 <div class="Left-tiny-exercises techAndExo-exo">

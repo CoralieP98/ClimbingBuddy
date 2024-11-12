@@ -304,27 +304,30 @@ h1, h2, h3,h4 ,h5,p ,figure{
     width: 20px;
   }
 }
+canvas{
+  width: auto;
+}
 
 .AsideTech{
   margin-left: 5%;
   margin-right: 5%;
   background-color:$darkishGrey ;
   border-radius: 1em;
-  display: flex;
-  height: 250px;
   padding: $miniSpace;
   display: flex;
-  &-up{
+  flex-direction: column;
+  &-left{
     width: 60%;
-    &-graph{
-      position: absolute;
-      top: 63%;
-      left: 15%;
-    }
     &-title{
       color: white;
       font-weight: 300;
       font-size: 1em;
+    }
+  }
+  &-up{
+    &-graph{
+      height: 30%;
+      //width: auto;
     }
     &-button{
       &>select{
@@ -340,7 +343,17 @@ h1, h2, h3,h4 ,h5,p ,figure{
   }
   &-right{
     width: 40%;
-
+    &-button{
+      &>select{
+        width: 100%;
+        padding: 7px;
+        color: white;
+        background-color: $darkGrey;
+        border: none;
+        border-radius: 0.5em;
+        font-family: $titleFont;
+      }
+    }
     &-content{
       background-color: $darkerGrey;
       color: white;
@@ -1573,7 +1586,6 @@ h1, h2, h3,h4 ,h5,p ,figure{
     }
     &-exo{
 
-
       width: 50%;
       border-radius: 1em;
 
@@ -1582,17 +1594,21 @@ h1, h2, h3,h4 ,h5,p ,figure{
 
   .AsideTech{
     margin: 0;
-    padding: $miniSpace;
-    position: relative;
-    &-left{
+    height: 205px;
+    &-up{
+      display: flex;
+      justify-content: space-around;
       &-graph{
-        top: -5%;
+        position: absolute;
+        top: 68%;
+        //padding: 1em;
       }
     }
   }
 
   .Exercises{
     margin: 0;
+    height: 205px;
     &-title{
       margin: 0;
     }
