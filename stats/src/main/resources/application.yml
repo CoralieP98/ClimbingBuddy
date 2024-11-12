@@ -3,6 +3,17 @@ server:
 spring:
   application:
     name: stats
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:3308/climbingbuddy
+    username: root
+    password: courgette123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -11,3 +22,4 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8070/eureka/
+

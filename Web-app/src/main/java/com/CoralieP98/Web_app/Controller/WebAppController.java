@@ -1,12 +1,15 @@
 package com.CoralieP98.Web_app.Controller;
 
 import com.CoralieP98.Web_app.Model.Profil;
+import com.CoralieP98.Web_app.Model.Session;
 import com.CoralieP98.Web_app.Model.User;
 import com.CoralieP98.Web_app.Service.Client.ClimbFeignClient;
+import com.CoralieP98.Web_app.Service.Client.StatsFeignClient;
 import com.CoralieP98.Web_app.Service.CustomUserDetailsService;
 import com.CoralieP98.Web_app.Service.ProfilService;
 import com.CoralieP98.Web_app.Service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +29,9 @@ public class WebAppController {
     private final UserServiceImpl userService;
 
     private final CustomUserDetailsService userDetailsService;
+    
+    private final StatsFeignClient statsFeignClient;
 
-    private final ProfilService profilService;
 
 
 
@@ -56,6 +60,11 @@ public class WebAppController {
     public ModelAndView home(Model model){
         User actualUser = userDetailsService.actualUser();
         model.addAttribute("user", actualUser);
+        Session lastSessionByUserId = climbFeignClient.getListLastSession(actualUser.getId()).getBody();
+        String data = statsFeignClient.statWithData(actualUser.getId(), lastSessionByUserId.getSessionId()).getBody();
+        model.addAttribute("data", data);
+
+
         Profil profil = climbFeignClient.getProfilByUserId(actualUser.getId()).getBody();
         if (profil == null) {
                 return new ModelAndView("homePage_first");

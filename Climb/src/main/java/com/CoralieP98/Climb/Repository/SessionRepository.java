@@ -4,6 +4,7 @@ import com.CoralieP98.Climb.Model.Place;
 import com.CoralieP98.Climb.Model.Session;
 import com.CoralieP98.Climb.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -21,6 +22,12 @@ public interface SessionRepository extends JpaRepository<Session, Integer> {
     public Optional<List<Session>> findAllSessionsByPlaceAndUser(Place place,User user);
 
     public Optional<Session> findSessionByDate(LocalDate date);
+
+//    @Query("SELECT s TOP FROM Session s WHERE s.user.id= :id ORDER BY sessionId DESC")
+//    public Optional<Session> findTopByUserIdOrderByUserIdDesc(int id);
+
+
+
 
 
 }

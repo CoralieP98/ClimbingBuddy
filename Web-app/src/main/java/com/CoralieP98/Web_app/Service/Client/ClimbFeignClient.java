@@ -56,6 +56,11 @@ public interface ClimbFeignClient {
     @GetMapping(value = "/api/getAllSessions", consumes = "application/json")
     public ResponseEntity<List<Session>> getAllSessions();
 
+    @GetMapping(value = "/api/getLastSessionByUserId",  consumes = "application/json")
+    public ResponseEntity<Session> getLastSessionByUserId(@RequestParam int id);
+
+    @GetMapping(value = "/api/getListLastSession",  consumes = "application/json")
+    public ResponseEntity<Session> getListLastSession(@RequestParam int id);
 
 // Route //////////////////////
 

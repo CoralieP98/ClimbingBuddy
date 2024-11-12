@@ -282,21 +282,25 @@ h1, h2, h3, h4, h5, p, figure {
   margin-right: 5%;
   background-color: #8D8D8D;
   border-radius: 1em;
+  display: flex;
+  height: 250px;
   padding: 1em;
   display: flex;
 }
-.AsideTech-left {
+.AsideTech-up {
   width: 60%;
 }
-.AsideTech-left-title {
+.AsideTech-up-graph {
+  position: absolute;
+  top: 63%;
+  left: 15%;
+}
+.AsideTech-up-title {
   color: white;
   font-weight: 300;
   font-size: 1em;
 }
-.AsideTech-right {
-  width: 40%;
-}
-.AsideTech-right-button > select {
+.AsideTech-up-button > select {
   width: 100%;
   padding: 7px;
   color: white;
@@ -304,6 +308,9 @@ h1, h2, h3, h4, h5, p, figure {
   border: none;
   border-radius: 0.5em;
   font-family: "Karla", sans-serif;
+}
+.AsideTech-right {
+  width: 40%;
 }
 .AsideTech-right-content {
   background-color: #A5A5A5;
@@ -1370,6 +1377,10 @@ h1, h2, h3, h4, h5, p, figure {
   .AsideTech {
     margin: 0;
     padding: 1em;
+    position: relative;
+  }
+  .AsideTech-left-graph {
+    top: -5%;
   }
   .Exercises {
     margin: 0;

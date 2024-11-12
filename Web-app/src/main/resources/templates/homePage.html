@@ -83,29 +83,38 @@
             <div class="Left-tiny techAndExo">
                 <div class="Left-tiny-techniques techAndExo-tech">
                     <div class="AsideTech">
-                        <div class="AsideTech-left">
-                            <h4 class="AsideTech-left-title">Mastered techniques</h4>
-<!--                            <canvas  th:value="${data}" class="AsideTech-left-graph" id="nbTechnics"></canvas>-->
-                            <canvas  class="AsideTech-left-graph" id="nbTechnics"></canvas>
-                        </div>
-                        <div class="AsideTech-right">
-                            <div class="AsideTech-right-button">
+                        <div class="AsideTech-up">
+                            <h4 class="AsideTech-up-title">Mastered techniques</h4>
+                            <div class="AsideTech-up-button">
                                 <label for="stat-date-select"><span></span></label>
                                 <select name="tech" id="stat-date-select">
-                                    <option value="month">This month</option>
-                                    <option value="sessions">By sessions</option>
-                                    <option value="year">By year</option>
+                                    <option value="month">Last session</option>
                                 </select>
                             </div>
-                            <div class="AsideTech-right-content">
-                                <ul>
-<!--                                    <li th:each="data: ${data}">-->
-<!--                                        <p  class="AsideTech-right-label-content-number" th:text="${data.total}"></p>-->
-<!--                                        <p  class="AsideTech-right-label-content-name" th:text="${data.label}"></p>-->
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
+<!--                            <canvas  th:value="${data}" class="AsideTech-left-graph" id="nbTechnics"></canvas>-->
+                            <div th:text="${data}" id="jsonData" hidden="hidden"></div>
+                            <canvas  class="AsideTech-left-graph" id="nbTechniques"></canvas>
+
+                        </div>
+<!--                        <div class="AsideTech-right">-->
+<!--                            <div class="AsideTech-right-button">-->
+<!--                                <label for="stat-date-select"><span></span></label>-->
+<!--                                <select name="tech" id="stat-date-select">-->
+<!--                                    <option value="month">This month</option>-->
+<!--                                    <option value="sessions">By sessions</option>-->
+<!--                                    <option value="year">By year</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                            <div class="AsideTech-right-content">-->
+<!--                                <ul>-->
+<!--                                    <li th:each="oneData : ${data}">-->
+<!--                                        <p  class="AsideTech-right-label-content-number" th:text="${oneData.key}"></p>-->
+<!--                                        <p  class="AsideTech-right-label-content-name" th:text="${oneData.value}"></p>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
 
@@ -164,60 +173,16 @@
         <section class="Main-content-bottomPart-right Right">
             <div class="Right-calendar">
                 <img src="image/Calendar_section.png" alt="">
-                <!-- <div class="Right-calendar-header">
-                    <h3 class="Right-calendar-header-title">Calendar</h3>
-                    <div class="Right-calendar-header-link">
-                        <a href="/lastMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
-                        <a href="/nextMonth"><link rel="icon" type="image/vnd.icon" href="CHEMIN EXACT/NOMDUDOSSIER.ico"></a>
-                    </div>
 
-                    <div class="Right-calendar-content Calendar">
-                        <table class="Calendar-table">
-                            <thead class="Calendar-table-title">
-                                <th>Mo</th>
-                                <th>Tu</th>
-                                <th>We</th>
-                                <th>Th</th>
-                                <th>Fr</th>
-                                <th>Sa</th>
-                                <th>Su</th>
-                            </thead>
-                            <tbody class="Calendar-table-jour">
-                                trouver calendrier API blabla
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="Right-calendar-footer">
-                        <div class="Right-calendar-footer-detail">
-                            <div class="Right-calendar-footer-detail-type">
-                                <p>Se</p>
-                            </div>
-                            <div class="Right-calendar-footer-detail-content">
-                                <h5>Bloc session</h5>
-                                <p><span th:text="*{date}">fev.22</span> - <span th:text="*{place}">ClimbUP Aubagne</span></p>
-                            </div>
-                        </div>
-                        <div class="Right-calendar-footer-detail">
-                            <div class="Right-calendar-footer-detail">
-                                <div class="Right-calendar-footer-detail-type">
-                                    <p>Tr</p>
-                                </div>
-                                <div class="Right-calendar-footer-detail-content">
-                                    <h5>Renforcement</h5>
-                                    <p><span th:text="*{date}">fev.02</span> - <span th:text="*{place}">Home</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> -->
             </div>
         </section>
 
     </div>
 
 </main>
+
+<script th:src="@{/JS/node_modules/chart.js/dist/chart.umd.js}"></script>
+<script type="module" th:src="@{/JS/source/acquisitions.js}"></script>
 
 </body>
 </html>

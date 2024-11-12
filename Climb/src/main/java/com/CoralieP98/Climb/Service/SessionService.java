@@ -48,6 +48,12 @@ public class SessionService {
         return sessionRepository.findAllSessionByUserId(id).get();
     }
 
+    public Session findLastSessionByUserIdList(int id) {
+        List<Session> sessions = sessionRepository.findAllSessionByUserId(id).get();
+        return sessions.get(sessions.size()-1);
+
+    }
+
 
     public List<Session> findAllSessionsByPlaceAndUserId(int placeId, int id) {
         User user = userService.findUserById(id);
@@ -84,4 +90,8 @@ public class SessionService {
     public List<Session> getAllSessions() {
         return sessionRepository.findAll();
     }
+
+//    public Session getLastSessionByUserId(int id) {
+//        return sessionRepository.findTopByUserIdOrderByUserIdDesc(id).get();
+//    }
 }

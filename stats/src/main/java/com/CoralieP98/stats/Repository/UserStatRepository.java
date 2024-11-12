@@ -16,8 +16,8 @@ public class UserStatRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Map<String, Object>> callSPGraphTechnic(int id) {
-        String sql = "CALL TechniqueStatSp(?)";
-        return jdbcTemplate.queryForList(sql, id);
+    public List<Map<String, Object>> callSPGraphTechnic(int id, int sessionId) {
+        String sql = "CALL TechniqueStatSp(?,?)";
+        return jdbcTemplate.queryForList(sql, id, sessionId);
     }
 }

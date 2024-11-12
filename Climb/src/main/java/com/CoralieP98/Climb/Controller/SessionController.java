@@ -60,6 +60,16 @@ public class SessionController {
         return sessionService.getAllSessions();
     }
 
+//    @GetMapping("getLastSessionByUserId")
+//    public Session getLastSessionByUserId(@RequestParam int id){
+//        return sessionService.getLastSessionByUserId(id);
+//    }
+
+    @GetMapping("getListLastSession")
+    public Session getListLastSession(@RequestParam int id){
+        return sessionService.findLastSessionByUserIdList(id);
+    }
+
 
 
 }

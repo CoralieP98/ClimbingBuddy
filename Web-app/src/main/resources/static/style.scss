@@ -310,18 +310,22 @@ h1, h2, h3,h4 ,h5,p ,figure{
   margin-right: 5%;
   background-color:$darkishGrey ;
   border-radius: 1em;
+  display: flex;
+  height: 250px;
   padding: $miniSpace;
   display: flex;
-  &-left{
+  &-up{
     width: 60%;
+    &-graph{
+      position: absolute;
+      top: 63%;
+      left: 15%;
+    }
     &-title{
       color: white;
       font-weight: 300;
       font-size: 1em;
     }
-  }
-  &-right{
-    width: 40%;
     &-button{
       &>select{
         width: 100%;
@@ -333,6 +337,10 @@ h1, h2, h3,h4 ,h5,p ,figure{
         font-family: $titleFont;
       }
     }
+  }
+  &-right{
+    width: 40%;
+
     &-content{
       background-color: $darkerGrey;
       color: white;
@@ -1565,6 +1573,7 @@ h1, h2, h3,h4 ,h5,p ,figure{
     }
     &-exo{
 
+
       width: 50%;
       border-radius: 1em;
 
@@ -1574,6 +1583,12 @@ h1, h2, h3,h4 ,h5,p ,figure{
   .AsideTech{
     margin: 0;
     padding: $miniSpace;
+    position: relative;
+    &-left{
+      &-graph{
+        top: -5%;
+      }
+    }
   }
 
   .Exercises{
