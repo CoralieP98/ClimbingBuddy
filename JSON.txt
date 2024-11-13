@@ -466,4 +466,136 @@ ROUTE/////////////////////////////////////////////////
     "exercices":[{"exerciceId": 3}]
 }
 
+///////////////////////////////////////////MONGO///////////////////////////////////////
+{
+    "techniqueName":"Drop-Knee",
+    "techniqueDescription":"The drop-knee is a technique used in rock climbing that helps climbers create stability on challenging routes, especially when climbing overhangs or difficult faces. It involves twisting your hips and dropping one knee inward, pressing it toward the rock wall. This movement shifts your center of gravity closer to the wall, which reduces strain on your arms, increases reach, and enables better weight distribution. By “locking in” with your legs, you get more stability and balance on steep terrain.",
+    "techniqueTips":"Practice hip flexibility, Engage your core, Choose the right moment, Commit to the twist, Practice on lower routes first"
+}
 
+{
+    "techniqueName":"",
+    "techniqueDescription":"",
+    "techniqueTips":""
+}
+
+{
+    "techniqueName":"Toe Hook",
+    "techniqueDescription":"The toe hook involves using the top of your toe or foot to hook onto a hold, allowing you to pull yourself into the wall and stabilize on overhanging terrain. This move reduces strain on your arms by shifting some of the load to your legs.",
+    "techniqueTips":"Strengthen ankle flexion,
+                     Engage your core,
+                     Practice precision,
+                     Use on steep overhangs,
+                     Avoid overuse to save energy"
+}
+
+{
+    "techniqueName":"Knee-Bar",
+    "techniqueDescription":"A knee-bar involves wedging your knee between two holds, often with one hold pressing against the top of your thigh and another against the back of your shin. This creates a “rest” position, allowing you to take weight off your hands and conserve energy.",
+    "techniqueTips":"Find a solid knee position,
+                     Experiment with shin pressure,
+                     Engage core for balance,
+                     Use on varied terrain,
+                     Rest and rela"
+}
+
+{
+    "techniqueName":"Figure 4",
+    "techniqueDescription":"In a figure 4, you cross one leg over the opposite arm and use the leverage from this position to gain height. This technique is especially useful in overhanging sections where holds are far apart and powerful movements are needed.",
+    "techniqueTips":"Build leg strength,
+                     Balance with core engagement,
+                     Practice on overhangs,
+                     Use only for large reaches,
+                     Watch your knee positioning"
+}
+
+{
+    "techniqueName":"Dyno",
+    "techniqueDescription":"A dyno, or dynamic move, involves jumping or lunging to reach a distant hold, leaving the wall entirely for a brief moment. This explosive move is used when holds are too far to reach through static movement",
+    "techniqueTips":"Strengthen explosive power,
+                     Focus on timing and accuracy,
+                     Commit fully to the jump,
+                     Use as last resort for distant holds,
+                     Land with control"
+}
+
+{
+    "techniqueName":"Flagging",
+    "techniqueDescription":"Flagging involves extending one leg out to the side, either straight or bent, to counterbalance your weight. This technique improves stability on the wall and prevents unnecessary swinging or shifting.",
+    "techniqueTips":"Work on body positioning,
+                     Practice balance control,
+                     Extend leg purposefully,
+                     Use for balance on vertical walls,
+                     Visualize weight distribution"
+}
+
+{
+    "techniqueName":"Full Crimp",
+    "techniqueDescription":"In a full crimp, you position your fingers on a hold with your knuckles bent sharply and thumb pressing down over your index finger for extra support. This grip is powerful but puts stress on your fingers, so it should be used with caution.",
+    "techniqueTips":"Strengthen finger tendons,
+                     Warm up thoroughly,
+                     Use sparingly to avoid injury,
+                     Grip tightly but with control,
+                     Rotate with open-hand grip to reduce strain"
+}
+
+
+
+
+
+
+{
+    "exerciceName":"",
+    "exerciceDescription":"",
+    "difficulty":"",
+    "musclesTargeted":"",
+    "equipmentRequired":""
+}
+
+{
+    "exerciceName":"Feet First",
+    "exerciceDescription":"The Feet First exercise trains climbers to emphasize footwork over upper body strength. In this exercise, you climb a route or traverse a wall while focusing on placing each foot carefully before making hand movements. This helps you develop precision and efficiency in foot placement, shifting more of the workload to your legs rather than relying heavily on your arms.",
+    "difficulty":"Moderate. This exercise can be adjusted to different skill levels depending on the difficulty of the route you choose. However, it requires body awareness and patience, making it challenging for beginners.",
+    "musclesTargeted":"Leg Muscles: Quads, hamstrings, glutes, and calves,
+                       Core: To help maintain balance and control,
+                       Ankles and Feet: Improves strength and stability in your lower body",
+    "equipmentRequired":"Climbing wall or bouldering wall with routes of varying difficulty,
+                         Climbing shoes (to enhance footwork precision)"
+}
+
+{
+    "exerciceName":"Removing Holds",
+    "exerciceDescription":"In the "Removing Holds" exercise, you purposefully avoid using certain holds on a route. Typically, you or a partner will choose holds to ignore, forcing you to find alternative moves and grips. This exercise enhances creativity, problem-solving, and adaptability.",
+    "difficulty":"Variable. The difficulty depends on the holds removed; avoiding key holds can make even easy routes very challenging.",
+    "musclesTargeted":"Core and Balance Muscles: As you reach and reposition more,
+                       Full Body: Encourages use of underutilized muscles",
+    "equipmentRequired":"Climbing wall or route with removable holds, or you can mentally “remove” holds as you go"
+}
+
+{
+    "exerciceName":"3 Seconds",
+    "exerciceDescription":"In the “3 Seconds” exercise, you hold each position for at least three seconds before making the next move. This exercise promotes control, stability, and thoughtful body positioning by reducing the urge to rush through moves.",
+    "difficulty":"Moderate. It’s challenging to hold balance and control on difficult or overhung routes.",
+    "musclesTargeted":"Core Stability,
+                       Grip Strength: From holding positions,
+                       Leg and Upper Body Endurance",
+    "equipmentRequired":"Any climbing wall or bouldering wall with various routes"
+}
+
+{
+    "exerciceName":"Downclimbing",
+    "exerciceDescription":"Downclimbing involves reversing the route instead of simply coming down after finishing. This exercise improves control, body awareness, and builds endurance, as descending is often harder than ascending.",
+    "difficulty":"Moderate to High. Requires coordination and control, especially on steep routes.",
+    "musclesTargeted":"Core and Stability Muscles,
+                       Grip and Leg Muscles: For controlled descent,
+                       Full Body Endurance",
+    "equipmentRequired":"Climbing wall or bouldering wall"
+}
+
+{
+    "exerciceName":"",
+    "exerciceDescription":"",
+    "difficulty":"",
+    "musclesTargeted":"",
+    "equipmentRequired":""
+}
