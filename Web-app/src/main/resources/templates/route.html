@@ -59,7 +59,7 @@
     </section>
 
     <section class="Route-nav">
-        <a href="/updateRoute">Modify</a>
+        <a th:href="@{/{sessionId}/{routeId}/updateRoute(routeId=${actualRoute.routeId}, sessionId=${actualSession.sessionId})}">Modify</a>
         <a th:href="@{/{routeId}/{sessionId}/deleteRoute(routeId=${actualRoute.routeId}, sessionId=${actualSession.sessionId})}">Delete</a>
         <a th:href="@{/allRouteBySession/{sessionId}(sessionId=${actualSession.sessionId})}">Go back</a>
 

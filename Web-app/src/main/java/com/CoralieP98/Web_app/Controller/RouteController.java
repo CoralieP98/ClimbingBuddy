@@ -71,6 +71,67 @@ public class RouteController {
 
     }
 
+    @GetMapping("/{sessionId}/{routeId}/updateRoute")
+    public ModelAndView updateRoute(Model model,@PathVariable int sessionId,@PathVariable int routeId){
+        User user = userDetailsService.actualUser();
+        Session actualSession = climbFeignClient.findSessionById(sessionId).getBody();
+        Route existingRoute = climbFeignClient.findRouteByid(routeId).getBody();
+        model.addAttribute("user",user);
+        model.addAttribute("actualSession", actualSession);
+
+        List<Grade> grades = climbFeignClient.getAllGrades().getBody();
+        List<Type> types = climbFeignClient.getAll3Types().getBody();
+        List<Technique> techniques = climbFeignClient.getAllTechniques().getBody();
+        List<Exercice> exercices = climbFeignClient.getAllExercices().getBody();
+
+        model.addAttribute("grades", grades);
+        model.addAttribute("types", types);
+        model.addAttribute("techniques", techniques);
+        model.addAttribute("exercices", exercices);
+        model.addAttribute("route", existingRoute);
+
+        return new ModelAndView("updateRoute");
+    }
+
+    @PostMapping("/{sessionId}/{routeId}/updateRoute")
+    public String updateRoute( @PathVariable("sessionId") int sessionId,
+                               @PathVariable("routeId") int routeId,
+                               @ModelAttribute("route") Route route,
+                               @RequestParam(name = "techniqueIds", required = false) List<Integer> techniqueIds,
+                               @RequestParam(name = "exerciceIds", required = false) List<Integer> exerciceIds){
+
+        Route existingRoute = climbFeignClient.findRouteByid(routeId).getBody();
+
+        existingRoute.setGrade(route.getGrade());
+        existingRoute.setType(route.getType());
+        existingRoute.setSlab(route.isSlab());
+        existingRoute.setOverHang(route.isOverHang());
+        existingRoute.setLead(route.isLead());
+        existingRoute.setTopRope(route.isTopRope());
+        existingRoute.setARepeat(route.isARepeat());
+        existingRoute.setFlash(route.isFlash());
+        existingRoute.setLenght(route.getLenght());
+
+        if (techniqueIds != null) {
+            List<Technique> selectedTechniques = climbFeignClient.findAllTechniquesById(techniqueIds).getBody();
+            existingRoute.setTechniques(selectedTechniques);
+        } else {
+            existingRoute.setTechniques(new ArrayList<>());
+        }
+
+        if (exerciceIds != null) {
+            List<Exercice> selectedExercices = climbFeignClient.findAllExercicesById(exerciceIds).getBody();
+            existingRoute.setExercices(selectedExercices);
+        } else {
+            existingRoute.setExercices(new ArrayList<>());
+        }
+
+        climbFeignClient.updateRoute(routeId, existingRoute);
+
+        return "redirect:/allRouteBySession/" + existingRoute.getSession().getSessionId();
+
+    }
+
     @GetMapping("/getRoute/{routeId}/{sessionId}")
     public ModelAndView getRoute(Model model,@PathVariable int routeId,@PathVariable int sessionId){
 
@@ -81,7 +142,6 @@ public class RouteController {
         model.addAttribute("actualSession", actualSession);
         model.addAttribute("user", userDetailsService.actualUser());
 
-//        assert actualRoute != null;
         model.addAttribute("techniques", actualRoute.getTechniques());
         model.addAttribute("exercices", actualRoute.getExercices());
 

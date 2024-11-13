@@ -2,112 +2,164 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-<!--    <link rel="stylesheet" href="../style.css">-->
+    <!--        <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="../../style.css">
     <script src="https://kit.fontawesome.com/84b2e4f32b.js" crossorigin="anonymous"></script>
-    <title>Update Route</title>
+    <title>ModifyRoute</title>
+    <style>
+        option:checked {
+            background-color: #add8e6; /* Bleu clair pour les options sélectionnées */
+            color: black;
+        }
+    </style>
 </head>
 <body>
-    
-    <header th:replace="~{fragments/navBar}"></header>
-    
-    <figure class="AddSession-header-figure">
-        <img src="image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
-    </figure>
 
-    <main class="AddRoute">
-        <section class="AddRoute-layout">
-            <form action="Post" th action & objet pour formulaire update class="FormRoute">
-                <div class="FormRoute-left">
-                    <h2 class="FormRoute-left-title">New Route</h2>
+<header th:replace="~{fragments/navBar}"></header>
 
-                    <div class="FormRoute-left-fields FieldsR">
+<figure class="AddSession-header-figure">
+    <img src="../../image/Logo.png" alt="logo" class="AddSession-header-figure-logo">
+</figure>
 
-                        <div class="FormRoute-left-fields-each FieldsR-type">
-                            <input type="radio"  th:field="*{type}" id="rope" value="Rope Climbing" name="type">
-                            <label for="rope" class="AddSession-main-layout-form-type-label">Rope Climbing</label>
-                            <input type="radio"  th:field="*{type}" id="boulder" value="Boulder Climbing" name="type">
-                            <label for="boulder" class="AddSession-main-layout-form-type-label">Boulder Climbing</label>
-                        </div>
+<main class="AddRoute">
+    <section class="AddRoute-layout">
+        <form th:action="@{/{sessionId}/{routeId}/updateRoute(routeId=${route.routeId}, sessionId=${actualSession.sessionId})}" th:object="${route}" method="POST" class="FormRoute">
+            <div class="FormRoute-left">
+                <h2 class="FormRoute-left-title">New Route</h2>
 
-                        <div class="FormRoute-left-fields-each FieldsR-grade">
-                            <label for="grade">Grade</label>
-                            <select name="grades" id="grades" for="grade" th:field="*{grade}">
-                                <option th:each="grade : ${gradelist}" th:value="${grade.gradeId}" th:text="${grade.label}"></option>
-                                <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
-                            </select>
-                        </div>
+                <div class="FormRoute-left-fields FieldsR">
 
-                        <div class="FormRoute-left-fields-each FieldsR-lenght">
-                            <label for="lenght">Lenght :</label>
-                            <input type="text" th:field="*{lenght}" name="lenght" id="lenght" placeholder="0.0m">
-                        </div>
-
-                        <div class="FormRoute-left-fields-check FieldsR-check">
-                            <div class="FieldsR-check-each slab">
-                                <label for="slab">is it slab :</label>
-                                <input type="checkbox" name="slab" th:field="*{slab}" id="slab">
-                            </div>
-
-                            <div class="FieldsR-check-each overhang">
-                                <label for="overhang">is it overhang :</label>
-                                <input type="checkbox" name="overhang" th:field="*{overhang}" id="overhang">
-                            </div>
-
-                            <div class="FieldsR-check-each voie">
-                                <label for="lead">is it lead :</label>
-                                <input type="checkbox" name="lead" th:field="*{lead}" id="lead">
-                                <p>or</p>
-                                <label for="toprope">is it top rope :</label>
-                                <input type="checkbox" name="toprope" th:field="*{toprope}" id="toprope">
-                            </div>
-
-                            <div class="FieldsR-check-each slab">
-                                <label for="repeat">is it a repeat :</label>
-                                <input type="checkbox" name="repeat" th:field="*{repeat}" id="repeat">
-                            </div>
-
-                            <div class="FieldsR-check-each flash">
-                                <label for="flash">is it a flash :</label>
-                                <input type="checkbox" name="flash" th:field="*{flash}" id="flash">
-                            </div>
-
-                        </div>
+                    <div class="FormRoute-left-fields-each FieldsR-type">
+                        <input type="radio"  th:field="*{type.typeId}" id="rope" value="1" name="type" required>
+                        <label for="rope" class="AddSession-main-layout-form-type-label">Rope Climbing</label>
+                        <input type="radio"  th:field="*{type.typeId}" id="boulder" value="2" name="type" required>
+                        <label for="boulder" class="AddSession-main-layout-form-type-label">Boulder Climbing</label>
                     </div>
-                </div>
 
-                <div class="FormRoute-right">
-                    <section class="FormRoute-right-tech ">
-                        <h3>Techniques used :</h3>
-                        <div class=" FormRoute-right-tech-select Select">
-                            <label for="techniques">Tech</label>
-                            <select name="techniques" id="techniques" for="technique" th:field="*{technique}">
-                                <option th:each="technique : ${techniquelist}" th:value="${technique.techniqueId}" th:text="${technique.label}"></option>
-                                <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
-                            </select>
+                    <div class="FormRoute-left-fields-each FieldsR-grade">
+                        <label for="grades">Grade</label>
+                        <select name="grades" id="grades" for="grade" th:field="*{grade.gradeId}">
+                            <option th:each="grade : ${grades}" th:value="${grade.gradeId}" th:text="${grade.gradeName}"></option>
+                            <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
+                        </select>
+                    </div>
+
+                    <div class="FormRoute-left-fields-each FieldsR-lenght">
+                        <label for="lenght">Lenght :</label>
+                        <input type="text" th:field="*{lenght}" name="lenght" id="lenght" placeholder="0.0m">
+                    </div>
+
+                    <div class="FormRoute-left-fields-check FieldsR-check">
+                        <div class="FieldsR-check-each slab">
+                            <label for="slab">is it slab :</label>
+                            <input type="checkbox" name="slab" th:field="*{slab}" id="slab">
                         </div>
-                    </section>
-                    <section class="FormRoute-right-exo ">
-                        <h3>Exercices done :</h3>
-                        <div class=" FormRoute-right-exo-select Select">
-                            <label for="exercices">Exos</label>
-                            <select name="exercices" id="exercices" for="exercice" th:field="*{exercice}">
-                                <option th:each="exercice : ${exercicelist}" th:value="${exercice.exerciceId}" th:text="${exercice.label}"></option>
-                                <!-- <option th:each="place : ${placelist}" th:value="${place.getplaceId}" th:text="${place.getlabel}"></option> -->
-                            </select>
+
+                        <div class="FieldsR-check-each overhang">
+                            <label for="overhang">is it overhang :</label>
+                            <input type="checkbox" name="overhang" th:field="*{overHang}" id="overhang">
                         </div>
-                    </section>
-                    <div class="FormRoute-right-submit">
-                        <input type="submit" value="Modify" th toussa>
+
+                        <div class="FieldsR-check-each voie">
+                            <label for="lead">is it lead :</label>
+                            <input type="checkbox" name="lead" th:field="*{lead}" id="lead">
+                            <p>or</p>
+                            <label for="toprope">is it top rope :</label>
+                            <input type="checkbox" name="toprope" th:field="*{topRope}" id="toprope">
+                        </div>
+
+                        <div class="FieldsR-check-each slab">
+                            <label for="repeat">is it a repeat :</label>
+                            <input type="checkbox" name="repeat" th:field="*{ARepeat}" id="repeat">
+                        </div>
+
+                        <div class="FieldsR-check-each flash">
+                            <label for="flash">is it a flash :</label>
+                            <input type="checkbox" name="flash" th:field="*{flash}" id="flash">
+                        </div>
 
                     </div>
                 </div>
-            </form>
-        </section>
-    </main>
-  
+            </div>
 
- 
+            <!--                <div class="FormRoute-right">-->
+            <section class="FormRoute-right-tech ">
+                <h3>Techniques used :</h3>
+                <div class=" FormRoute-right-tech-select Select" th:each="technique : ${techniques}">
+                    <input  th:value="${technique.techniqueId}" name="techniqueIds"  type="checkbox"   />
+                    <span th:text="${technique.labelTechnique}"></span>
+                </div>
+            </section>
+
+            <section class="FormRoute-right-exo ">
+                <h3>Exercices done :</h3>
+                <div class=" FormRoute-right-exo-select Select"   th:each="exercice : ${exercices}">
+                    <input  th:value="${exercice.exerciceId}" name="exerciceIds"  type="checkbox"   />
+                    <span th:text="${exercice.labelExercice}"></span>
+                </div>
+
+            </section>
+
+
+            <div class="FormRoute-right-submit">
+                <input type="submit" value="Modify">
+
+            </div>
+            <!--                </div>-->
+        </form>
+    </section>
+</main>
+
+<script>
+    function updateSelectedTechniques() {
+        // Sélectionne le champ `select` et le conteneur d'affichage
+        const select = document.getElementById("techniques");
+        const selectedContainer = document.getElementById("selected-techniques");
+
+        // Vide l'affichage précédent
+        selectedContainer.innerHTML = "";
+
+        // Parcours les options sélectionnées et les ajoute à la liste
+        Array.from(select.selectedOptions).forEach(option => {
+            const li = document.createElement("li");
+            li.textContent = option.textContent;
+            selectedContainer.appendChild(li);
+        });
+    }
+
+    // document.querySelectorAll("#techniques-checkboxes input[type=checkbox]").forEach(checkbox => {
+    //     checkbox.addEventListener("change", updateSelectedTechniques);
+    // });
+    //
+    // function updateSelectedTechniques() {
+    //     const selectedContainer = document.getElementById("selected-techniques");
+    //     selectedContainer.innerHTML = "";
+    //
+    //     document.querySelectorAll("#techniques-checkboxes input[type=checkbox]:checked").forEach(checkbox => {
+    //         const li = document.createElement("li");
+    //         li.textContent = checkbox.nextElementSibling.textContent; // Récupère le nom de la technique
+    //         selectedContainer.appendChild(li);
+    //     });
+    // }
+
+    function updateSelectedExercices() {
+        // Sélectionne le champ `select` et le conteneur d'affichage
+        const select = document.getElementById("exercices");
+        const selectedContainer = document.getElementById("selected-exercices");
+
+        // Vide l'affichage précédent
+        selectedContainer.innerHTML = "";
+
+        // Parcours les options sélectionnées et les ajoute à la liste
+        Array.from(select.selectedOptions).forEach(option => {
+            const li = document.createElement("li");
+            li.textContent = option.textContent;
+            selectedContainer.appendChild(li);
+        });
+    }
+</script>
+
+
 
 </body>
 </html>
