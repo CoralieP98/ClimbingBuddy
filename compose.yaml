@@ -102,13 +102,21 @@ services:
   climb:
     image: coralieperez/climb
     container_name: climb-ms
+    healthcheck:
+      test: "curl --fail --silent localhost:9000/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
     ports:
       - "9000:9000"
     networks:
       - climbingbuddy-networks
     depends_on:
-      - mysql
-      - eurekaserver
+      mysql:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
@@ -132,6 +140,25 @@ services:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
       SPRING_DATA_MONGODB_PORT: 27017
       SPRING_DATA_MONGODB_HOST: mongo
+
+  stats:
+    image: coralieperez/stats
+    container_name: stats-ms
+    ports:
+      - "9030:9030"
+    depends_on:
+      climb:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    networks:
+      - climbingbuddy-networks
+    mem_limit: 700m
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/climbingbuddy"
 
 
 
